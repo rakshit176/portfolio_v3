@@ -129,69 +129,40 @@ export default function AIChat() {
     if (abortRef.current) abortRef.current.abort();
     abortRef.current = new AbortController();
 
-    try {
-      // Try streaming first
-      const response = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: msg, system: SYS, stream: true }),
-        signal: abortRef.current.signal,
-      });
-
-      if (!response.ok || !response.body) throw new Error('Stream unavailable');
-
-      const reader = response.body.getReader();
-      const decoder = new TextDecoder();
-      let fullText = '';
-
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        const chunk = decoder.decode(value, { stream: true });
-        fullText += chunk;
-        setStreamingText(fullText);
-      }
-
-      // Process the final text for EMAIL_FORM trigger
-      let reply = fullText;
+    // Helper to process the final reply text
+    const processReply = (reply: string) => {
       if (reply.includes('<EMAIL_FORM>')) {
-        reply = reply.replace('<EMAIL_FORM>', '').trim();
-        if (reply) setMessages((prev) => [...prev, { role: 'bot', text: reply }]);
+        const cleaned = reply.replace('<EMAIL_FORM>', '').trim();
+        if (cleaned) setMessages((prev) => [...prev, { role: 'bot', text: cleaned }]);
         setShowForm(true);
       } else {
         setMessages((prev) => [...prev, { role: 'bot', text: reply }]);
       }
-      setStreamingText('');
+    };
+
+    try {
+      // Single non-streaming request — avoids JSON-in-stream issues
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: msg, system: SYS }),
+        signal: abortRef.current.signal,
+      });
+
+      const data = await response.json();
+      const reply = data.reply || 'Connection issue. Email rakshitkumarkn@gmail.com directly.';
+      processReply(reply);
     } catch (err) {
-      // If streaming failed, try non-streaming
       if (err instanceof Error && err.name === 'AbortError') {
         setStreamingText('');
         setLoading(false);
         return;
       }
 
-      try {
-        const response = await fetch('/api/chat', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ message: msg, system: SYS }),
-        });
-        const data = await response.json();
-        let reply = data.reply || 'Connection issue. Email rakshitkumarkn@gmail.com directly.';
-
-        if (reply.includes('<EMAIL_FORM>')) {
-          reply = reply.replace('<EMAIL_FORM>', '').trim();
-          if (reply) setMessages((prev) => [...prev, { role: 'bot', text: reply }]);
-          setShowForm(true);
-        } else {
-          setMessages((prev) => [...prev, { role: 'bot', text: reply }]);
-        }
-      } catch {
-        setMessages((prev) => [
-          ...prev,
-          { role: 'bot', text: 'Network error. Email rakshitkumarkn@gmail.com directly.' },
-        ]);
-      }
+      setMessages((prev) => [
+        ...prev,
+        { role: 'bot', text: 'Network error. Email rakshitkumarkn@gmail.com directly.' },
+      ]);
     } finally {
       setLoading(false);
       setStreamingText('');
