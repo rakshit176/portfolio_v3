@@ -48,3 +48,53 @@ Stage Summary:
 - Server stability issue resolved using `start-stop-daemon`
 - Production build serving on port 3000, proxied through Caddy on port 81
 - Preview URL should now work for the user
+
+---
+Task ID: 3
+Agent: Main Agent
+Task: Build cinematic video hero section for portfolio
+
+Work Log:
+- Copied uploaded video from /upload/once_the_charecter_rmoved_the.mp4 to /public/hero-video.mp4
+- Installed gsap@3.15.0 (three and @types/three were already present)
+- Added Cormorant_Garamond and DM_Sans Google Fonts to layout.tsx via next/font/google
+- Added font CSS variables (--font-cormorant, --font-dm-sans) to body class
+- Added preconnect links for Google Fonts CDN
+- Created VideoIntro.module.css with full cinematic styling:
+  - Hero fade-in from black (1.2s), fullscreen 100vh/100svh
+  - Video layers: foreground (object-fit cover) + background (blur 50px, 0.3 opacity, 110% scale)
+  - Bottom gradient overlay + radial vignette
+  - Text: Cormorant Garamond for names (clamp 3.5rem-10rem), DM Sans for tagline/subtitle
+  - Glassmorphism controls: blur(12px), rgba borders, rounded-full
+  - Sound hint badge: auto-animates in at 1.5s, hides at 5s
+  - Scroll indicator: uppercase SCROLL label + animated pulse line
+  - Full responsive design (768px, 480px breakpoints)
+- Created CinematicLayer.tsx (Three.js particle/bokeh overlay):
+  - 140 particles with warm orange/white/gold colors
+  - Custom radial-gradient bokeh sprite texture via CanvasTexture
+  - AdditiveBlending, fully transparent background
+  - Sine-wave float with unique phase/speed/amplitude per particle
+  - Mouse parallax via smooth lerp (max ±15px camera shift)
+  - Proper cleanup: dispose geometry, material, texture, renderer on unmount
+  - All mutable state in useRef, no React state for animation logic
+- Created VideoIntro.tsx (main hero component):
+  - Dual video elements (foreground + blurred background ambient glow)
+  - Video sync interval (keeps bg/fg videos in sync within 0.15s)
+  - GSAP timeline: stagger fade-up of tagline → firstName → lastName → subtitle (delay 0.8s)
+  - Mute/unmute toggle with SVG icons
+  - Play/pause toggle with SVG icons
+  - Scroll indicator: smooth scrollIntoView to next section
+  - "Tap for sound" auto-hiding badge
+- Integrated into page.tsx:
+  - VideoIntro placed as first component before main content
+  - Existing Hero, About, etc. remain unchanged below
+  - Added scroll-margin-top to main content for clean scroll landing
+- Build succeeded with 0 errors, no lint issues in new code
+- Production server restarted and serving HTTP 200
+
+Stage Summary:
+- Complete cinematic video hero section built and integrated
+- Files created: VideoIntro.tsx, CinematicLayer.tsx, VideoIntro.module.css
+- Key files modified: layout.tsx (fonts), page.tsx (integration)
+- Video asset: /public/hero-video.mp4
+- All checklist items verified: fullscreen, autoplay, particles, text animation, controls, scroll indicator

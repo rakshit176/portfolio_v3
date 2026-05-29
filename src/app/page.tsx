@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import Navigation from '@/components/portfolio/Navigation';
 import Hero from '@/components/portfolio/Hero';
 import Ticker from '@/components/portfolio/Ticker';
+import VideoIntro from '@/components/VideoIntro/VideoIntro';
 import About from '@/components/portfolio/About';
 import Experience from '@/components/portfolio/Experience';
 import Skills from '@/components/portfolio/Skills';
@@ -39,11 +40,16 @@ export default function Home() {
       {/* Navigation */}
       <Navigation />
 
+      {/* Cinematic Video Hero */}
+      <VideoIntro />
+
       {/* Main content */}
-      <main className="flex-1 relative z-10">
+      <main id="main-content" className="flex-1 relative z-10" style={{ scrollMarginTop: '0px' }}>
         <Hero />
         <Ticker />
-        <About />
+        <div id="about-anchor" style={{ scrollMarginTop: '80px' }}>
+          <About />
+        </div>
         <Experience />
         <Skills />
         <Projects />

@@ -1,0 +1,320 @@
+/* ═══════════════════════════════════════════════════════════
+   VideoIntro — Cinematic Hero Section
+   Mood: slow, intentional, luxury film title sequence
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Hero Container ── */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
+  background: #0A0A0A;
+  /* Fade in from black on page load */
+  animation: heroFadeIn 1.2s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes heroFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Video Layers ── */
+.videoBackground {
+  position: absolute;
+  inset: -5%;
+  width: 110%;
+  height: 110%;
+  object-fit: cover;
+  filter: blur(50px);
+  opacity: 0.3;
+  z-index: 1;
+  transform: scale(1.1);
+}
+
+.videoForeground {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+}
+
+/* ── Gradient Overlays ── */
+.gradientBottom {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    #0A0A0A 0%,
+    rgba(10, 10, 10, 0.85) 15%,
+    rgba(10, 10, 10, 0.4) 40%,
+    rgba(10, 10, 10, 0.15) 60%,
+    transparent 100%
+  );
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 70% 70% at 50% 50%,
+    transparent 0%,
+    rgba(10, 10, 10, 0.25) 60%,
+    rgba(10, 10, 10, 0.6) 100%
+  );
+}
+
+/* ── Canvas Layer (Three.js) ── */
+.canvasLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* ── Text Overlay ── */
+.textOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+  will-change: transform;
+}
+
+.tagline {
+  font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
+  font-size: clamp(0.65rem, 1.2vw, 0.85rem);
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(255, 200, 130, 0.85);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  transform: translateY(30px);
+  will-change: transform, opacity;
+}
+
+.firstName {
+  font-family: var(--font-cormorant), 'Cormorant Garamond', serif;
+  font-size: clamp(3.5rem, 12vw, 10rem);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  color: #FFF5E6;
+  text-shadow: 0 0 60px rgba(255, 107, 43, 0.15);
+  opacity: 0;
+  transform: translateY(40px);
+  will-change: transform, opacity;
+}
+
+.lastName {
+  font-family: var(--font-cormorant), 'Cormorant Garamond', serif;
+  font-size: clamp(3.5rem, 12vw, 10rem);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: 0.04em;
+  color: #FFF5E6;
+  margin-left: clamp(1rem, 5vw, 4rem);
+  text-shadow: 0 0 60px rgba(255, 107, 43, 0.15);
+  opacity: 0;
+  transform: translateY(40px);
+  will-change: transform, opacity;
+}
+
+.subtitle {
+  font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
+  font-size: clamp(0.75rem, 1.5vw, 1rem);
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  color: rgba(255, 200, 130, 0.7);
+  margin-top: 2rem;
+  opacity: 0;
+  transform: translateY(30px);
+  will-change: transform, opacity;
+}
+
+/* ── Controls (Mute / Play-Pause) ── */
+.controls {
+  position: absolute;
+  bottom: 5rem;
+  right: 1.5rem;
+  z-index: 20;
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.glassBtn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: rgba(255, 245, 230, 0.85);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  outline: none;
+}
+
+.glassBtn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #FFF5E6;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.glassBtn:focus-visible {
+  box-shadow: 0 0 0 2px rgba(255, 107, 43, 0.5);
+}
+
+/* ── Sound Hint Badge ── */
+.soundHint {
+  position: absolute;
+  bottom: 5.5rem;
+  right: 7rem;
+  z-index: 20;
+  font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: rgba(255, 245, 230, 0.75);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  opacity: 0;
+  animation: soundHintPulse 3.5s ease-in-out 1.5s forwards;
+  pointer-events: none;
+}
+
+@keyframes soundHintPulse {
+  0%   { opacity: 0; transform: translateY(6px); }
+  15%  { opacity: 1; transform: translateY(0); }
+  85%  { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-4px); }
+}
+
+/* ── Scroll Indicator ── */
+.scrollIndicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  opacity: 0;
+  animation: scrollFadeIn 0.8s ease-out 2.5s forwards;
+  background: none;
+  border: none;
+  color: rgba(255, 245, 230, 0.5);
+  transition: color 0.3s ease;
+}
+
+.scrollIndicator:hover {
+  color: rgba(255, 245, 230, 0.8);
+}
+
+.scrollLabel {
+  font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 28px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 245, 230, 0.5),
+    rgba(255, 245, 230, 0)
+  );
+  animation: scrollPulse 2s ease-in-out infinite;
+  transform-origin: top;
+}
+
+@keyframes scrollPulse {
+  0%   { transform: scaleY(0); opacity: 0; }
+  50%  { transform: scaleY(1); opacity: 1; }
+  100% { transform: scaleY(0); opacity: 0; }
+}
+
+@keyframes scrollFadeIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .controls {
+    bottom: 4rem;
+    right: 1rem;
+  }
+
+  .soundHint {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 6.5rem;
+  }
+
+  .textOverlay {
+    padding: 1.5rem;
+  }
+
+  .firstName,
+  .lastName {
+    font-size: clamp(2.8rem, 14vw, 6rem);
+  }
+
+  .subtitle {
+    font-size: clamp(0.6rem, 2.5vw, 0.8rem);
+    margin-top: 1.2rem;
+  }
+
+  .scrollIndicator {
+    bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .firstName,
+  .lastName {
+    font-size: clamp(2.2rem, 16vw, 4rem);
+  }
+
+  .lastName {
+    margin-left: clamp(0.5rem, 3vw, 1.5rem);
+  }
+
+  .glassBtn {
+    width: 38px;
+    height: 38px;
+    font-size: 0.85rem;
+  }
+}
