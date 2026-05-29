@@ -100,8 +100,58 @@ export default function About() {
             </p>
           </div>
 
+          {/* Education */}
+          <div className="mt-8 mb-6">
+            <div className="text-[0.58rem] tracking-[0.18em] uppercase text-[#9C7E5A] mb-3">Education</div>
+            <div className="space-y-3">
+              <div className="glass rounded-[12px] p-4 border border-[rgba(217,119,6,0.1)]">
+                <div className="text-[0.82rem] font-semibold text-[#FEF3C7]">M.Sc. Big Data Analytics</div>
+                <div className="text-[0.72rem] text-[#9C7E5A] mt-0.5">St. Joseph&apos;s University, Bengaluru · 2020–2022</div>
+              </div>
+              <div className="glass rounded-[12px] p-4 border border-[rgba(217,119,6,0.1)]">
+                <div className="text-[0.82rem] font-semibold text-[#FEF3C7]">B.C.A. Computer Applications</div>
+                <div className="text-[0.72rem] text-[#9C7E5A] mt-0.5">Seshadripuram College, Bengaluru · 2016–2019</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Awards & Recognition */}
+          <div className="mb-6">
+            <div className="text-[0.58rem] tracking-[0.18em] uppercase text-[#9C7E5A] mb-3">Awards & Recognition</div>
+            <div className="space-y-2">
+              <div className="flex items-start gap-2.5 px-3 py-2.5 rounded-[10px] border border-[rgba(217,119,6,0.1)] bg-[rgba(217,119,6,0.03)]">
+                <span className="text-[#F59E0B] text-[0.85rem] mt-0.5">★</span>
+                <div>
+                  <div className="text-[0.78rem] font-semibold text-[#FEF3C7]">Winner — Gruve AI Hackathon</div>
+                  <div className="text-[0.68rem] text-[#9C7E5A]">IT Help Desk automation project</div>
+                </div>
+              </div>
+              <div className="flex items-start gap-2.5 px-3 py-2.5 rounded-[10px] border border-[rgba(217,119,6,0.1)] bg-[rgba(217,119,6,0.03)]">
+                <span className="text-[#F59E0B] text-[0.85rem] mt-0.5">★</span>
+                <div>
+                  <div className="text-[0.78rem] font-semibold text-[#FEF3C7]">Winner — August AI Hackathon</div>
+                  <div className="text-[0.68rem] text-[#9C7E5A]">AI Doctor Analyzer for clinical records</div>
+                </div>
+              </div>
+              <div className="flex items-start gap-2.5 px-3 py-2.5 rounded-[10px] border border-[rgba(217,119,6,0.1)] bg-[rgba(217,119,6,0.03)]">
+                <span className="text-[#F59E0B] text-[0.85rem] mt-0.5">★</span>
+                <div>
+                  <div className="text-[0.78rem] font-semibold text-[#FEF3C7]">Co-author — IEEE ACAI 2022</div>
+                  <div className="text-[0.68rem] text-[#9C7E5A]">Water Quality Prediction using BPNN, SVR, and LSTM</div>
+                </div>
+              </div>
+              <div className="flex items-start gap-2.5 px-3 py-2.5 rounded-[10px] border border-[rgba(217,119,6,0.1)] bg-[rgba(217,119,6,0.03)]">
+                <span className="text-[#F59E0B] text-[0.85rem] mt-0.5">★</span>
+                <div>
+                  <div className="text-[0.78rem] font-semibold text-[#FEF3C7]">MCP Foundation Development Contributor</div>
+                  <div className="text-[0.68rem] text-[#9C7E5A]">Open-source Model Context Protocol ecosystem</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Skill chips */}
-          <div className="mt-8 space-y-4">
+          <div className="space-y-4">
             {SKILL_GROUPS.map((group) => (
               <div key={group.title}>
                 <div className="text-[0.58rem] tracking-[0.18em] uppercase text-[#9C7E5A] mb-2">

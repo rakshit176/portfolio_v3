@@ -1,20 +1,25 @@
 'use client';
 
 const CONTACT_LINKS = [
-  { icon: '✉', name: 'rakshitkumarkn@gmail.com', sub: 'Email · Preferred', href: 'mailto:rakshitkumarkn@gmail.com' },
+  { icon: '\u2709', name: 'rakshitkumarkn@gmail.com', sub: 'Email \u00B7 Preferred', href: 'mailto:rakshitkumarkn@gmail.com' },
   { icon: 'in', name: 'linkedin.com/in/rakshith-kumar-kn', sub: 'LinkedIn', href: 'https://www.linkedin.com/in/rakshith-kumar-kn-4108b31a3/' },
-  { icon: '⌥', name: 'github.com/rakshith-kumar-kn', sub: 'GitHub', href: 'https://github.com/rakshith176' },
-  { icon: '☎', name: '+91 9008796644', sub: 'Phone · India', href: 'tel:+919008796644' },
+  { icon: '\u2325', name: 'github.com/rakshit176', sub: 'GitHub', href: 'https://github.com/rakshit176' },
+  { icon: '\u260E', name: '+91 9008796644', sub: 'Phone \u00B7 India', href: 'tel:+919008796644' },
 ];
 
-const EXTRAS = ['Resume / CV', 'IEEE Publication', 'GitHub Projects', 'LinkedIn Articles'];
+const EXTRAS = [
+  { label: 'Resume / CV', href: 'mailto:rakshitkumarkn@gmail.com?subject=Request%20for%20Resume' },
+  { label: 'IEEE Publication', href: 'https://ieeexplore.ieee.org/' },
+  { label: 'GitHub Projects', href: 'https://github.com/rakshit176?tab=repositories' },
+  { label: 'LinkedIn Articles', href: 'https://www.linkedin.com/in/rakshith-kumar-kn-4108b31a3/details/recent-activity/articles/' },
+];
 
 export default function Contact() {
   return (
     <section id="contact" className="relative z-10 py-24 max-w-[1160px] mx-auto px-6 md:px-12">
       <div className="text-[0.62rem] tracking-[0.3em] uppercase text-[#D97706] mb-2 flex items-center gap-2">
         <span className="w-[18px] h-[1px] bg-[#D97706] inline-block" />
-        06 · Contact
+        06 \u00B7 Contact
       </div>
       <h2 className="text-[clamp(1.8rem,3.5vw,2.6rem)] font-extrabold tracking-[-0.02em] leading-[1.1] mb-3">
         Let&apos;s Build Together.
@@ -57,12 +62,15 @@ export default function Contact() {
         <div className="flex flex-col gap-2">
           <div className="text-[0.62rem] tracking-[0.15em] uppercase text-[#9C7E5A] mb-1">More</div>
           {EXTRAS.map((item) => (
-            <div
-              key={item}
-              className="text-[0.8rem] text-[#9C7E5A] cursor-pointer hover:text-[#FEF3C7] transition-colors"
+            <a
+              key={item.label}
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[0.8rem] text-[#9C7E5A] cursor-pointer hover:text-[#F59E0B] transition-colors no-underline flex items-center gap-1.5"
             >
-              {item}
-            </div>
+              {item.label} <span className="text-[0.6rem] opacity-50">&#x2197;</span>
+            </a>
           ))}
         </div>
       </div>
@@ -75,10 +83,10 @@ export default function Contact() {
             <span className="text-gradient-warm">great together.</span>
           </div>
           <button
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => document.getElementById('chat-section')?.scrollIntoView({ behavior: 'smooth' })}
             className="mt-5 px-7 py-3 bg-gradient-to-r from-[#D97706] to-[#92400E] rounded-full text-[#FFF8F0] font-semibold text-[0.82rem] hover:-translate-y-0.5 hover:opacity-90 transition-all duration-200"
           >
-            Get in touch →
+            Get in touch &rarr;
           </button>
         </div>
         <svg width="300" height="80" viewBox="0 0 300 80" fill="none" className="opacity-50">

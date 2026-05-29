@@ -1,6 +1,10 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 const RESUME = `Rakshith Kumar K.N — Senior AI/ML Engineer | Generative AI | Production ML Systems | LLMOps | Multi-Cloud AI | Team Leadership
 Bengaluru, India | rakshitkumarkn@gmail.com | +91 90087 96644 | linkedin.com/in/rakshith-kumar-kn-4108b31a3 | github.com/rakshit176
@@ -56,10 +60,12 @@ PROJECTS AND RECOGNITION:
 const SYS = `You are Rakshith Kumar K.N's personal AI Assistant embedded in his portfolio. You possess super intelligence and are deeply aware of all of his vast technical skills and achievements. Your behavior: highly confident, severely technical, intelligent, articulate, and professional.
 Context to use: ${RESUME}
 RULES:
-1. Use markdown formatting when discussing code or tools.
+1. Use markdown formatting liberally: **bold** for key terms, bullet lists for breakdowns, numbered lists for steps, code blocks for tech stack, headers for sections, and tables when comparing.
 2. Be highly conversational but precise, as a Senior AI Staff Engineer would speak.
 3. Directly infer implied needs in recruiter questions and match them to his ML/Cloud skills.
 4. When a user explicitly wants to contact or hire him → give a welcoming remark and append EXACTLY <EMAIL_FORM> to the end of your message. Triggers: "contact", "hire", "reach", "job", "opportunity", "recruiter", "email".
+5. Structure long responses with clear markdown headers (##) and sections for readability.
+6. Always include relevant metrics, numbers, and impact figures from his resume.
 His email: rakshitkumarkn@gmail.com`;
 
 interface Message {
@@ -74,6 +80,114 @@ const QA_ITEMS = [
   'I want to contact Rakshith about a job',
 ];
 
+/* ─── Markdown renderer with amber-themed code blocks ─── */
+function MarkdownContent({ content }: { content: string }) {
+  return (
+    <ReactMarkdown
+      remarkPlugins={[remarkGfm]}
+      components={{
+        h1: ({ children }) => (
+          <h1 className="text-[1rem] font-bold text-[#F59E0B] mt-3 mb-1.5 first:mt-0">{children}</h1>
+        ),
+        h2: ({ children }) => (
+          <h2 className="text-[0.92rem] font-bold text-[#F59E0B] mt-3 mb-1.5 first:mt-0">{children}</h2>
+        ),
+        h3: ({ children }) => (
+          <h3 className="text-[0.85rem] font-semibold text-[#D97706] mt-2.5 mb-1">{children}</h3>
+        ),
+        p: ({ children }) => (
+          <p className="mb-2 leading-[1.75] last:mb-0">{children}</p>
+        ),
+        strong: ({ children }) => (
+          <strong className="text-[#FEF3C7] font-semibold">{children}</strong>
+        ),
+        em: ({ children }) => (
+          <em className="text-[#D97706] italic">{children}</em>
+        ),
+        ul: ({ children }) => (
+          <ul className="list-disc list-outside ml-4 mb-2 space-y-0.5">{children}</ul>
+        ),
+        ol: ({ children }) => (
+          <ol className="list-decimal list-outside ml-4 mb-2 space-y-0.5">{children}</ol>
+        ),
+        li: ({ children }) => (
+          <li className="leading-[1.7]">{children}</li>
+        ),
+        code: ({ className, children, ...props }) => {
+          const match = /language-(\w+)/.exec(className || '');
+          const inline = !match;
+          if (inline) {
+            return (
+              <code
+                className="bg-[rgba(217,119,6,0.12)] text-[#F59E0B] px-1.5 py-0.5 rounded text-[0.75rem] font-mono"
+                {...props}
+              >
+                {children}
+              </code>
+            );
+          }
+          return (
+            <div className="my-2 rounded-lg overflow-hidden border border-[rgba(217,119,6,0.15)]">
+              <SyntaxHighlighter
+                style={oneDark}
+                language={match[1]}
+                PreTag="div"
+                customStyle={{
+                  background: 'rgba(10, 7, 5, 0.9)',
+                  padding: '12px',
+                  fontSize: '0.72rem',
+                  margin: 0,
+                  borderRadius: 0,
+                }}
+              >
+                {String(children).replace(/\n$/, '')}
+              </SyntaxHighlighter>
+            </div>
+          );
+        },
+        a: ({ href, children }) => (
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#D97706] underline hover:text-[#F59E0B] transition-colors"
+          >
+            {children}
+          </a>
+        ),
+        blockquote: ({ children }) => (
+          <blockquote className="border-l-2 border-[#D97706] pl-3 my-2 text-[#9C7E5A] italic">
+            {children}
+          </blockquote>
+        ),
+        table: ({ children }) => (
+          <div className="overflow-x-auto my-2">
+            <table className="w-full text-[0.75rem] border border-[rgba(217,119,6,0.15)] rounded-lg">
+              {children}
+            </table>
+          </div>
+        ),
+        thead: ({ children }) => (
+          <thead className="bg-[rgba(217,119,6,0.08)]">{children}</thead>
+        ),
+        th: ({ children }) => (
+          <th className="px-3 py-1.5 text-left text-[#F59E0B] font-semibold border-b border-[rgba(217,119,6,0.15)]">
+            {children}
+          </th>
+        ),
+        td: ({ children }) => (
+          <td className="px-3 py-1.5 border-b border-[rgba(217,119,6,0.08)]">{children}</td>
+        ),
+        hr: () => (
+          <hr className="border-[rgba(217,119,6,0.15)] my-3" />
+        ),
+      }}
+    >
+      {content}
+    </ReactMarkdown>
+  );
+}
+
 export default function AIChat() {
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -83,33 +197,56 @@ export default function AIChat() {
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
+  const [streamingText, setStreamingText] = useState('');
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const [sending, setSending] = useState(false);
   const chatLogRef = useRef<HTMLDivElement>(null);
+  const abortRef = useRef<AbortController | null>(null);
 
   useEffect(() => {
     if (chatLogRef.current) {
       chatLogRef.current.scrollTop = chatLogRef.current.scrollHeight;
     }
-  }, [messages, loading, showForm]);
+  }, [messages, loading, streamingText, showForm]);
 
-  const sendMessage = async (text?: string) => {
+  const sendMessage = useCallback(async (text?: string) => {
     const msg = (text || input).trim();
     if (!msg || loading) return;
     setInput('');
     setMessages((prev) => [...prev, { role: 'user', text: msg }]);
     setLoading(true);
+    setStreamingText('');
+
+    // Abort any previous request
+    if (abortRef.current) abortRef.current.abort();
+    abortRef.current = new AbortController();
 
     try {
+      // Try streaming first
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: msg, system: SYS }),
+        body: JSON.stringify({ message: msg, system: SYS, stream: true }),
+        signal: abortRef.current.signal,
       });
-      const data = await response.json();
-      let reply = data.reply || 'Connection issue. Email rakshitkumarkn@gmail.com directly.';
 
+      if (!response.ok || !response.body) throw new Error('Stream unavailable');
+
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+      let fullText = '';
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        const chunk = decoder.decode(value, { stream: true });
+        fullText += chunk;
+        setStreamingText(fullText);
+      }
+
+      // Process the final text for EMAIL_FORM trigger
+      let reply = fullText;
       if (reply.includes('<EMAIL_FORM>')) {
         reply = reply.replace('<EMAIL_FORM>', '').trim();
         if (reply) setMessages((prev) => [...prev, { role: 'bot', text: reply }]);
@@ -117,15 +254,42 @@ export default function AIChat() {
       } else {
         setMessages((prev) => [...prev, { role: 'bot', text: reply }]);
       }
-    } catch {
-      setMessages((prev) => [
-        ...prev,
-        { role: 'bot', text: 'Network error. Email rakshitkumarkn@gmail.com directly.' },
-      ]);
+      setStreamingText('');
+    } catch (err) {
+      // If streaming failed, try non-streaming
+      if (err instanceof Error && err.name === 'AbortError') {
+        setStreamingText('');
+        setLoading(false);
+        return;
+      }
+
+      try {
+        const response = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: msg, system: SYS }),
+        });
+        const data = await response.json();
+        let reply = data.reply || 'Connection issue. Email rakshitkumarkn@gmail.com directly.';
+
+        if (reply.includes('<EMAIL_FORM>')) {
+          reply = reply.replace('<EMAIL_FORM>', '').trim();
+          if (reply) setMessages((prev) => [...prev, { role: 'bot', text: reply }]);
+          setShowForm(true);
+        } else {
+          setMessages((prev) => [...prev, { role: 'bot', text: reply }]);
+        }
+      } catch {
+        setMessages((prev) => [
+          ...prev,
+          { role: 'bot', text: 'Network error. Email rakshitkumarkn@gmail.com directly.' },
+        ]);
+      }
     } finally {
       setLoading(false);
+      setStreamingText('');
     }
-  };
+  }, [input, loading]);
 
   const submitForm = async () => {
     if (!formData.name || !formData.email || !formData.message) {
@@ -184,7 +348,7 @@ export default function AIChat() {
           <div className="w-[7px] h-[7px] rounded-full bg-[#F59E0B] pulse-indicator" />
           <div>
             <div className="text-[0.78rem] font-semibold text-[#FEF3C7]">RAKSHITH.AI</div>
-            <div className="text-[0.62rem] text-[#9C7E5A]">AI-powered · Context-aware</div>
+            <div className="text-[0.62rem] text-[#9C7E5A]">AI-powered · Context-aware · Markdown enabled</div>
           </div>
         </div>
 
@@ -194,7 +358,8 @@ export default function AIChat() {
             <button
               key={q}
               onClick={() => sendMessage(q)}
-              className="px-3 py-1.5 border border-[rgba(217,119,6,0.12)] rounded-full text-[0.63rem] text-[#9C7E5A] cursor-pointer bg-transparent hover:border-[rgba(217,119,6,0.5)] hover:text-[#F59E0B] transition-all"
+              disabled={loading}
+              className="px-3 py-1.5 border border-[rgba(217,119,6,0.12)] rounded-full text-[0.63rem] text-[#9C7E5A] cursor-pointer bg-transparent hover:border-[rgba(217,119,6,0.5)] hover:text-[#F59E0B] transition-all disabled:opacity-40 disabled:cursor-not-allowed"
             >
               {q.includes('Cost') ? 'Cost optimisation →' : q.includes('GraphRAG') ? 'GraphRAG →' : q.includes('Healthcare') ? 'Healthcare AI →' : 'Contact →'}
             </button>
@@ -204,28 +369,44 @@ export default function AIChat() {
         {/* Chat log */}
         <div
           ref={chatLogRef}
-          className="h-[380px] overflow-y-auto p-5 flex flex-col gap-3 scrollbar-thin"
+          className="h-[420px] overflow-y-auto p-5 flex flex-col gap-3 scrollbar-thin"
           style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(217,119,6,0.15) transparent' }}
         >
           {messages.map((msg, i) => (
-            <div key={i} className={`max-w-[86%] ${msg.role === 'user' ? 'self-end' : 'self-start'}`}>
+            <div key={i} className={`max-w-[88%] ${msg.role === 'user' ? 'self-end' : 'self-start'}`}>
               <div className="text-[0.58rem] tracking-[0.1em] uppercase text-[#9C7E5A] mb-1">
                 {msg.role === 'user' ? 'You' : 'Assistant'}
               </div>
               <div
-                className={`px-4 py-3 rounded-xl text-[0.8rem] leading-[1.65] ${
+                className={`rounded-xl ${
                   msg.role === 'user'
-                    ? 'bg-gradient-to-br from-[rgba(217,119,6,0.25)] to-[rgba(217,119,6,0.08)] border border-[rgba(217,119,6,0.2)]'
-                    : 'bg-[rgba(18,12,8,0.6)] border border-[rgba(217,119,6,0.08)] text-[#FEF3C7]/85'
+                    ? 'px-4 py-3 bg-gradient-to-br from-[rgba(217,119,6,0.25)] to-[rgba(217,119,6,0.08)] border border-[rgba(217,119,6,0.2)] text-[0.8rem] leading-[1.65]'
+                    : 'px-4 py-3 bg-[rgba(18,12,8,0.6)] border border-[rgba(217,119,6,0.08)] text-[#FEF3C7]/85 text-[0.8rem]'
                 }`}
               >
-                {msg.text}
+                {msg.role === 'user' ? (
+                  msg.text
+                ) : (
+                  <MarkdownContent content={msg.text} />
+                )}
               </div>
             </div>
           ))}
 
-          {loading && (
-            <div className="self-start max-w-[86%]">
+          {/* Streaming message */}
+          {loading && streamingText && (
+            <div className="self-start max-w-[88%]">
+              <div className="text-[0.58rem] tracking-[0.1em] uppercase text-[#9C7E5A] mb-1">Assistant</div>
+              <div className="px-4 py-3 bg-[rgba(18,12,8,0.6)] border border-[rgba(217,119,6,0.08)] rounded-xl text-[0.8rem] text-[#FEF3C7]/85">
+                <MarkdownContent content={streamingText} />
+                <span className="inline-block w-[2px] h-[0.9em] bg-[#F59E0B] ml-0.5 animate-pulse align-middle" />
+              </div>
+            </div>
+          )}
+
+          {/* Loading dots (when no stream yet) */}
+          {loading && !streamingText && (
+            <div className="self-start max-w-[88%]">
               <div className="text-[0.58rem] tracking-[0.1em] uppercase text-[#9C7E5A] mb-1">Assistant</div>
               <div className="flex gap-1 px-4 py-3 bg-[rgba(18,12,8,0.6)] border border-[rgba(217,119,6,0.08)] rounded-xl w-fit">
                 <span className="w-[5px] h-[5px] rounded-full bg-[#D97706] typing-dot" />
@@ -236,7 +417,7 @@ export default function AIChat() {
           )}
 
           {showForm && (
-            <div className="self-start max-w-[86%]">
+            <div className="self-start max-w-[88%]">
               <div className="text-[0.58rem] tracking-[0.1em] uppercase text-[#9C7E5A] mb-1">Assistant</div>
               <div className="bg-[rgba(217,119,6,0.04)] border border-[rgba(217,119,6,0.18)] rounded-[14px] p-5 flex flex-col gap-3">
                 <div className="text-[0.8rem] text-[#FEF3C7]/65">Fill in your details and I&apos;ll send Rakshith a message ↓</div>
@@ -295,13 +476,14 @@ export default function AIChat() {
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
+            onKeyDown={(e) => e.key === 'Enter' && !e.shiftKey && sendMessage()}
             placeholder="Ask about projects, stack, or say 'contact Rakshith'..."
             className="flex-1 bg-transparent border-none px-5 py-4 text-[#FFF8F0] text-[0.82rem] outline-none placeholder:text-[#9C7E5A]"
           />
           <button
             onClick={() => sendMessage()}
-            className="px-5 bg-transparent border-none border-l border-[rgba(217,119,6,0.1)] text-[#D97706] cursor-pointer text-lg hover:bg-[rgba(217,119,6,0.08)] transition-colors"
+            disabled={loading}
+            className="px-5 bg-transparent border-none border-l border-[rgba(217,119,6,0.1)] text-[#D97706] cursor-pointer text-lg hover:bg-[rgba(217,119,6,0.08)] transition-colors disabled:opacity-40"
           >
             ↑
           </button>
