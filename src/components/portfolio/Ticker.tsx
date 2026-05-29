@@ -12,7 +12,7 @@ export default function Ticker() {
         {[...ITEMS, ...ITEMS].map((item, i) => (
           <div
             key={i}
-            className="flex items-center gap-3 text-[0.62rem] tracking-[0.18em] uppercase text-[#9C7E5A] whitespace-nowrap"
+            className="flex items-center gap-3 text-[0.62rem] tracking-[0.18em] uppercase text-[#C4A265] whitespace-nowrap"
           >
             {item} <span className="text-[#D97706] opacity-50">·</span>
           </div>

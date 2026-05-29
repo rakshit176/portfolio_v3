@@ -132,14 +132,14 @@ function ProjectModal({ project, onClose }: { project: Project | null; onClose: 
           </div>
           <button
             onClick={onClose}
-            className="bg-[rgba(217,119,6,0.06)] border border-[rgba(217,119,6,0.12)] text-[#9C7E5A] w-[30px] h-[30px] rounded-full cursor-pointer text-sm flex items-center justify-center hover:bg-[rgba(217,119,6,0.15)] hover:text-[#FFF8F0] transition-all shrink-0"
+            className="bg-[rgba(217,119,6,0.06)] border border-[rgba(217,119,6,0.12)] text-[#C4A265] w-[30px] h-[30px] rounded-full cursor-pointer text-sm flex items-center justify-center hover:bg-[rgba(217,119,6,0.15)] hover:text-[#FFF8F0] transition-all shrink-0"
           >
             x
           </button>
         </div>
         <div className="p-6 pt-5">
-          <div className="text-[0.6rem] tracking-[0.18em] uppercase text-[#9C7E5A] mb-1.5">Overview</div>
-          <p className="text-[0.85rem] text-[#9C7E5A] leading-[1.8] mb-5">{project.overview}</p>
+          <div className="text-[0.6rem] tracking-[0.18em] uppercase text-[#C4A265] mb-1.5">Overview</div>
+          <p className="text-[0.85rem] text-[#C4A265] leading-[1.8] mb-5">{project.overview}</p>
 
           <div className="flex flex-wrap gap-2 mb-5">
             {project.metrics.map((m) => (
@@ -149,20 +149,20 @@ function ProjectModal({ project, onClose }: { project: Project | null; onClose: 
             ))}
           </div>
 
-          <div className="text-[0.6rem] tracking-[0.18em] uppercase text-[#9C7E5A] mb-1.5">Technical Deep Dive</div>
+          <div className="text-[0.6rem] tracking-[0.18em] uppercase text-[#C4A265] mb-1.5">Technical Deep Dive</div>
           <ul className="space-y-1.5 mb-5">
             {project.details.map((d, i) => (
-              <li key={i} className="text-[0.83rem] text-[#9C7E5A] pl-5 relative leading-[1.7]">
+              <li key={i} className="text-[0.83rem] text-[#C4A265] pl-5 relative leading-[1.7]">
                 <span className="absolute left-0 text-[#D97706] text-[0.52rem] top-[0.35rem]">&#9670;</span>
                 {d}
               </li>
             ))}
           </ul>
 
-          <div className="text-[0.6rem] tracking-[0.18em] uppercase text-[#9C7E5A] mb-1.5">Stack</div>
+          <div className="text-[0.6rem] tracking-[0.18em] uppercase text-[#C4A265] mb-1.5">Stack</div>
           <div className="flex flex-wrap gap-1.5">
             {project.stack.map((s) => (
-              <span key={s} className="text-[0.67rem] px-2.5 py-1 border border-[rgba(217,119,6,0.12)] rounded text-[#9C7E5A]">
+              <span key={s} className="text-[0.67rem] px-2.5 py-1 border border-[rgba(217,119,6,0.12)] rounded text-[#C4A265]">
                 {s}
               </span>
             ))}
@@ -198,13 +198,13 @@ export default function Projects() {
               {/* Hover glow — amber radial */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[radial-gradient(circle_at_var(--mx,50%)_var(--my,50%),rgba(217,119,6,0.1),transparent_65%)]" />
 
-              <span className="absolute top-5 right-5 text-xs text-[#9C7E5A] opacity-0 group-hover:opacity-60 -translate-x-1 translate-y-1 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-200">
+              <span className="absolute top-5 right-5 text-xs text-[#C4A265] opacity-0 group-hover:opacity-60 -translate-x-1 translate-y-1 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-200">
                 ↗
               </span>
 
               <div className="text-[0.58rem] tracking-[0.18em] uppercase text-[#D97706] mb-2.5">{proj.cat}</div>
               <div className="text-[0.95rem] font-bold mb-2 leading-[1.3]">{proj.title}</div>
-              <div className="text-[0.76rem] text-[#9C7E5A] leading-[1.7] mb-3">{proj.desc}</div>
+              <div className="text-[0.76rem] text-[#C4A265] leading-[1.7] mb-3">{proj.desc}</div>
 
               <div className="flex flex-wrap gap-1.5 mb-3">
                 {proj.kpis.map((kpi) => (
@@ -216,7 +216,7 @@ export default function Projects() {
 
               <div className="flex flex-wrap gap-1 pt-3 border-t border-[rgba(217,119,6,0.1)]">
                 {proj.tags.map((tag) => (
-                  <span key={tag} className="text-[0.58rem] text-[#9C7E5A] px-1.5 py-0.5 border border-[rgba(217,119,6,0.1)] rounded-[2px]">
+                  <span key={tag} className="text-[0.58rem] text-[#C4A265] px-1.5 py-0.5 border border-[rgba(217,119,6,0.1)] rounded-[2px]">
                     {tag}
                   </span>
                 ))}

@@ -28,12 +28,12 @@ export default function Contact() {
 
       <div className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr_1fr] gap-8 items-start pt-10 border-t border-[rgba(217,119,6,0.1)]">
         <div>
-          <p className="text-[0.85rem] text-[#9C7E5A] leading-[1.85]">
+          <p className="text-[0.85rem] text-[#C4A265] leading-[1.85]">
             Currently <strong className="text-[#FEF3C7] font-medium">open to Staff / Senior AI Engineer roles</strong> at
             FAANG, AI Labs, and high-growth startups. Excited about GenAI infrastructure, agentic systems, healthcare AI,
             and enterprise RAG.
           </p>
-          <p className="text-[0.85rem] text-[#9C7E5A] leading-[1.85] mt-4">
+          <p className="text-[0.85rem] text-[#C4A265] leading-[1.85] mt-4">
             Based in <strong className="text-[#FEF3C7] font-medium">Bengaluru, India</strong>. Open to remote, hybrid, or
             relocation. Response: <strong className="text-[#FEF3C7] font-medium">under 24 hours</strong>.
           </p>
@@ -53,21 +53,21 @@ export default function Contact() {
               </div>
               <div>
                 <div className="font-semibold text-[0.78rem]">{link.name}</div>
-                <div className="text-[0.63rem] text-[#9C7E5A]">{link.sub}</div>
+                <div className="text-[0.63rem] text-[#C4A265]">{link.sub}</div>
               </div>
             </a>
           ))}
         </div>
 
         <div className="flex flex-col gap-2">
-          <div className="text-[0.62rem] tracking-[0.15em] uppercase text-[#9C7E5A] mb-1">More</div>
+          <div className="text-[0.62rem] tracking-[0.15em] uppercase text-[#C4A265] mb-1">More</div>
           {EXTRAS.map((item) => (
             <a
               key={item.label}
               href={item.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[0.8rem] text-[#9C7E5A] cursor-pointer hover:text-[#F59E0B] transition-colors no-underline flex items-center gap-1.5"
+              className="text-[0.8rem] text-[#C4A265] cursor-pointer hover:text-[#F59E0B] transition-colors no-underline flex items-center gap-1.5"
             >
               {item.label} <span className="text-[0.6rem] opacity-50">&#x2197;</span>
             </a>

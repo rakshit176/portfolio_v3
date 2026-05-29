@@ -59,7 +59,7 @@
   --secondary: #F59E0B;
   --secondary-foreground: #0A0705;
   --muted: #120C08;
-  --muted-foreground: #9C7E5A;
+  --muted-foreground: #C4A265;
   --accent: #F59E0B;
   --accent-foreground: #0A0705;
   --destructive: #ef4444;
@@ -70,7 +70,7 @@
   --chart-2: #F59E0B;
   --chart-3: #92400E;
   --chart-4: #FEF3C7;
-  --chart-5: #9C7E5A;
+  --chart-5: #C4A265;
   --sidebar: #0A0705;
   --sidebar-foreground: #FFF8F0;
   --sidebar-primary: #D97706;
@@ -393,7 +393,7 @@ html {
   border-left: 3px solid #D97706;
   padding-left: 0.75rem;
   margin: 0.5rem 0;
-  color: #9C7E5A;
+  color: #C4A265;
   font-style: italic;
 }
 

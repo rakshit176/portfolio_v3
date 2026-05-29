@@ -72,10 +72,10 @@ export default function Experience() {
             }`}
           >
             <div>
-              <div className="text-[0.62rem] tracking-[0.1em] uppercase text-[#9C7E5A] mb-1.5">
+              <div className="text-[0.62rem] tracking-[0.1em] uppercase text-[#C4A265] mb-1.5">
                 {exp.date}
               </div>
-              <div className="text-[0.78rem] font-semibold text-[#9C7E5A]">{exp.company}</div>
+              <div className="text-[0.78rem] font-semibold text-[#C4A265]">{exp.company}</div>
               {exp.badge && (
                 <span className="inline-block mt-2 px-2 py-0.5 rounded text-[0.58rem] tracking-[0.1em] uppercase bg-[rgba(217,119,6,0.1)] border border-[rgba(217,119,6,0.3)] text-[rgba(245,158,11,0.9)]">
                   {exp.badge}
@@ -88,7 +88,7 @@ export default function Experience() {
                 {exp.items.map((item, j) => (
                   <li
                     key={j}
-                    className="text-[0.83rem] text-[#9C7E5A] leading-[1.75] pl-5 relative list-none"
+                    className="text-[0.83rem] text-[#C4A265] leading-[1.75] pl-5 relative list-none"
                     dangerouslySetInnerHTML={{
                       __html: `<span class="absolute left-0 text-[#D97706] text-[0.68rem] top-[0.18rem]">→</span>${item}`,
                     }}

@@ -247,7 +247,7 @@ export default function AIChat() {
       <h2 className="text-[clamp(1.8rem,3.5vw,2.6rem)] font-extrabold tracking-[-0.02em] leading-[1.1] mb-3">
         Ask Me Anything.
       </h2>
-      <p className="text-[#9C7E5A] text-[0.85rem] mb-0">
+      <p className="text-[#C4A265] text-[0.85rem] mb-0">
         Powered by AI · Trained on Rakshith&apos;s resume · Can send him an email directly.
       </p>
 
@@ -257,7 +257,7 @@ export default function AIChat() {
           <div className="w-[7px] h-[7px] rounded-full bg-[#F59E0B] pulse-indicator" />
           <div>
             <div className="text-[0.78rem] font-semibold text-[#FEF3C7]">RAKSHITH.AI</div>
-            <div className="text-[0.62rem] text-[#9C7E5A]">AI-powered · Context-aware · Markdown enabled</div>
+            <div className="text-[0.62rem] text-[#C4A265]">AI-powered · Context-aware · Markdown enabled</div>
           </div>
         </div>
 
@@ -268,7 +268,7 @@ export default function AIChat() {
               key={item.label}
               onClick={() => sendMessage(item.query)}
               disabled={loading}
-              className="px-3 py-1.5 border border-[rgba(217,119,6,0.12)] rounded-full text-[0.63rem] text-[#9C7E5A] cursor-pointer bg-transparent hover:border-[rgba(217,119,6,0.5)] hover:text-[#F59E0B] transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+              className="px-3 py-1.5 border border-[rgba(217,119,6,0.12)] rounded-full text-[0.63rem] text-[#C4A265] cursor-pointer bg-transparent hover:border-[rgba(217,119,6,0.5)] hover:text-[#F59E0B] transition-all disabled:opacity-40 disabled:cursor-not-allowed"
             >
               {item.label}
             </button>
@@ -283,7 +283,7 @@ export default function AIChat() {
         >
           {messages.map((msg, i) => (
             <div key={i} className={`max-w-[88%] ${msg.role === 'user' ? 'self-end' : 'self-start'}`}>
-              <div className="text-[0.58rem] tracking-[0.1em] uppercase text-[#9C7E5A] mb-1">
+              <div className="text-[0.58rem] tracking-[0.1em] uppercase text-[#C4A265] mb-1">
                 {msg.role === 'user' ? 'You' : 'Assistant'}
               </div>
               <div
@@ -308,7 +308,7 @@ export default function AIChat() {
           {/* Streaming message */}
           {loading && streamingText && (
             <div className="self-start max-w-[88%]">
-              <div className="text-[0.58rem] tracking-[0.1em] uppercase text-[#9C7E5A] mb-1">Assistant</div>
+              <div className="text-[0.58rem] tracking-[0.1em] uppercase text-[#C4A265] mb-1">Assistant</div>
               <div className="px-4 py-3 bg-[rgba(18,12,8,0.6)] border border-[rgba(217,119,6,0.08)] rounded-xl text-[0.8rem] text-[#FEF3C7]/85">
                 <div
                   className="prose-answer"
@@ -322,7 +322,7 @@ export default function AIChat() {
           {/* Loading dots (when no stream yet) */}
           {loading && !streamingText && (
             <div className="self-start max-w-[88%]">
-              <div className="text-[0.58rem] tracking-[0.1em] uppercase text-[#9C7E5A] mb-1">Assistant</div>
+              <div className="text-[0.58rem] tracking-[0.1em] uppercase text-[#C4A265] mb-1">Assistant</div>
               <div className="flex gap-1 px-4 py-3 bg-[rgba(18,12,8,0.6)] border border-[rgba(217,119,6,0.08)] rounded-xl w-fit">
                 <span className="w-[5px] h-[5px] rounded-full bg-[#D97706] typing-dot" />
                 <span className="w-[5px] h-[5px] rounded-full bg-[#D97706] typing-dot" />
@@ -333,7 +333,7 @@ export default function AIChat() {
 
           {showForm && (
             <div className="self-start max-w-[88%]">
-              <div className="text-[0.58rem] tracking-[0.1em] uppercase text-[#9C7E5A] mb-1">Assistant</div>
+              <div className="text-[0.58rem] tracking-[0.1em] uppercase text-[#C4A265] mb-1">Assistant</div>
               <div className="bg-[rgba(217,119,6,0.04)] border border-[rgba(217,119,6,0.18)] rounded-[14px] p-5 flex flex-col gap-3">
                 <div className="text-[0.8rem] text-[#FEF3C7]/65">Fill in your details and I&apos;ll send Rakshith a message ↓</div>
                 <div>
@@ -393,7 +393,7 @@ export default function AIChat() {
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && !e.shiftKey && sendMessage()}
             placeholder="Ask about projects, stack, or say 'contact Rakshith'..."
-            className="flex-1 bg-transparent border-none px-5 py-4 text-[#FFF8F0] text-[0.82rem] outline-none placeholder:text-[#9C7E5A]"
+            className="flex-1 bg-transparent border-none px-5 py-4 text-[#FFF8F0] text-[0.82rem] outline-none placeholder:text-[#C4A265]"
           />
           <button
             onClick={() => sendMessage()}

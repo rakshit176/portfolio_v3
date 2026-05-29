@@ -52,7 +52,7 @@ export default function Navigation() {
             <li key={item.href}>
               <a
                 href={item.href}
-                className="text-xs tracking-[0.12em] uppercase text-[#9C7E5A] hover:text-[#FFF8F0] transition-colors duration-200"
+                className="text-xs tracking-[0.12em] uppercase text-[#C4A265] hover:text-[#FFF8F0] transition-colors duration-200"
               >
                 {item.label}
               </a>
@@ -90,7 +90,7 @@ export default function Navigation() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setMobileOpen(false)}
-                className="text-sm text-[#9C7E5A] hover:text-[#FFF8F0] transition-colors py-1"
+                className="text-sm text-[#C4A265] hover:text-[#FFF8F0] transition-colors py-1"
               >
                 {item.label}
               </a>

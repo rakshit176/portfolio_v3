@@ -180,7 +180,7 @@ export default function Skills() {
         Skill Graph.
       </h2>
       <div className="w-[1px] h-9 bg-gradient-to-b from-[#D97706] to-transparent mb-4" />
-      <p className="text-[#9C7E5A] text-[0.85rem] mb-6">Click nodes to explore skill details</p>
+      <p className="text-[#C4A265] text-[0.85rem] mb-6">Click nodes to explore skill details</p>
 
       <div
         ref={containerRef}
@@ -191,7 +191,7 @@ export default function Skills() {
         <noscript>
           <div className="absolute inset-0 flex items-center justify-center p-8">
             <div className="text-center">
-              <div className="text-[0.85rem] text-[#9C7E5A] mb-4">Interactive skill graph requires JavaScript.</div>
+              <div className="text-[0.85rem] text-[#C4A265] mb-4">Interactive skill graph requires JavaScript.</div>
               <div className="flex flex-wrap gap-2 justify-center">
                 {Object.entries(TREE).filter(([k]) => k !== 'root').map(([key, node]) => (
                   <span key={key} className="px-2.5 py-1 border border-[rgba(217,119,6,0.25)] rounded text-[0.68rem] text-[rgba(245,158,11,0.9)] bg-[rgba(217,119,6,0.06)]">
@@ -215,7 +215,7 @@ export default function Skills() {
           {LEGEND_ITEMS.map((item) => (
             <div
               key={item.label}
-              className="flex items-center gap-1.5 text-[0.58rem] tracking-[0.08em] uppercase text-[#9C7E5A]/60"
+              className="flex items-center gap-1.5 text-[0.58rem] tracking-[0.08em] uppercase text-[#C4A265]/60"
             >
               <div className="w-2 h-2 rounded-full" style={{ background: item.color }} />
               {item.label}
@@ -236,7 +236,7 @@ export default function Skills() {
             </div>
             <button
               onClick={() => setSelected(null)}
-              className="bg-[rgba(217,119,6,0.06)] border border-[rgba(217,119,6,0.15)] rounded-lg text-[#9C7E5A] px-3 py-1 text-xs cursor-pointer hover:bg-[rgba(217,119,6,0.12)] hover:text-[#FFF8F0] transition-all"
+              className="bg-[rgba(217,119,6,0.06)] border border-[rgba(217,119,6,0.15)] rounded-lg text-[#C4A265] px-3 py-1 text-xs cursor-pointer hover:bg-[rgba(217,119,6,0.12)] hover:text-[#FFF8F0] transition-all"
             >
               close
             </button>
@@ -251,7 +251,7 @@ export default function Skills() {
               </span>
             ))}
           </div>
-          <div className="text-[0.82rem] text-[#9C7E5A] leading-[1.75]">
+          <div className="text-[0.82rem] text-[#C4A265] leading-[1.75]">
             {selectedNode.desc}
           </div>
         </div>
