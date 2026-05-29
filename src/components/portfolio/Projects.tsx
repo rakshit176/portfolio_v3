@@ -70,7 +70,7 @@ const PROJECTS: Project[] = [
     kpis: ['2–5s validation'], tags: ['GraphRAG', 'Neo4j', 'FastAPI'],
     overview: 'Pre-migration validation engine for Cisco ASA firewall configs. GraphRAG + lightweight LLMs compress validation from hours to seconds.',
     details: ['ASA configs parsed into Neo4j — nodes for ACLs, interfaces, NAT rules; edges for dependencies.', 'Natural language queries decomposed into Cypher via LLM for graph traversal.', 'Validation compressed from hours to 2–5s — eliminates sequential rule-by-rule inspection.', 'Zero configuration errors reported post-deployment across enterprise clients.'],
-    metrics: ['2–5s validation', 'Zero config errors'], stack: ['GraphRAG', 'Neo4j', 'FastAPI', 'LLM', 'Cisco ASA API'],
+    metrics: ['2–5s validation', '98% reduction'], stack: ['GraphRAG', 'Neo4j', 'FastAPI', 'PyTorch', 'BERT', 'GPT-4'],
   },
   {
     id: 'water', cat: 'Research · IEEE Publication', title: 'Water Quality Prediction',
@@ -87,6 +87,30 @@ const PROJECTS: Project[] = [
     overview: 'Touchless interaction system using 3D CNN + LSTM for real-time gesture-based digital control.',
     details: ['C3D architecture extracts spatio-temporal features — captures motion dynamics 2D CNNs miss.', 'LSTM maps feature trajectories to gesture labels handling speed variations and occlusions.', 'MediaPipe skeleton pre-filter — reduces CNN inference load by skipping empty frames.', 'TorchScript export achieves 30fps on CPU-only hardware.'],
     metrics: ['Real-time 30fps', 'Touchless UX'], stack: ['3D CNN', 'LSTM', 'OpenCV', 'PyTorch', 'MediaPipe'],
+  },
+  {
+    id: 'distributed', cat: 'Infrastructure · ML Serving', title: 'Distributed Inference Service',
+    desc: 'Multi-region ML serving at 5K req/sec with 99.9% uptime across AWS and GCP. Open-source project.',
+    kpis: ['5K req/sec', '99.9% uptime'], tags: ['Ray Serve', 'Redis', 'Terraform'],
+    overview: 'Open-source distributed inference service for multi-region ML serving with high throughput and reliability across AWS and GCP.',
+    details: ['Ray Serve for distributed model serving with autoscaling across regions.', 'Redis-based request routing and load balancing with health checks.', 'Terraform IaC for reproducible multi-cloud deployments.', 'Prometheus monitoring with custom SLI/SLO dashboards.'],
+    metrics: ['5K req/sec', '99.9% uptime', 'Multi-region'], stack: ['Ray Serve', 'Redis', 'Prometheus', 'Terraform', 'AWS', 'GCP'],
+  },
+  {
+    id: 'guis', cat: 'Product · Meeting Intelligence', title: 'GUIS Meeting Intelligence Platform',
+    desc: '6-service platform for real-time meeting insights across Google Meet and MS Teams. Led 5-engineer team.',
+    kpis: ['6 microservices', '5-engineer team'], tags: ['React', 'FastAPI', 'Gemini'],
+    overview: 'Full-stack meeting intelligence platform providing real-time insights, transcription, and AI summaries for Google Meet and MS Teams.',
+    details: ['6-service microservice architecture: React frontend, Express API, TTS service, transcription engine, meeting bot, and AI summarizer.', 'Gemini-powered meeting summarization with action item extraction.', 'Deepgram integration for real-time speech-to-text with speaker diarization.', 'Google Meet and MS Teams bot integration for automated meeting capture.'],
+    metrics: ['6 microservices', '5-engineer team', 'Real-time'], stack: ['Node.js', 'React', 'FastAPI', 'Docker', 'Gemini', 'Deepgram', 'GCP'],
+  },
+  {
+    id: 'mcp', cat: 'Open Source · MCP Protocol', title: 'MCP Server Development',
+    desc: 'Production MCP servers connecting LLM agents to HappyFox, Jira, and Confluence. 85% latency reduction. Foundation Team contributor.',
+    kpis: ['85% latency cut', 'Foundation Team'], tags: ['MCP SDK', 'TypeScript', 'Go'],
+    overview: 'MCP Foundation Development contributor — built production MCP servers connecting LLM agents to enterprise tools (HappyFox, Jira, Confluence).',
+    details: ['Production MCP servers for HappyFox, Jira, and Confluence — eliminating 85% of manual data fetch latency.', '3-person squad; servers adopted by 2 internal teams across the organization.', 'MCP SDK integration with TypeScript and Go for cross-language compatibility.', 'WebSocket-based real-time context grounding for LLM agent workflows.'],
+    metrics: ['85% latency reduction', '2 team adoptions', 'Foundation Team'], stack: ['MCP SDK', 'FastAPI', 'TypeScript', 'Go', 'WebSocket'],
   },
 ];
 

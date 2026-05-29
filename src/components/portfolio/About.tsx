@@ -6,13 +6,14 @@ const SKILL_GROUPS = [
   {
     title: 'LLMs & GenAI',
     chips: [
-      { label: 'GPT-4 / Claude', hot: true },
+      { label: 'GPT-4 / Claude 3.5', hot: true },
       { label: 'LangGraph', hot: true },
       { label: 'GraphRAG', hot: true },
+      { label: 'MCP Protocol', hot: true },
       { label: 'RAG', hot: false },
       { label: 'PEFT/LoRA', hot: false },
+      { label: 'Knowledge Distillation', hot: false },
       { label: 'Fine-tuning', hot: false },
-      { label: 'MCP/A2A', hot: false },
     ],
   },
   {
@@ -20,19 +21,19 @@ const SKILL_GROUPS = [
     chips: [
       { label: 'AWS Bedrock', hot: true },
       { label: 'Azure AI Foundry', hot: true },
-      { label: 'ECS/EKS', hot: false },
+      { label: 'GCP Vertex AI', hot: true },
+      { label: 'Terraform', hot: false },
       { label: 'Kubernetes', hot: false },
-      { label: 'SageMaker', hot: false },
     ],
   },
   {
     title: 'ML / DL / Inference',
     chips: [
       { label: 'PyTorch', hot: true },
-      { label: 'CUDA', hot: true },
-      { label: 'TensorRT', hot: false },
-      { label: 'vLLM', hot: false },
+      { label: 'CUDA / TensorRT', hot: true },
+      { label: 'vLLM / SGLang', hot: false },
       { label: 'SDXL', hot: false },
+      { label: 'BERT / YOLO', hot: false },
       { label: 'ControlNet', hot: false },
     ],
   },
@@ -77,23 +78,25 @@ export default function About() {
 
           <div className="space-y-4 text-[0.9rem] text-[#9C7E5A] leading-[1.85]">
             <p>
-              I&apos;m <strong className="text-[#FEF3C7] font-medium">Rakshith Kumar K.N</strong> — an AI/ML Engineer
-              specialising in <strong className="text-[#FEF3C7] font-medium">Generative AI, multi-agent orchestration</strong>,
-              and large-scale distributed cloud infrastructure on AWS &amp; Azure.
+              I&apos;m <strong className="text-[#FEF3C7] font-medium">Rakshith Kumar K.N</strong> — a Senior AI/ML Engineer
+              with <strong className="text-[#FEF3C7] font-medium">5+ years delivering $2.3M+ measurable business impact</strong> across
+              enterprise security, healthcare, and fintech. MCP Foundation Development contributor building production MCP servers
+              connecting LLM agents to live enterprise tools.
             </p>
             <p>
-              5+ years shipping production AI — from{' '}
-              <strong className="text-[#FEF3C7] font-medium">sub-second diffusion model inference</strong> and
-              HIPAA-compliant healthcare pipelines to GraphRAG-powered enterprise search and hybrid vector retrieval engines.
+              Proven team leader who mentored <strong className="text-[#FEF3C7] font-medium">5+ junior engineers</strong>, led
+              cross-functional squads of 4–8 engineers, and pioneered <strong className="text-[#FEF3C7] font-medium">LLM-supervised Knowledge Distillation</strong> —
+              compressing 4+ hour firewall validation to 2–5 seconds. Multi-cloud architect across AWS, Azure, and GCP with
+              $50K+/month in cloud savings.
             </p>
             <p>
-              MSc in Big Data Analytics from St. Joseph&apos;s University, Bengaluru. Currently Senior AI/ML Engineer at Gruve AI
-              building enterprise-grade systems for Fortune 500 clients including{' '}
+              M.Sc. Big Data Analytics from St. Joseph&apos;s University, Bengaluru. B.C.A. from Seshadripuram College.
+              Currently Senior AI/ML Engineer at Gruve AI building enterprise-grade systems for Fortune 500 clients including{' '}
               <strong className="text-[#FEF3C7] font-medium">Cisco and J.P. Morgan</strong>.
             </p>
             <p>
-              I care about the full stack — from CUDA kernels to multi-agent flow design.{' '}
-              <strong className="text-[#FEF3C7] font-medium">Not just prototypes — shipped systems.</strong>
+              Deep expertise in multi-agent orchestration, GraphRAG, LLMOps pipelines, and regulated-domain AI (HIPAA, SOC 2).{' '}
+              <strong className="text-[#FEF3C7] font-medium">Zero PII leakage across 50K+ financial documents.</strong>
             </p>
           </div>
 
@@ -137,7 +140,7 @@ export default function About() {
             <div>&nbsp;&nbsp;<span className="text-[#D97706]">&quot;title&quot;</span>: <span className="text-[#FEF3C7]">&quot;Senior AI/ML Engineer&quot;</span>,</div>
             <div>&nbsp;&nbsp;<span className="text-[#D97706]">&quot;location&quot;</span>: <span className="text-[#FEF3C7]">&quot;Bengaluru, India&quot;</span>,</div>
             <div>&nbsp;&nbsp;<span className="text-[#D97706]">&quot;experience&quot;</span>: <span className="text-[#F59E0B]">5</span>,</div>
-            <div>&nbsp;&nbsp;<span className="text-[#D97706]">&quot;education&quot;</span>: <span className="text-[#FEF3C7]">&quot;MSc Big Data Analytics&quot;</span>,</div>
+            <div>&nbsp;&nbsp;<span className="text-[#D97706]">&quot;education&quot;</span>: [<span className="text-[#FEF3C7]">&quot;MSc Big Data Analytics&quot;</span>, <span className="text-[#FEF3C7]">&quot;BCA&quot;</span>],</div>
             <div>&nbsp;&nbsp;<span className="text-[#D97706]">&quot;current&quot;</span>: <span className="text-[#FEF3C7]">&quot;Gruve AI&quot;</span>,</div>
             <div>&nbsp;&nbsp;<span className="text-[#D97706]">&quot;clients&quot;</span>: [<span className="text-[#FEF3C7]">&quot;Cisco&quot;</span>, <span className="text-[#FEF3C7]">&quot;J.P. Morgan&quot;</span>],</div>
             <div>&nbsp;&nbsp;<span className="text-[#D97706]">&quot;speciality&quot;</span>: [</div>
