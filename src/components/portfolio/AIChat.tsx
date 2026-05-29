@@ -21,7 +21,7 @@ Bengaluru, India | rakshitkumarkn@gmail.com | +91 90087 96644 | linkedin.com/in/
 PROFESSIONAL SUMMARY: Senior AI/ML Engineer with 5+ years delivering $2.3M+ measurable business impact across enterprise security, healthcare, and fintech. MCP Foundation Development contributor: built production MCP servers connecting LLM agents to live enterprise tools (HappyFox, Jira) for real-time context grounding, and contributed to the MCP open-source ecosystem. Proven team leader who mentored 5+ junior engineers, led cross-functional squads of 4-8 engineers across ML, backend, and frontend, and established org-wide documentation standards. Pioneered LLM-supervised Knowledge Distillation (GPT-4 Teacher to distilled student ensemble) compressing 4+ hour firewall validation to 2-5 seconds. Multi-cloud architect deploying across AWS, Azure, and GCP with $50K+/month in cloud savings. Deep expertise in multi-agent orchestration, GraphRAG, LLMOps pipelines, and regulated-domain AI (HIPAA, SOC 2). Zero PII leakage across 50K+ financial documents.
 
 WORK EXPERIENCE:
-Senior AI/ML Engineer at Gruve AI (Oct 2024 - Present):
+Senior AI/ML Engineer at Gruve AI (Oct 2025 - Present):
 - LLM-supervised Knowledge Distillation (Cisco ASA): Compressed 4+ hour firewall validation to 2-5 sec (98% reduction) by training 3 student models via GPT-4 Teacher with KL-divergence loss; enabled Fortune 500 migration of 200+ firewalls 10x faster. Led 4 engineers; zero LLM calls at inference. [PyTorch, BERT, GPT-4, LangGraph, Neo4j, Qdrant, AWS Bedrock]
 - MCP Server Development (Foundation Team): Built production MCP servers connecting LLM agents to HappyFox, Jira, and Confluence, eliminating 85% of manual data fetch latency. Led 3-person squad; servers adopted by 2 internal teams. [MCP SDK, FastAPI, TypeScript, Go, WebSocket]
 - TechGenie Voice Agent [MCP-Powered]: Achieved 42% reduction in IT resolution time (500+ weekly interactions, 80+ ticket types) by building MCP-connected LLM agents for real-time triage. Led 4-engineer cross-functional team. [FastAPI, Edge TTS, MongoDB, MCP, LangGraph]
@@ -83,15 +83,43 @@ interface Message {
 }
 
 const QA_ITEMS = [
-  'How did Rakshith optimise LLM inference cost?',
-  'Tell me about the GraphRAG project',
-  'Healthcare AI experience?',
-  'I want to contact Rakshith about a job',
+  { query: 'How did Rakshith optimise LLM inference cost?', label: 'Cost optimisation →' },
+  { query: 'Tell me about the GraphRAG project', label: 'GraphRAG →' },
+  { query: 'Healthcare AI experience?', label: 'Healthcare AI →' },
+  { query: 'I want to contact Rakshith about a job', label: 'Contact →' },
 ];
+
+/** Extract markdown content from potential JSON-wrapped responses */
+function extractContent(text: string): string {
+  const trimmed = text.trim();
+  // Check if the response looks like JSON with a "reply" key
+  if (trimmed.startsWith('{') && trimmed.endsWith('}')) {
+    try {
+      const parsed = JSON.parse(trimmed);
+      if (parsed.reply && typeof parsed.reply === 'string') {
+        return parsed.reply;
+      }
+      // Check other common wrapper keys
+      if (parsed.content && typeof parsed.content === 'string') {
+        return parsed.content;
+      }
+      if (parsed.message && typeof parsed.message === 'string') {
+        return parsed.message;
+      }
+      if (parsed.text && typeof parsed.text === 'string') {
+        return parsed.text;
+      }
+    } catch {
+      // Not valid JSON — treat as plain markdown
+    }
+  }
+  return text;
+}
 
 /** Convert markdown → sanitised HTML */
 function renderMarkdown(md: string): string {
-  const rawHtml = marked.parse(md) as string;
+  const content = extractContent(md);
+  const rawHtml = marked.parse(content) as string;
   return DOMPurify.sanitize(rawHtml);
 }
 
@@ -150,7 +178,10 @@ export default function AIChat() {
       });
 
       const data = await response.json();
-      const reply = data.reply || 'Connection issue. Email rakshitkumarkn@gmail.com directly.';
+      // The API returns { reply: "..." } but the LLM might also wrap in JSON
+      let reply = data.reply || 'Connection issue. Email rakshitkumarkn@gmail.com directly.';
+      // Unwrap if the LLM returned JSON inside the reply string
+      reply = extractContent(reply);
       processReply(reply);
     } catch (err) {
       if (err instanceof Error && err.name === 'AbortError') {
@@ -192,7 +223,7 @@ export default function AIChat() {
         }),
       });
       const data = await response.json();
-      const reply = data.reply || `Thanks ${formData.name}! Message sent — reply within 24h.`;
+      const reply = extractContent(data.reply || `Thanks ${formData.name}! Message sent — reply within 24h.`);
       setShowForm(false);
       setMessages((prev) => [...prev, { role: 'bot', text: reply }]);
       setTimeout(() => {
@@ -232,14 +263,14 @@ export default function AIChat() {
 
         {/* Quick questions */}
         <div className="flex gap-2 px-5 py-3 border-b border-[rgba(217,119,6,0.1)] flex-wrap">
-          {QA_ITEMS.map((q) => (
+          {QA_ITEMS.map((item) => (
             <button
-              key={q}
-              onClick={() => sendMessage(q)}
+              key={item.label}
+              onClick={() => sendMessage(item.query)}
               disabled={loading}
               className="px-3 py-1.5 border border-[rgba(217,119,6,0.12)] rounded-full text-[0.63rem] text-[#9C7E5A] cursor-pointer bg-transparent hover:border-[rgba(217,119,6,0.5)] hover:text-[#F59E0B] transition-all disabled:opacity-40 disabled:cursor-not-allowed"
             >
-              {q.includes('Cost') ? 'Cost optimisation →' : q.includes('GraphRAG') ? 'GraphRAG →' : q.includes('Healthcare') ? 'Healthcare AI →' : 'Contact →'}
+              {item.label}
             </button>
           ))}
         </div>

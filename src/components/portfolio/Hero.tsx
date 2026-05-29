@@ -17,7 +17,7 @@ export default function Hero() {
             <h1 className="text-[clamp(2.4rem,5vw,4.2rem)] font-extrabold leading-[1.05] tracking-[-0.03em] mb-6">
               <span className="text-[#9C7E5A]/60">Hi, I am</span>
               <br />
-              <span className="text-gradient-warm">{`{Rakshith Kumar}`}</span>
+              <span className="text-gradient-warm">Rakshith Kumar</span>
             </h1>
 
             <p className="text-[0.9rem] text-[#9C7E5A] leading-[1.8] max-w-[480px] mb-8">
@@ -99,7 +99,7 @@ export default function Hero() {
                   {[
                     { n: '5+', l: 'Years Exp.' },
                     { n: '$2M+', l: 'Cost Saved' },
-                    { n: '2,500+', l: 'Daily AI Calls' },
+                    { n: '10K+', l: 'Daily AI Queries' },
                     { n: '99.99%', l: 'Uptime SLA' },
                   ].map((s) => (
                     <div

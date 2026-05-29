@@ -2,7 +2,7 @@
 
 const EXPERIENCES = [
   {
-    date: 'Oct 2024 – Present',
+    date: 'Oct 2025 – Present',
     company: 'Gruve AI',
     badge: 'Current',
     role: 'Senior AI/ML Engineer',

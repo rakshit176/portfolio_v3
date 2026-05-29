@@ -187,6 +187,21 @@ export default function Skills() {
         className="relative border border-[rgba(217,119,6,0.12)] rounded-[20px] bg-[#120C08]/70 overflow-hidden"
         style={{ height: '520px' }}
       >
+        {/* Fallback if canvas fails to load */}
+        <noscript>
+          <div className="absolute inset-0 flex items-center justify-center p-8">
+            <div className="text-center">
+              <div className="text-[0.85rem] text-[#9C7E5A] mb-4">Interactive skill graph requires JavaScript.</div>
+              <div className="flex flex-wrap gap-2 justify-center">
+                {Object.entries(TREE).filter(([k]) => k !== 'root').map(([key, node]) => (
+                  <span key={key} className="px-2.5 py-1 border border-[rgba(217,119,6,0.25)] rounded text-[0.68rem] text-[rgba(245,158,11,0.9)] bg-[rgba(217,119,6,0.06)]">
+                    {node.label}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </noscript>
         <canvas
           ref={canvasRef}
           className="absolute inset-0 w-full h-full"
