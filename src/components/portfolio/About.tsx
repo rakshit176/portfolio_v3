@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 const SKILL_GROUPS = [
   {
     title: 'LLMs & GenAI',
@@ -50,6 +52,29 @@ export default function About() {
 
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-12 items-start">
         <div>
+          {/* Profile image in About section */}
+          <div className="relative mb-6 group">
+            {/* Animated border glow */}
+            <div className="absolute -inset-[2px] rounded-[16px] bg-gradient-to-br from-[#00d4ff]/50 via-transparent to-[#ff9500]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-[1px]" />
+            <div className="relative glass rounded-[14px] overflow-hidden border border-white/[0.06]">
+              <div className="relative w-full aspect-[3/2] overflow-hidden">
+                <Image
+                  src="/profile.png"
+                  alt="Rakshith Kumar K.N — AI Engineer"
+                  fill
+                  className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                />
+                {/* Subtle overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[rgba(10,10,10,0.6)] via-transparent to-transparent" />
+                {/* Status badge */}
+                <div className="absolute top-3 right-3 flex items-center gap-1.5 glass px-2.5 py-1 rounded-full">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#34d399] pulse-indicator" />
+                  <span className="text-[0.6rem] text-[#34d399] font-medium">Available</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="space-y-4 text-[0.9rem] text-[#a0a0a0] leading-[1.85]">
             <p>
               I&apos;m <strong className="text-white/80 font-medium">Rakshith Kumar K.N</strong> — an AI/ML Engineer

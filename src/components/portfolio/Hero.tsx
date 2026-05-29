@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 export default function Hero() {
   return (
     <section id="hero" className="min-h-screen flex items-center pt-20 relative z-10">
@@ -42,47 +44,73 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right — Code Card */}
+          {/* Right — Profile Image + Code Card */}
           <div className="relative flex justify-start lg:justify-end items-center">
-            {/* Glow blob */}
-            <div className="absolute -right-5 top-[10%] w-[280px] h-[280px] bg-radial-[ellipse] from-[rgba(0,212,255,0.25)] to-transparent rounded-full blur-[40px] pointer-events-none" />
+            {/* Glow blobs */}
+            <div className="absolute -right-5 top-[5%] w-[280px] h-[280px] bg-radial-[ellipse] from-[rgba(0,212,255,0.25)] to-transparent rounded-full blur-[40px] pointer-events-none" />
+            <div className="absolute -left-8 bottom-[5%] w-[200px] h-[200px] bg-radial-[ellipse] from-[rgba(255,149,0,0.15)] to-transparent rounded-full blur-[40px] pointer-events-none" />
 
-            <div className="glass rounded-[20px] p-6 w-full max-w-[360px] relative z-10 glow-blue">
-              {/* Terminal dots */}
-              <div className="flex gap-[5px] mb-4">
-                <div className="w-2 h-2 rounded-full bg-[#FF5F57]" />
-                <div className="w-2 h-2 rounded-full bg-[#FFBD2E]" />
-                <div className="w-2 h-2 rounded-full bg-[#28C840]" />
-              </div>
-
-              <div className="font-mono text-[0.72rem] text-[#a0a0a0] leading-[1.7]">
-                <div><span className="text-[#475569]"># rakshith.py — production AI engineer</span></div>
-                <div><span className="text-[#00d4ff]">class</span> <span className="text-[#ff9500]">RakshithKumar</span>:</div>
-                <div>&nbsp;&nbsp;role = <span className="text-[#34d399]">&quot;SDE II – AI/ML&quot;</span></div>
-                <div>&nbsp;&nbsp;stack = [<span className="text-[#34d399]">&quot;LangGraph&quot;</span>, <span className="text-[#34d399]">&quot;GraphRAG&quot;</span>,</div>
-                <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#34d399]">&quot;AWS Bedrock&quot;</span>, <span className="text-[#34d399]">&quot;PyTorch&quot;</span>]</div>
-                <div>&nbsp;&nbsp;yoe = <span className="text-[#f472b6]">5</span></div>
-                <div>&nbsp;&nbsp;uptime = <span className="text-[#34d399]">&quot;99.99%&quot;</span></div>
-                <div>&nbsp;&nbsp;<span className="text-[#00d4ff]">def</span> <span className="text-[#ff9500]">ship</span>(self, idea):</div>
-                <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#00d4ff]">return</span> <span className="text-[#34d399]">&quot;production-ready AI&quot;</span></div>
-              </div>
-
-              {/* Stats */}
-              <div className="grid grid-cols-2 gap-2 mt-5">
-                {[
-                  { n: '5+', l: 'Years Exp.' },
-                  { n: '$2M+', l: 'Cost Saved' },
-                  { n: '2,500+', l: 'Daily AI Calls' },
-                  { n: '99.99%', l: 'Uptime SLA' },
-                ].map((s) => (
-                  <div
-                    key={s.l}
-                    className="bg-[rgba(0,212,255,0.04)] border border-[rgba(0,212,255,0.12)] rounded-[10px] py-3 px-3 text-center"
-                  >
-                    <div className="text-[1.3rem] font-extrabold text-gradient-blue">{s.n}</div>
-                    <div className="text-[0.58rem] tracking-[0.1em] uppercase text-[#a0a0a0] mt-0.5">{s.l}</div>
+            <div className="relative z-10 w-full max-w-[360px]">
+              {/* Profile Image */}
+              <div className="relative mb-5 group">
+                {/* Rotating border ring */}
+                <div className="absolute -inset-1 rounded-[22px] bg-gradient-to-r from-[#00d4ff] via-[#ff9500] to-[#00d4ff] opacity-60 blur-[2px] group-hover:opacity-80 transition-opacity duration-500" />
+                <div className="relative glass rounded-[20px] overflow-hidden">
+                  <div className="relative w-full aspect-[4/3] overflow-hidden">
+                    <Image
+                      src="/profile.png"
+                      alt="Rakshith Kumar K.N — AI Engineer"
+                      fill
+                      priority
+                      className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                    />
+                    {/* Gradient overlay at bottom */}
+                    <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#0a0a0a] to-transparent" />
+                    {/* Name overlay at bottom of image */}
+                    <div className="absolute inset-x-0 bottom-0 p-4">
+                      <div className="font-mono text-[0.7rem] text-[#00d4ff] tracking-wider">SDE II – AI/ML</div>
+                      <div className="text-white font-bold text-[0.95rem] mt-0.5">Rakshith Kumar K.N</div>
+                    </div>
                   </div>
-                ))}
+                </div>
+              </div>
+
+              {/* Code Card (compact) */}
+              <div className="glass rounded-[16px] p-4 glow-blue">
+                {/* Terminal dots */}
+                <div className="flex gap-[5px] mb-3">
+                  <div className="w-2 h-2 rounded-full bg-[#FF5F57]" />
+                  <div className="w-2 h-2 rounded-full bg-[#FFBD2E]" />
+                  <div className="w-2 h-2 rounded-full bg-[#28C840]" />
+                </div>
+
+                <div className="font-mono text-[0.68rem] text-[#a0a0a0] leading-[1.65]">
+                  <div><span className="text-[#475569]"># rakshith.py</span></div>
+                  <div><span className="text-[#00d4ff]">class</span> <span className="text-[#ff9500]">RakshithKumar</span>:</div>
+                  <div>&nbsp;&nbsp;role = <span className="text-[#34d399]">&quot;SDE II – AI/ML&quot;</span></div>
+                  <div>&nbsp;&nbsp;stack = [<span className="text-[#34d399]">&quot;LangGraph&quot;</span>, <span className="text-[#34d399]">&quot;GraphRAG&quot;</span>, <span className="text-[#34d399]">&quot;AWS Bedrock&quot;</span>]</div>
+                  <div>&nbsp;&nbsp;yoe = <span className="text-[#f472b6]">5</span></div>
+                  <div>&nbsp;&nbsp;<span className="text-[#00d4ff]">def</span> <span className="text-[#ff9500]">ship</span>(self, idea):</div>
+                  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#00d4ff]">return</span> <span className="text-[#34d399]">&quot;production-ready AI&quot;</span></div>
+                </div>
+
+                {/* Stats */}
+                <div className="grid grid-cols-2 gap-2 mt-4">
+                  {[
+                    { n: '5+', l: 'Years Exp.' },
+                    { n: '$2M+', l: 'Cost Saved' },
+                    { n: '2,500+', l: 'Daily AI Calls' },
+                    { n: '99.99%', l: 'Uptime SLA' },
+                  ].map((s) => (
+                    <div
+                      key={s.l}
+                      className="bg-[rgba(0,212,255,0.04)] border border-[rgba(0,212,255,0.12)] rounded-[10px] py-2.5 px-3 text-center"
+                    >
+                      <div className="text-[1.15rem] font-extrabold text-gradient-blue">{s.n}</div>
+                      <div className="text-[0.55rem] tracking-[0.1em] uppercase text-[#a0a0a0] mt-0.5">{s.l}</div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

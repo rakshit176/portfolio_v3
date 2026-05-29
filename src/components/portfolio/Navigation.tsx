@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 const NAV_ITEMS = [
   { label: 'About', href: '#about' },
@@ -30,8 +31,19 @@ export default function Navigation() {
       }`}
     >
       <div className="max-w-[1160px] mx-auto px-6 md:px-12 py-4 flex items-center justify-between">
-        <div className="font-bold text-sm tracking-[0.3em] uppercase text-[#00d4ff]">
-          RK{'//'}AI
+        <div className="flex items-center gap-3">
+          {/* Small profile avatar */}
+          <div className="relative w-8 h-8 rounded-full overflow-hidden border border-[rgba(0,212,255,0.3)] flex-shrink-0">
+            <Image
+              src="/profile.png"
+              alt="RK"
+              fill
+              className="object-cover object-top"
+            />
+          </div>
+          <div className="font-bold text-sm tracking-[0.3em] uppercase text-[#00d4ff]">
+            RK{'//'}AI
+          </div>
         </div>
 
         {/* Desktop nav */}
