@@ -7,14 +7,14 @@ const ITEMS = [
 
 export default function Ticker() {
   return (
-    <div className="relative z-10 overflow-hidden border-y border-white/[0.08] py-3 bg-[rgba(15,15,15,0.5)] mt-4">
+    <div className="relative z-10 overflow-hidden border-y border-[rgba(217,119,6,0.1)] py-3 bg-[rgba(10,7,5,0.6)] mt-4">
       <div className="flex gap-12 w-max animate-ticker">
         {[...ITEMS, ...ITEMS].map((item, i) => (
           <div
             key={i}
-            className="flex items-center gap-3 text-[0.62rem] tracking-[0.18em] uppercase text-[#a0a0a0] whitespace-nowrap"
+            className="flex items-center gap-3 text-[0.62rem] tracking-[0.18em] uppercase text-[#9C7E5A] whitespace-nowrap"
           >
-            {item} <span className="text-[#00d4ff] opacity-50">·</span>
+            {item} <span className="text-[#D97706] opacity-50">·</span>
           </div>
         ))}
       </div>

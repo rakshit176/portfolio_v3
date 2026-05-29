@@ -45,7 +45,7 @@ const PROJECTS: Project[] = [
     desc: 'Fast UNet + VAE for SDXL + ControlNet — sub-2s e-commerce image generation. $30K/month GPU savings.',
     kpis: ['1–2s inference', '↓80% cost'], tags: ['SDXL', 'CUDA', 'TensorRT'],
     overview: 'Production-optimised SDXL + ControlNet pipeline for an e-commerce platform generating 50,000+ product images monthly.',
-    details: ['Flash Attention 2 + xFormers in UNet — ~40% compute reduction per step.', 'Tiled VAE decoding + half-precision — eliminated OOM, 3× faster decode.', 'Fused ControlNet conditioning with UNet diffusion step — no separate overhead.', 'Gradient checkpointing + BF16 — 60% memory reduction, larger batch sizes on G4.'],
+    details: ['Flash Attention 2 + xFormers in UNet — ~40% compute reduction per step.', 'Tiled VAE decoding + half-precision — eliminated OOM, 3x faster decode.', 'Fused ControlNet conditioning with UNet diffusion step — no separate overhead.', 'Gradient checkpointing + BF16 — 60% memory reduction, larger batch sizes on G4.'],
     metrics: ['1–2s (from 8–12s)', '↓80% cost', '50K+ images/mo', '$30K/mo saved'], stack: ['SDXL', 'ControlNet', 'CUDA', 'TensorRT', 'PyTorch', 'AWS G4/G5'],
   },
   {
@@ -94,51 +94,51 @@ function ProjectModal({ project, onClose }: { project: Project | null; onClose: 
   if (!project) return null;
   return (
     <div
-      className="fixed inset-0 z-[500] bg-[rgba(10,10,10,0.88)] backdrop-blur-[14px] flex items-center justify-center p-8"
+      className="fixed inset-0 z-[500] bg-[rgba(10,7,5,0.88)] backdrop-blur-[14px] flex items-center justify-center p-8"
       onClick={onClose}
     >
       <div
-        className="bg-[#0f0f0f] border border-white/[0.08] rounded-[20px] max-w-[680px] w-full max-h-[85vh] overflow-y-auto"
+        className="bg-[#0A0705] border border-[rgba(217,119,6,0.15)] rounded-[20px] max-w-[680px] w-full max-h-[85vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="p-7 pb-5 border-b border-white/[0.08] flex justify-between items-start gap-4">
+        <div className="p-7 pb-5 border-b border-[rgba(217,119,6,0.1)] flex justify-between items-start gap-4">
           <div>
-            <div className="text-[0.58rem] tracking-[0.18em] uppercase text-[#00d4ff] mb-1.5">{project.cat}</div>
+            <div className="text-[0.58rem] tracking-[0.18em] uppercase text-[#D97706] mb-1.5">{project.cat}</div>
             <div className="text-[1.4rem] font-extrabold tracking-[-0.02em]">{project.title}</div>
           </div>
           <button
             onClick={onClose}
-            className="bg-white/5 border border-white/[0.08] text-[#a0a0a0] w-[30px] h-[30px] rounded-full cursor-pointer text-sm flex items-center justify-center hover:bg-white/10 hover:text-white transition-all shrink-0"
+            className="bg-[rgba(217,119,6,0.06)] border border-[rgba(217,119,6,0.12)] text-[#9C7E5A] w-[30px] h-[30px] rounded-full cursor-pointer text-sm flex items-center justify-center hover:bg-[rgba(217,119,6,0.15)] hover:text-[#FFF8F0] transition-all shrink-0"
           >
-            ✕
+            x
           </button>
         </div>
         <div className="p-6 pt-5">
-          <div className="text-[0.6rem] tracking-[0.18em] uppercase text-[#a0a0a0] mb-1.5">Overview</div>
-          <p className="text-[0.85rem] text-white/60 leading-[1.8] mb-5">{project.overview}</p>
+          <div className="text-[0.6rem] tracking-[0.18em] uppercase text-[#9C7E5A] mb-1.5">Overview</div>
+          <p className="text-[0.85rem] text-[#9C7E5A] leading-[1.8] mb-5">{project.overview}</p>
 
           <div className="flex flex-wrap gap-2 mb-5">
             {project.metrics.map((m) => (
-              <span key={m} className="px-3 py-1.5 bg-[rgba(0,212,255,0.07)] border border-[rgba(0,212,255,0.2)] rounded-md text-[0.72rem] text-[rgba(0,212,255,0.9)]">
+              <span key={m} className="px-3 py-1.5 bg-[rgba(217,119,6,0.08)] border border-[rgba(217,119,6,0.22)] rounded-md text-[0.72rem] text-[rgba(245,158,11,0.9)]">
                 {m}
               </span>
             ))}
           </div>
 
-          <div className="text-[0.6rem] tracking-[0.18em] uppercase text-[#a0a0a0] mb-1.5">Technical Deep Dive</div>
+          <div className="text-[0.6rem] tracking-[0.18em] uppercase text-[#9C7E5A] mb-1.5">Technical Deep Dive</div>
           <ul className="space-y-1.5 mb-5">
             {project.details.map((d, i) => (
-              <li key={i} className="text-[0.83rem] text-white/60 pl-5 relative leading-[1.7]">
-                <span className="absolute left-0 text-[#00d4ff] text-[0.52rem] top-[0.35rem]">◈</span>
+              <li key={i} className="text-[0.83rem] text-[#9C7E5A] pl-5 relative leading-[1.7]">
+                <span className="absolute left-0 text-[#D97706] text-[0.52rem] top-[0.35rem]">&#9670;</span>
                 {d}
               </li>
             ))}
           </ul>
 
-          <div className="text-[0.6rem] tracking-[0.18em] uppercase text-[#a0a0a0] mb-1.5">Stack</div>
+          <div className="text-[0.6rem] tracking-[0.18em] uppercase text-[#9C7E5A] mb-1.5">Stack</div>
           <div className="flex flex-wrap gap-1.5">
             {project.stack.map((s) => (
-              <span key={s} className="text-[0.67rem] px-2.5 py-1 border border-white/[0.08] rounded text-white/50">
+              <span key={s} className="text-[0.67rem] px-2.5 py-1 border border-[rgba(217,119,6,0.12)] rounded text-[#9C7E5A]">
                 {s}
               </span>
             ))}
@@ -155,44 +155,44 @@ export default function Projects() {
   return (
     <>
       <section id="projects" className="relative z-10 py-24 max-w-[1160px] mx-auto px-6 md:px-12">
-        <div className="text-[0.62rem] tracking-[0.3em] uppercase text-[#00d4ff] mb-2 flex items-center gap-2">
-          <span className="w-[18px] h-[1px] bg-[#00d4ff] inline-block" />
+        <div className="text-[0.62rem] tracking-[0.3em] uppercase text-[#D97706] mb-2 flex items-center gap-2">
+          <span className="w-[18px] h-[1px] bg-[#D97706] inline-block" />
           04 · Projects
         </div>
         <h2 className="text-[clamp(1.8rem,3.5vw,2.6rem)] font-extrabold tracking-[-0.02em] leading-[1.1] mb-3">
           What I&apos;ve Built.
         </h2>
-        <div className="w-[1px] h-9 bg-gradient-to-b from-[#00d4ff] to-transparent mb-10" />
+        <div className="w-[1px] h-9 bg-gradient-to-b from-[#D97706] to-transparent mb-10" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/[0.08] border border-white/[0.08] rounded-[20px] overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[rgba(217,119,6,0.1)] border border-[rgba(217,119,6,0.1)] rounded-[20px] overflow-hidden">
           {PROJECTS.map((proj) => (
             <div
               key={proj.id}
-              className="bg-[#1a1a1a] p-7 cursor-pointer transition-colors duration-250 hover:bg-[#222] relative group overflow-hidden"
+              className="bg-[#120C08] p-7 cursor-pointer transition-colors duration-250 hover:bg-[#1C1209] relative group overflow-hidden"
               onClick={() => setActiveProject(proj)}
             >
-              {/* Hover glow */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[radial-gradient(circle_at_var(--mx,50%)_var(--my,50%),rgba(0,212,255,0.09),transparent_65%)]" />
+              {/* Hover glow — amber radial */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[radial-gradient(circle_at_var(--mx,50%)_var(--my,50%),rgba(217,119,6,0.1),transparent_65%)]" />
 
-              <span className="absolute top-5 right-5 text-xs text-[#a0a0a0] opacity-0 group-hover:opacity-60 -translate-x-1 translate-y-1 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-200">
+              <span className="absolute top-5 right-5 text-xs text-[#9C7E5A] opacity-0 group-hover:opacity-60 -translate-x-1 translate-y-1 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-200">
                 ↗
               </span>
 
-              <div className="text-[0.58rem] tracking-[0.18em] uppercase text-[#00d4ff] mb-2.5">{proj.cat}</div>
+              <div className="text-[0.58rem] tracking-[0.18em] uppercase text-[#D97706] mb-2.5">{proj.cat}</div>
               <div className="text-[0.95rem] font-bold mb-2 leading-[1.3]">{proj.title}</div>
-              <div className="text-[0.76rem] text-[#a0a0a0] leading-[1.7] mb-3">{proj.desc}</div>
+              <div className="text-[0.76rem] text-[#9C7E5A] leading-[1.7] mb-3">{proj.desc}</div>
 
               <div className="flex flex-wrap gap-1.5 mb-3">
                 {proj.kpis.map((kpi) => (
-                  <span key={kpi} className="text-[0.62rem] px-2 py-0.5 bg-[rgba(0,212,255,0.07)] border border-[rgba(0,212,255,0.2)] rounded text-[rgba(0,212,255,0.85)]">
+                  <span key={kpi} className="text-[0.62rem] px-2 py-0.5 bg-[rgba(217,119,6,0.08)] border border-[rgba(217,119,6,0.22)] rounded text-[rgba(245,158,11,0.9)]">
                     {kpi}
                   </span>
                 ))}
               </div>
 
-              <div className="flex flex-wrap gap-1 pt-3 border-t border-white/[0.08]">
+              <div className="flex flex-wrap gap-1 pt-3 border-t border-[rgba(217,119,6,0.1)]">
                 {proj.tags.map((tag) => (
-                  <span key={tag} className="text-[0.58rem] text-[#a0a0a0] px-1.5 py-0.5 border border-white/[0.08] rounded-[2px]">
+                  <span key={tag} className="text-[0.58rem] text-[#9C7E5A] px-1.5 py-0.5 border border-[rgba(217,119,6,0.1)] rounded-[2px]">
                     {tag}
                   </span>
                 ))}

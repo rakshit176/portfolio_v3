@@ -40,9 +40,9 @@ export default function ParticleBackground() {
         ptG,
         new THREE.PointsMaterial({
           size: 0.6,
-          color: 0x00d4ff,
+          color: 0xD97706, // Amber
           transparent: true,
-          opacity: 0.5,
+          opacity: 0.4,
         })
       )
     );
@@ -52,7 +52,7 @@ export default function ParticleBackground() {
     lG.setAttribute('position', new THREE.BufferAttribute(linePositions, 3));
     const lM = new THREE.LineSegments(
       lG,
-      new THREE.LineBasicMaterial({ color: 0x00d4ff, transparent: true, opacity: 0.12 })
+      new THREE.LineBasicMaterial({ color: 0xD97706, transparent: true, opacity: 0.1 })
     );
     scene.add(lM);
 
