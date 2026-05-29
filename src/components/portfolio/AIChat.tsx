@@ -1,10 +1,19 @@
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { marked } from 'marked';
+import createDOMPurify from 'dompurify';
+
+// Configure marked for GFM + line breaks
+marked.setOptions({
+  breaks: true,
+  gfm: true,
+});
+
+// DOMPurify only works in browser; provide a no-op fallback for SSR
+const DOMPurify = typeof window !== 'undefined'
+  ? createDOMPurify(window)
+  : { sanitize: (html: string) => html } as ReturnType<typeof createDOMPurify>;
 
 const RESUME = `Rakshith Kumar K.N — Senior AI/ML Engineer | Generative AI | Production ML Systems | LLMOps | Multi-Cloud AI | Team Leadership
 Bengaluru, India | rakshitkumarkn@gmail.com | +91 90087 96644 | linkedin.com/in/rakshith-kumar-kn-4108b31a3 | github.com/rakshit176
@@ -80,112 +89,10 @@ const QA_ITEMS = [
   'I want to contact Rakshith about a job',
 ];
 
-/* ─── Markdown renderer with amber-themed code blocks ─── */
-function MarkdownContent({ content }: { content: string }) {
-  return (
-    <ReactMarkdown
-      remarkPlugins={[remarkGfm]}
-      components={{
-        h1: ({ children }) => (
-          <h1 className="text-[1rem] font-bold text-[#F59E0B] mt-3 mb-1.5 first:mt-0">{children}</h1>
-        ),
-        h2: ({ children }) => (
-          <h2 className="text-[0.92rem] font-bold text-[#F59E0B] mt-3 mb-1.5 first:mt-0">{children}</h2>
-        ),
-        h3: ({ children }) => (
-          <h3 className="text-[0.85rem] font-semibold text-[#D97706] mt-2.5 mb-1">{children}</h3>
-        ),
-        p: ({ children }) => (
-          <p className="mb-2 leading-[1.75] last:mb-0">{children}</p>
-        ),
-        strong: ({ children }) => (
-          <strong className="text-[#FEF3C7] font-semibold">{children}</strong>
-        ),
-        em: ({ children }) => (
-          <em className="text-[#D97706] italic">{children}</em>
-        ),
-        ul: ({ children }) => (
-          <ul className="list-disc list-outside ml-4 mb-2 space-y-0.5">{children}</ul>
-        ),
-        ol: ({ children }) => (
-          <ol className="list-decimal list-outside ml-4 mb-2 space-y-0.5">{children}</ol>
-        ),
-        li: ({ children }) => (
-          <li className="leading-[1.7]">{children}</li>
-        ),
-        code: ({ className, children, ...props }) => {
-          const match = /language-(\w+)/.exec(className || '');
-          const inline = !match;
-          if (inline) {
-            return (
-              <code
-                className="bg-[rgba(217,119,6,0.12)] text-[#F59E0B] px-1.5 py-0.5 rounded text-[0.75rem] font-mono"
-                {...props}
-              >
-                {children}
-              </code>
-            );
-          }
-          return (
-            <div className="my-2 rounded-lg overflow-hidden border border-[rgba(217,119,6,0.15)]">
-              <SyntaxHighlighter
-                style={oneDark}
-                language={match[1]}
-                PreTag="div"
-                customStyle={{
-                  background: 'rgba(10, 7, 5, 0.9)',
-                  padding: '12px',
-                  fontSize: '0.72rem',
-                  margin: 0,
-                  borderRadius: 0,
-                }}
-              >
-                {String(children).replace(/\n$/, '')}
-              </SyntaxHighlighter>
-            </div>
-          );
-        },
-        a: ({ href, children }) => (
-          <a
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#D97706] underline hover:text-[#F59E0B] transition-colors"
-          >
-            {children}
-          </a>
-        ),
-        blockquote: ({ children }) => (
-          <blockquote className="border-l-2 border-[#D97706] pl-3 my-2 text-[#9C7E5A] italic">
-            {children}
-          </blockquote>
-        ),
-        table: ({ children }) => (
-          <div className="overflow-x-auto my-2">
-            <table className="w-full text-[0.75rem] border border-[rgba(217,119,6,0.15)] rounded-lg">
-              {children}
-            </table>
-          </div>
-        ),
-        thead: ({ children }) => (
-          <thead className="bg-[rgba(217,119,6,0.08)]">{children}</thead>
-        ),
-        th: ({ children }) => (
-          <th className="px-3 py-1.5 text-left text-[#F59E0B] font-semibold border-b border-[rgba(217,119,6,0.15)]">
-            {children}
-          </th>
-        ),
-        td: ({ children }) => (
-          <td className="px-3 py-1.5 border-b border-[rgba(217,119,6,0.08)]">{children}</td>
-        ),
-        hr: () => (
-          <hr className="border-[rgba(217,119,6,0.15)] my-3" />
-        ),
-      }}
-    >
-      {content}
-    </ReactMarkdown>
-  );
+/** Convert markdown → sanitised HTML */
+function renderMarkdown(md: string): string {
+  const rawHtml = marked.parse(md) as string;
+  return DOMPurify.sanitize(rawHtml);
 }
 
 export default function AIChat() {
@@ -387,7 +294,10 @@ export default function AIChat() {
                 {msg.role === 'user' ? (
                   msg.text
                 ) : (
-                  <MarkdownContent content={msg.text} />
+                  <div
+                    className="prose-answer"
+                    dangerouslySetInnerHTML={{ __html: renderMarkdown(msg.text) }}
+                  />
                 )}
               </div>
             </div>
@@ -398,7 +308,10 @@ export default function AIChat() {
             <div className="self-start max-w-[88%]">
               <div className="text-[0.58rem] tracking-[0.1em] uppercase text-[#9C7E5A] mb-1">Assistant</div>
               <div className="px-4 py-3 bg-[rgba(18,12,8,0.6)] border border-[rgba(217,119,6,0.08)] rounded-xl text-[0.8rem] text-[#FEF3C7]/85">
-                <MarkdownContent content={streamingText} />
+                <div
+                  className="prose-answer"
+                  dangerouslySetInnerHTML={{ __html: renderMarkdown(streamingText) }}
+                />
                 <span className="inline-block w-[2px] h-[0.9em] bg-[#F59E0B] ml-0.5 animate-pulse align-middle" />
               </div>
             </div>

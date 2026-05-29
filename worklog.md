@@ -6,18 +6,19 @@ Task: Integrate FreeLLMAPI as primary AI chat provider, add markdown rendering, 
 Work Log:
 - Examined FreeLLMAPI GitHub repo - it's OpenAI-compatible with streaming, model routing, and fallover
 - Updated `/home/z/my-project/src/app/api/chat/route.ts`: Made FreeLLMAPI the PRIMARY provider (was #2), added SSE streaming support, increased max_tokens to 2048
-- Rewrote `/home/z/my-project/src/components/portfolio/AIChat.tsx`: Added react-markdown + remark-gfm + react-syntax-highlighter for beautiful markdown rendering, added streaming support with real-time cursor, added amber-themed code blocks (oneDark style), enhanced system prompt to encourage markdown formatting
+- Initially used react-markdown + remark-gfm + react-syntax-highlighter, but user reported raw markdown displaying
+- Switched to `marked` + `DOMPurify` + `dangerouslySetInnerHTML` + `prose-answer` CSS approach per user's specification
+- Installed `marked` (v18.0.4) and `dompurify` (v3.4.7)
+- Fixed DOMPurify SSR issue: added client-only initialization with fallback for server-side rendering
+- Added comprehensive `prose-answer` CSS class to globals.css with amber-themed typography for all markdown elements (headings, bold, italic, lists, tables, code blocks, blockquotes, etc.)
 - Added Education section to About.tsx with glass cards for M.Sc. and B.C.A.
-- Added Awards & Recognition section to About.tsx with 4 items: Gruve AI Hackathon, August AI Hackathon, IEEE ACAI 2022, MCP Foundation Contributor
-- Fixed Contact.tsx: GitHub display name now shows 'github.com/rakshit176' (was incorrectly 'rakshith-kumar-kn')
-- Fixed Contact.tsx: "More" items are now clickable links with proper URLs (Resume, IEEE, GitHub repos, LinkedIn articles)
+- Added Awards & Recognition section to About.tsx with 4 items
+- Fixed Contact.tsx: GitHub display name and clickable "More" links
 - Build verified successfully
 - API tested: returns rich markdown with headers, bold, tables, code blocks
-- Streaming fallback works when FreeLLMAPI isn't available (uses Pollinations)
 
 Stage Summary:
-- FreeLLMAPI is now primary AI provider with streaming + fallover to Pollinations + z-ai
-- AI chat responses render as beautiful markdown with amber-themed styling
-- Missing content added: Education cards, Awards & Recognition section
-- Contact section fixed: correct GitHub name, clickable "More" links
+- AI chat now uses marked + DOMPurify + dangerouslySetInnerHTML + prose-answer pipeline
+- Markdown renders as beautiful formatted HTML with amber-themed styling
+- Tables, headers, bold, lists, code blocks all properly styled
 - All changes build and run successfully
