@@ -68,7 +68,7 @@ export default function Hero() {
                     <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#0A0705] to-transparent" />
                     {/* Name overlay at bottom of image */}
                     <div className="absolute inset-x-0 bottom-0 p-4">
-                      <div className="font-mono text-[0.7rem] text-[#D97706] tracking-wider">SDE II – AI/ML</div>
+                      <div className="font-mono text-[0.7rem] text-[#D97706] tracking-wider">Senior AI/ML Engineer</div>
                       <div className="text-[#FFF8F0] font-bold text-[0.95rem] mt-0.5">Rakshith Kumar K.N</div>
                     </div>
                   </div>
@@ -87,7 +87,7 @@ export default function Hero() {
                 <div className="font-mono text-[0.68rem] text-[#9C7E5A] leading-[1.65]">
                   <div><span className="text-[#92400E]"># rakshith.py</span></div>
                   <div><span className="text-[#D97706]">class</span> <span className="text-[#F59E0B]">RakshithKumar</span>:</div>
-                  <div>&nbsp;&nbsp;role = <span className="text-[#FEF3C7]">&quot;SDE II – AI/ML&quot;</span></div>
+                  <div>&nbsp;&nbsp;role = <span className="text-[#FEF3C7]">&quot;Senior AI/ML Engineer&quot;</span></div>
                   <div>&nbsp;&nbsp;stack = [<span className="text-[#FEF3C7]">&quot;LangGraph&quot;</span>, <span className="text-[#FEF3C7]">&quot;GraphRAG&quot;</span>, <span className="text-[#FEF3C7]">&quot;AWS Bedrock&quot;</span>]</div>
                   <div>&nbsp;&nbsp;yoe = <span className="text-[#F59E0B]">5</span></div>
                   <div>&nbsp;&nbsp;<span className="text-[#D97706]">def</span> <span className="text-[#F59E0B]">ship</span>(self, idea):</div>

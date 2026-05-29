@@ -87,7 +87,7 @@ export default function About() {
               HIPAA-compliant healthcare pipelines to GraphRAG-powered enterprise search and hybrid vector retrieval engines.
             </p>
             <p>
-              MSc in Big Data Analytics from St. Joseph&apos;s University, Bengaluru. Currently SDE II – AI/ML at Gruve AI
+              MSc in Big Data Analytics from St. Joseph&apos;s University, Bengaluru. Currently Senior AI/ML Engineer at Gruve AI
               building enterprise-grade systems for Fortune 500 clients including{' '}
               <strong className="text-[#FEF3C7] font-medium">Cisco and J.P. Morgan</strong>.
             </p>
@@ -134,7 +134,7 @@ export default function About() {
             <div><span className="text-[#92400E]">{'//'} profile.json</span></div>
             <div>{'{'}</div>
             <div>&nbsp;&nbsp;<span className="text-[#D97706]">&quot;name&quot;</span>: <span className="text-[#FEF3C7]">&quot;Rakshith Kumar K.N&quot;</span>,</div>
-            <div>&nbsp;&nbsp;<span className="text-[#D97706]">&quot;title&quot;</span>: <span className="text-[#FEF3C7]">&quot;SDE II – AI/ML&quot;</span>,</div>
+            <div>&nbsp;&nbsp;<span className="text-[#D97706]">&quot;title&quot;</span>: <span className="text-[#FEF3C7]">&quot;Senior AI/ML Engineer&quot;</span>,</div>
             <div>&nbsp;&nbsp;<span className="text-[#D97706]">&quot;location&quot;</span>: <span className="text-[#FEF3C7]">&quot;Bengaluru, India&quot;</span>,</div>
             <div>&nbsp;&nbsp;<span className="text-[#D97706]">&quot;experience&quot;</span>: <span className="text-[#F59E0B]">5</span>,</div>
             <div>&nbsp;&nbsp;<span className="text-[#D97706]">&quot;education&quot;</span>: <span className="text-[#FEF3C7]">&quot;MSc Big Data Analytics&quot;</span>,</div>

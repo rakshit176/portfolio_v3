@@ -5,7 +5,7 @@ const EXPERIENCES = [
     date: 'Oct 2025 – Present',
     company: 'Gruve AI',
     badge: 'Current',
-    role: 'SDE II – AI/ML',
+    role: 'Senior AI/ML Engineer',
     items: [
       'Engineered <strong class="text-[#FEF3C7]">Cisco FMT v2.0</strong> using GraphRAG — compressed ASA config validation to a 2–5s cycle, eliminating legacy firewall migration bottlenecks.',
       'Built <strong class="text-[#FEF3C7]">J.P. Morgan NLP Redaction Service</strong> (spaCy + Presidio + GLiNER) processing thousands of financial documents daily with zero PII leakage.',

@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 
-const RESUME = `Rakshith Kumar K.N — AI/ML Engineer · SDE II · Bengaluru
+const RESUME = `Rakshith Kumar K.N — Senior AI/ML Engineer · Bengaluru
 rakshitkumarkn@gmail.com | +91 9008796644
 EXPERIENCE: Gruve AI (Oct 2025–Present): Cisco FMT v2.0 GraphRAG, J.P. Morgan NLP redaction, GSC AI search sub-300ms, Azure cost reduction 60%, TechGenie voice agent 40% faster. August AI (Aug 2024–Oct 2025): multi-agent healthcare, 91% accuracy, HIPAA infra 99.99% uptime. Snive/Krut AI (Jan–Aug 2024): SDXL 1–2s inference, $30K/month saved. Lincode Labs (Mar 2022–Jan 2024): OCR 92% accuracy, $2M annual savings.
 SKILLS: GPT-4, Claude, Gemini, LLaMA, Mistral, Deepseek, RAG, GraphRAG, Fine-tuning, PEFT, LoRA, Prompt Engineering, Chain-of-Thought, Function Calling, MCP, LangChain, LangGraph, LlamaIndex, Hugging Face, Transformers, Google ADK, CrewAI, AutoGen, Semantic Kernel, Stable Diffusion, vLLM, Pinecone, Chroma, Weaviate, Qdrant, Neo4j, PyTorch, TensorFlow, Python, CUDA, TensorRT, Quantization, Pruning, AWS (ECS, Lambda, SageMaker, Bedrock, EKS), Azure (Container Apps, OpenAI, AI Foundry), GCP, Docker, Kubernetes, MLflow, CI/CD, Medical NLP, Clinical Decision Support, FHIR, HL7, HIPAA, FDA Compliance, Postgres, Clickhouse, Aurora, MongoDB, FastAPI, GraphQL, Redis, Elasticsearch, ETL, Realtime Processing`;

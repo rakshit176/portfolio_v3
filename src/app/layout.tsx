@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Rakshith Kumar K.N · AI Engineer",
+  title: "Rakshith Kumar K.N · Senior AI/ML Engineer",
   description: "AI/ML Engineer specialising in Generative AI, multi-agent systems, and large-scale cloud infrastructure. 5+ years shipping production AI.",
   keywords: ["AI Engineer", "ML Engineer", "Generative AI", "LangGraph", "GraphRAG", "AWS Bedrock", "PyTorch"],
   authors: [{ name: "Rakshith Kumar K.N" }],
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     icon: "https://z-cdn.chatglm.cn/z-ai/static/logo.svg",
   },
   openGraph: {
-    title: "Rakshith Kumar K.N · AI Engineer",
+    title: "Rakshith Kumar K.N · Senior AI/ML Engineer",
     description: "AI/ML Engineer specialising in Generative AI, multi-agent systems, and large-scale cloud infrastructure.",
     type: "website",
   },
