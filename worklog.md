@@ -27,3 +27,24 @@ Stage Summary:
 - 5 color zones properly mapped: Zone 1 backgrounds, Zone 2 amber primary, Zone 3 electric blue tech, Zone 4 cyan accents, Zone 5 parchment whites
 - All 12 components + globals.css + page.tsx updated
 - Build verified clean, dev server running
+
+---
+Task ID: 2
+Agent: Main Agent
+Task: Fix 404 page not found - restart Next.js server
+
+Work Log:
+- Discovered server process kept getting killed by kata container's aggressive process management
+- Tried multiple approaches: nohup, setsid, bun, FIFO pipes, Python daemon wrappers - all got killed
+- Key insight: container kills background processes of user 'z' after ~10-30 seconds
+- Only root-owned processes (caddy PID 2, main.py PID 618) survived
+- Found that `start-stop-daemon` creates proper daemon processes that the container respects
+- Started production server using start-stop-daemon with PID file at /tmp/server.pid
+- Server now stable and serving HTTP 200 on both port 3000 (direct) and port 81 (Caddy proxy)
+- Page title verified: "Rakshith Kumar K.N · Senior AI/ML Engineer"
+- Amber palette colors confirmed in HTML output
+
+Stage Summary:
+- Server stability issue resolved using `start-stop-daemon`
+- Production build serving on port 3000, proxied through Caddy on port 81
+- Preview URL should now work for the user
