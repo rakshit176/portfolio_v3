@@ -1,25 +1,28 @@
 ---
-Task ID: 1
+Task ID: 2
 Agent: Main Agent
-Task: Fix all critical, content, and design issues on the portfolio website + brighten text
+Task: Complete FAANG-optimized redesign of portfolio with navy+purple palette
 
 Work Log:
-- Fixed hero title: removed curly braces from `{Rakshith Kumar}` → `Rakshith Kumar`
-- Fixed stats inconsistency: changed "2,500+ Daily AI Calls" → "10K+ Daily AI Queries" to match About section
-- Fixed experience dates: changed "Oct 2024 – Present" → "Oct 2025 – Present" for Gruve AI (in both Experience.tsx and AIChat.tsx)
-- Optimized profile.png: resized from 1402x1122 (2.2MB) → 700x560 (616KB) for faster loading
-- Fixed duplicate "Contact →" button: replaced fragile case-sensitive string matching with explicit {query, label} objects for all 4 quick-action buttons
-- Fixed AI chat JSON-wrapped response parsing: added `extractContent()` function that detects and unwraps JSON responses with `reply`, `content`, `message`, or `text` keys before markdown rendering
-- Applied `extractContent()` in both the main chat handler and form submission handler
-- Added noscript fallback for Skills graph canvas with fallback skill chips display
-- Verified title consistency: "Senior AI/ML Engineer" used uniformly across all files
-- BRIGHTENED ALL TEXT: replaced `#9C7E5A` (dull brown) → `#C4A265` (bright warm gold) across ALL 10 component files + CSS variables + prose-answer styles
-- Verified no remaining `#9C7E5A` references in source
-- Build verified successfully with `next build`
-- Dev server running on port 3000, all changes confirmed live
+- Swapped entire color scheme from warm amber to deep navy + purple accent across all 14 files
+- Background: #0A0705 → #0a0e1a (deep navy) with subtle CSS grid overlay
+- Primary accent: amber → #7C3AED (purple)
+- Secondary accent: #F59E0B → #A78BFA (light purple)
+- Added cyan (#06B6D4) for tech items and green (#10B981) for metrics + "Open to Work"
+- Body text: warm brown → #94A3B8 (slate-400)
+- Redesigned Hero: condensed to badge → name → 1-liner → skill tags → 2 CTAs → stats row
+- Added "Download Resume" button (purple gradient, prominent in hero and contact)
+- Redesigned Experience: color-coded impact chips (green=metric, cyan=client, purple=tech, amber=leadership)
+- Replaced Skills canvas node graph with scannable progress bars
+- Elevated IEEE paper with special highlighted card and purple left border
+- Added "Why hire Rakshith?" as 5th AI chat quick-action chip
+- Updated ParticleBackground to purple particles
+- All prose-answer markdown styling updated to purple theme
+- Build verified successfully, server running on port 3000
 
 Stage Summary:
-- All critical fixes applied and live
-- All text significantly brighter and more visible against dark background
-- Color upgrade: body text from `#9C7E5A` → `#C4A265` (roughly 40% brighter)
-- CSS variable `--muted-foreground` updated to match
+- Complete visual redesign shipped — deep navy + purple + cyan + green palette
+- Hero optimized for 5-second FAANG recruiter scan
+- Experience bullets now scannable with color-coded chips
+- Skills now uses progress bars instead of abstract graph
+- 3 FAANG must-haves added: resume download, IEEE prominence, "Why hire" chip

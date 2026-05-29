@@ -18,24 +18,19 @@ const ParticleBackground = dynamic(() => import('@/components/portfolio/Particle
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#0A0705] text-[#FFF8F0] overflow-x-hidden">
-      {/* Background gradient overlay — warm amber glows */}
+    <div className="min-h-screen flex flex-col bg-[#0a0e1a] text-[#F8FAFC] overflow-x-hidden">
+      {/* Background gradient overlay — purple/navy glows */}
       <div
         className="fixed inset-0 pointer-events-none z-0"
         style={{
           background:
-            'radial-gradient(ellipse 80% 60% at 15% 5%, rgba(217, 119, 6, 0.08) 0%, transparent 60%), radial-gradient(ellipse 60% 50% at 85% 75%, rgba(146, 64, 14, 0.06) 0%, transparent 55%), radial-gradient(ellipse 50% 40% at 50% 50%, rgba(245, 158, 11, 0.03) 0%, transparent 50%)',
+            'radial-gradient(ellipse 80% 60% at 15% 5%, rgba(124, 58, 237, 0.08) 0%, transparent 60%), radial-gradient(ellipse 60% 50% at 85% 75%, rgba(6, 182, 212, 0.06) 0%, transparent 55%), radial-gradient(ellipse 50% 40% at 50% 50%, rgba(167, 139, 250, 0.03) 0%, transparent 50%)',
         }}
       />
 
-      {/* Noise texture overlay */}
+      {/* Grid overlay pattern */}
       <div
-        className="fixed inset-0 pointer-events-none z-[1] opacity-[0.025]"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E")`,
-          backgroundRepeat: 'repeat',
-          backgroundSize: '256px 256px',
-        }}
+        className="fixed inset-0 pointer-events-none z-[1] grid-overlay"
       />
 
       {/* Three.js particle background */}
