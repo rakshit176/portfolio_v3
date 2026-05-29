@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   keywords: ["AI Engineer", "ML Engineer", "Generative AI", "LangGraph", "GraphRAG", "AWS Bedrock", "PyTorch"],
   authors: [{ name: "Rakshith Kumar K.N" }],
   icons: {
-    icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🟣</text></svg>",
+    icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🟠</text></svg>",
   },
   openGraph: {
     title: "Rakshith Kumar K.N · Senior AI/ML Engineer",
@@ -36,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#0a0e1a] text-[#F8FAFC]`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#0A0603] text-[#FFF3E2]`}
       >
         {children}
         <Toaster />
