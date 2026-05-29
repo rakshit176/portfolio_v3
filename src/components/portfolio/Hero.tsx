@@ -24,8 +24,8 @@ export default function Hero() {
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#10B981]/30 bg-[#10B981]/10 mb-5">
               <span className="w-2 h-2 rounded-full bg-[#10B981] pulse-green" />
               <span className="text-[0.7rem] font-semibold text-[#10B981] tracking-wide">Open to Work</span>
-              <span className="text-[0.6rem] text-[#64748B]">·</span>
-              <span className="text-[0.6rem] text-[#64748B]">Bengaluru · 2026</span>
+              <span className="text-[0.6rem] text-[#8B7355]">·</span>
+              <span className="text-[0.6rem] text-[#8B7355]">Bengaluru · 2026</span>
             </div>
 
             {/* Name — large gradient */}
@@ -34,16 +34,16 @@ export default function Hero() {
             </h1>
 
             {/* 1-line descriptor */}
-            <p className="text-[0.9rem] text-[#94A3B8] leading-[1.7] max-w-[520px] mb-5">
-              Senior AI/ML Engineer · 5+ yrs · <strong className="text-[#E2E8F0] font-medium">GenAI, GraphRAG &amp; Multi-Agent Systems</strong>
+            <p className="text-[0.9rem] text-[#C8A882] leading-[1.7] max-w-[520px] mb-5">
+              Senior AI/ML Engineer · 5+ yrs · <strong className="text-[#FFF3E2] font-medium">GenAI, GraphRAG &amp; Multi-Agent Systems</strong>
             </p>
 
-            {/* Skill tags row */}
+            {/* Skill tags row — electric blue tech chips */}
             <div className="flex flex-wrap gap-1.5 mb-6">
               {SKILL_CHIPS.map((chip) => (
                 <span
                   key={chip}
-                  className="px-2.5 py-1 border border-[rgba(124,58,237,0.25)] rounded text-[0.68rem] text-[#A78BFA] bg-[rgba(124,58,237,0.06)] transition-all duration-200 hover:border-[rgba(124,58,237,0.5)] hover:text-[#E2E8F0]"
+                  className="px-2.5 py-1 border border-[rgba(59,158,240,0.3)] rounded text-[0.68rem] text-[#3B9EF0] bg-[rgba(59,158,240,0.06)] transition-all duration-200 hover:border-[rgba(59,158,240,0.6)] hover:text-[#FFF3E2]"
                 >
                   {chip}
                 </span>
@@ -54,13 +54,13 @@ export default function Hero() {
             <div className="flex gap-3 flex-wrap mb-8">
               <button
                 onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-                className="px-7 py-3 bg-gradient-to-r from-[#7C3AED] to-[#5B21B6] rounded-full text-[#F8FAFC] font-semibold text-[0.82rem] hover:-translate-y-0.5 hover:opacity-90 transition-all duration-200"
+                className="px-7 py-3 bg-gradient-to-r from-[#F5A832] to-[#D4891A] rounded-full text-[#0A0603] font-semibold text-[0.82rem] hover:-translate-y-0.5 hover:opacity-90 transition-all duration-200"
               >
                 View Projects
               </button>
               <a
                 href="mailto:rakshitkumarkn@gmail.com?subject=Request%20for%20Resume"
-                className="px-7 py-3 border border-[rgba(124,58,237,0.3)] rounded-full bg-transparent text-[#94A3B8] text-[0.82rem] hover:border-[rgba(124,58,237,0.6)] hover:text-[#E2E8F0] transition-all duration-200 inline-flex items-center gap-1.5"
+                className="px-7 py-3 border border-[rgba(245,168,50,0.3)] rounded-full bg-transparent text-[#C8A882] text-[0.82rem] hover:border-[rgba(245,168,50,0.6)] hover:text-[#FFF3E2] transition-all duration-200 inline-flex items-center gap-1.5"
               >
                 Download Resume <span className="text-[0.7rem]">↓</span>
               </a>
@@ -71,10 +71,10 @@ export default function Hero() {
               {STATS.map((s) => (
                 <div
                   key={s.l}
-                  className="bg-[rgba(124,58,237,0.06)] border border-[rgba(124,58,237,0.15)] rounded-[10px] py-2.5 px-4 text-center"
+                  className="bg-[rgba(245,168,50,0.06)] border border-[rgba(245,168,50,0.15)] rounded-[10px] py-2.5 px-4 text-center"
                 >
                   <div className="text-[1.1rem] font-extrabold text-gradient-amber">{s.n}</div>
-                  <div className="text-[0.55rem] tracking-[0.1em] uppercase text-[#64748B] mt-0.5">{s.l}</div>
+                  <div className="text-[0.55rem] tracking-[0.1em] uppercase text-[#8B7355] mt-0.5">{s.l}</div>
                 </div>
               ))}
             </div>
@@ -83,14 +83,14 @@ export default function Hero() {
           {/* Right — Profile Image + Code Card */}
           <div className="relative flex justify-start lg:justify-end items-center">
             {/* Glow blobs */}
-            <div className="absolute -right-5 top-[5%] w-[280px] h-[280px] bg-radial-[ellipse] from-[rgba(124,58,237,0.25)] to-transparent rounded-full blur-[40px] pointer-events-none" />
-            <div className="absolute -left-8 bottom-[5%] w-[200px] h-[200px] bg-radial-[ellipse] from-[rgba(6,182,212,0.15)] to-transparent rounded-full blur-[40px] pointer-events-none" />
+            <div className="absolute -right-5 top-[5%] w-[280px] h-[280px] bg-radial-[ellipse] from-[rgba(245,168,50,0.25)] to-transparent rounded-full blur-[40px] pointer-events-none" />
+            <div className="absolute -left-8 bottom-[5%] w-[200px] h-[200px] bg-radial-[ellipse] from-[rgba(0,200,220,0.15)] to-transparent rounded-full blur-[40px] pointer-events-none" />
 
             <div className="relative z-10 w-full max-w-[360px]">
               {/* Profile Image */}
               <div className="relative mb-5 group">
-                {/* Rotating border ring — purple gradient */}
-                <div className="absolute -inset-1 rounded-[22px] bg-gradient-to-r from-[#7C3AED] via-[#06B6D4] to-[#7C3AED] opacity-60 blur-[2px] group-hover:opacity-80 transition-opacity duration-500" />
+                {/* Rotating border ring — amber/cyan gradient */}
+                <div className="absolute -inset-1 rounded-[22px] bg-gradient-to-r from-[#F5A832] via-[#00C8DC] to-[#F5A832] opacity-60 blur-[2px] group-hover:opacity-80 transition-opacity duration-500" />
                 <div className="relative glass rounded-[20px] overflow-hidden">
                   <div className="relative w-full aspect-[4/3] overflow-hidden">
                     <Image
@@ -101,18 +101,18 @@ export default function Hero() {
                       className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
                     />
                     {/* Gradient overlay at bottom */}
-                    <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#0a0e1a] to-transparent" />
+                    <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#0A0603] to-transparent" />
                     {/* Name overlay at bottom of image */}
                     <div className="absolute inset-x-0 bottom-0 p-4">
-                      <div className="font-mono text-[0.7rem] text-[#A78BFA] tracking-wider">Senior AI/ML Engineer</div>
-                      <div className="text-[#F8FAFC] font-bold text-[0.95rem] mt-0.5">Rakshith Kumar K.N</div>
+                      <div className="font-mono text-[0.7rem] text-[#F5A832] tracking-wider">Senior AI/ML Engineer</div>
+                      <div className="text-[#FFF3E2] font-bold text-[0.95rem] mt-0.5">Rakshith Kumar K.N</div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Code Card (compact) — purple syntax */}
-              <div className="glass rounded-[16px] p-4 glow-purple">
+              {/* Code Card (compact) — amber syntax */}
+              <div className="glass rounded-[16px] p-4 glow-amber">
                 {/* Terminal dots */}
                 <div className="flex gap-[5px] mb-3">
                   <div className="w-2 h-2 rounded-full bg-[#FF5F57]" />
@@ -120,14 +120,14 @@ export default function Hero() {
                   <div className="w-2 h-2 rounded-full bg-[#28C840]" />
                 </div>
 
-                <div className="font-mono text-[0.68rem] text-[#94A3B8] leading-[1.65]">
-                  <div><span className="text-[#64748B]"># rakshith.py</span></div>
-                  <div><span className="text-[#7C3AED]">class</span> <span className="text-[#A78BFA]">RakshithKumar</span>:</div>
-                  <div>&nbsp;&nbsp;role = <span className="text-[#E2E8F0]">&quot;Senior AI/ML Engineer&quot;</span></div>
-                  <div>&nbsp;&nbsp;stack = [<span className="text-[#E2E8F0]">&quot;LangGraph&quot;</span>, <span className="text-[#E2E8F0]">&quot;GraphRAG&quot;</span>, <span className="text-[#E2E8F0]">&quot;AWS Bedrock&quot;</span>]</div>
-                  <div>&nbsp;&nbsp;yoe = <span className="text-[#A78BFA]">5</span></div>
-                  <div>&nbsp;&nbsp;<span className="text-[#7C3AED]">def</span> <span className="text-[#A78BFA]">ship</span>(self, idea):</div>
-                  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#7C3AED]">return</span> <span className="text-[#E2E8F0]">&quot;production-ready AI&quot;</span></div>
+                <div className="font-mono text-[0.68rem] text-[#C8A882] leading-[1.65]">
+                  <div><span className="text-[#8B7355]"># rakshith.py</span></div>
+                  <div><span className="text-[#F5A832]">class</span> <span className="text-[#3B9EF0]">RakshithKumar</span>:</div>
+                  <div>&nbsp;&nbsp;role = <span className="text-[#FFF3E2]">&quot;Senior AI/ML Engineer&quot;</span></div>
+                  <div>&nbsp;&nbsp;stack = [<span className="text-[#FFF3E2]">&quot;LangGraph&quot;</span>, <span className="text-[#FFF3E2]">&quot;GraphRAG&quot;</span>, <span className="text-[#FFF3E2]">&quot;AWS Bedrock&quot;</span>]</div>
+                  <div>&nbsp;&nbsp;yoe = <span className="text-[#3B9EF0]">5</span></div>
+                  <div>&nbsp;&nbsp;<span className="text-[#F5A832]">def</span> <span className="text-[#3B9EF0]">ship</span>(self, idea):</div>
+                  <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#F5A832]">return</span> <span className="text-[#FFF3E2]">&quot;production-ready AI&quot;</span></div>
                 </div>
               </div>
             </div>

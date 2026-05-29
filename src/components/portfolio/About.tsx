@@ -42,22 +42,22 @@ const SKILL_GROUPS = [
 export default function About() {
   return (
     <section id="about" className="relative z-10 py-24 max-w-[1160px] mx-auto px-6 md:px-12">
-      <div className="text-[0.62rem] tracking-[0.3em] uppercase text-[#7C3AED] mb-2 flex items-center gap-2">
-        <span className="w-[18px] h-[1px] bg-[#7C3AED] inline-block" />
+      <div className="text-[0.62rem] tracking-[0.3em] uppercase text-[#F5A832] mb-2 flex items-center gap-2">
+        <span className="w-[18px] h-[1px] bg-[#F5A832] inline-block" />
         01 · About
       </div>
-      <h2 className="text-[clamp(1.8rem,3.5vw,2.6rem)] font-extrabold tracking-[-0.02em] leading-[1.1] mb-3 text-[#F1F5F9]">
+      <h2 className="text-[clamp(1.8rem,3.5vw,2.6rem)] font-extrabold tracking-[-0.02em] leading-[1.1] mb-3 text-[#FFF3E2]">
         AI Engineer.<br />Infrastructure Thinker.
       </h2>
-      <div className="w-[1px] h-9 bg-gradient-to-b from-[#7C3AED] to-transparent mb-10" />
+      <div className="w-[1px] h-9 bg-gradient-to-b from-[#F5A832] to-transparent mb-10" />
 
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-12 items-start">
         <div>
           {/* Profile image in About section */}
           <div className="relative mb-6 group">
-            {/* Animated border glow — purple */}
-            <div className="absolute -inset-[2px] rounded-[16px] bg-gradient-to-br from-[#7C3AED]/50 via-transparent to-[#06B6D4]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-[1px]" />
-            <div className="relative glass rounded-[14px] overflow-hidden border border-[rgba(124,58,237,0.1)]">
+            {/* Animated border glow — amber */}
+            <div className="absolute -inset-[2px] rounded-[16px] bg-gradient-to-br from-[#F5A832]/50 via-transparent to-[#00C8DC]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-[1px]" />
+            <div className="relative glass rounded-[14px] overflow-hidden border border-[rgba(245,168,50,0.1)]">
               <div className="relative w-full aspect-[3/2] overflow-hidden">
                 <Image
                   src="/profile.png"
@@ -66,7 +66,7 @@ export default function About() {
                   className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
                 />
                 {/* Subtle overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[rgba(10,14,26,0.6)] via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[rgba(10,6,3,0.6)] via-transparent to-transparent" />
                 {/* Status badge */}
                 <div className="absolute top-3 right-3 flex items-center gap-1.5 glass px-2.5 py-1 rounded-full">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] pulse-green" />
@@ -76,78 +76,78 @@ export default function About() {
             </div>
           </div>
 
-          <div className="space-y-4 text-[0.9rem] text-[#94A3B8] leading-[1.85]">
+          <div className="space-y-4 text-[0.9rem] text-[#C8A882] leading-[1.85]">
             <p>
-              I&apos;m <strong className="text-[#E2E8F0] font-medium">Rakshith Kumar K.N</strong> — a Senior AI/ML Engineer
-              with <strong className="text-[#E2E8F0] font-medium">5+ years delivering $2.3M+ measurable business impact</strong> across
+              I&apos;m <strong className="text-[#FFF3E2] font-medium">Rakshith Kumar K.N</strong> — a Senior AI/ML Engineer
+              with <strong className="text-[#FFF3E2] font-medium">5+ years delivering $2.3M+ measurable business impact</strong> across
               enterprise security, healthcare, and fintech. MCP Foundation Development contributor building production MCP servers
               connecting LLM agents to live enterprise tools.
             </p>
             <p>
-              Proven team leader who mentored <strong className="text-[#E2E8F0] font-medium">5+ junior engineers</strong>, led
-              cross-functional squads of 4–8 engineers, and pioneered <strong className="text-[#E2E8F0] font-medium">LLM-supervised Knowledge Distillation</strong> —
+              Proven team leader who mentored <strong className="text-[#FFF3E2] font-medium">5+ junior engineers</strong>, led
+              cross-functional squads of 4–8 engineers, and pioneered <strong className="text-[#FFF3E2] font-medium">LLM-supervised Knowledge Distillation</strong> —
               compressing 4+ hour firewall validation to 2–5 seconds. Multi-cloud architect across AWS, Azure, and GCP with
               $50K+/month in cloud savings.
             </p>
             <p>
               M.Sc. Big Data Analytics from St. Joseph&apos;s University, Bengaluru. B.C.A. from Seshadripuram College.
               Currently Senior AI/ML Engineer at Gruve AI building enterprise-grade systems for Fortune 500 clients including{' '}
-              <strong className="text-[#E2E8F0] font-medium">Cisco and J.P. Morgan</strong>.
+              <strong className="text-[#FFF3E2] font-medium">Cisco and J.P. Morgan</strong>.
             </p>
             <p>
               Deep expertise in multi-agent orchestration, GraphRAG, LLMOps pipelines, and regulated-domain AI (HIPAA, SOC 2).{' '}
-              <strong className="text-[#E2E8F0] font-medium">Zero PII leakage across 50K+ financial documents.</strong>
+              <strong className="text-[#FFF3E2] font-medium">Zero PII leakage across 50K+ financial documents.</strong>
             </p>
           </div>
 
           {/* Education */}
           <div className="mt-8 mb-6">
-            <div className="text-[0.58rem] tracking-[0.18em] uppercase text-[#94A3B8] mb-3">Education</div>
+            <div className="text-[0.58rem] tracking-[0.18em] uppercase text-[#C8A882] mb-3">Education</div>
             <div className="space-y-3">
-              <div className="glass rounded-[12px] p-4 border border-[rgba(124,58,237,0.1)]">
-                <div className="text-[0.82rem] font-semibold text-[#E2E8F0]">M.Sc. Big Data Analytics</div>
-                <div className="text-[0.72rem] text-[#94A3B8] mt-0.5">St. Joseph&apos;s University, Bengaluru · 2020–2022</div>
+              <div className="glass rounded-[12px] p-4 border border-[rgba(245,168,50,0.1)]">
+                <div className="text-[0.82rem] font-semibold text-[#FFF3E2]">M.Sc. Big Data Analytics</div>
+                <div className="text-[0.72rem] text-[#C8A882] mt-0.5">St. Joseph&apos;s University, Bengaluru · 2020–2022</div>
               </div>
-              <div className="glass rounded-[12px] p-4 border border-[rgba(124,58,237,0.1)]">
-                <div className="text-[0.82rem] font-semibold text-[#E2E8F0]">B.C.A. Computer Applications</div>
-                <div className="text-[0.72rem] text-[#94A3B8] mt-0.5">Seshadripuram College, Bengaluru · 2016–2019</div>
+              <div className="glass rounded-[12px] p-4 border border-[rgba(245,168,50,0.1)]">
+                <div className="text-[0.82rem] font-semibold text-[#FFF3E2]">B.C.A. Computer Applications</div>
+                <div className="text-[0.72rem] text-[#C8A882] mt-0.5">Seshadripuram College, Bengaluru · 2016–2019</div>
               </div>
             </div>
           </div>
 
           {/* Awards & Recognition */}
           <div className="mb-6">
-            <div className="text-[0.58rem] tracking-[0.18em] uppercase text-[#94A3B8] mb-3">Awards & Recognition</div>
+            <div className="text-[0.58rem] tracking-[0.18em] uppercase text-[#C8A882] mb-3">Awards & Recognition</div>
             <div className="space-y-2">
-              <div className="flex items-start gap-2.5 px-3 py-2.5 rounded-[10px] border border-[rgba(124,58,237,0.1)] bg-[rgba(124,58,237,0.03)]">
-                <span className="text-[#A78BFA] text-[0.85rem] mt-0.5">★</span>
+              <div className="flex items-start gap-2.5 px-3 py-2.5 rounded-[10px] border border-[rgba(245,168,50,0.1)] bg-[rgba(245,168,50,0.03)]">
+                <span className="text-[#F5A832] text-[0.85rem] mt-0.5">★</span>
                 <div>
-                  <div className="text-[0.78rem] font-semibold text-[#E2E8F0]">Winner — Gruve AI Hackathon</div>
-                  <div className="text-[0.68rem] text-[#94A3B8]">IT Help Desk automation project</div>
+                  <div className="text-[0.78rem] font-semibold text-[#FFF3E2]">Winner — Gruve AI Hackathon</div>
+                  <div className="text-[0.68rem] text-[#C8A882]">IT Help Desk automation project</div>
                 </div>
               </div>
-              <div className="flex items-start gap-2.5 px-3 py-2.5 rounded-[10px] border border-[rgba(124,58,237,0.1)] bg-[rgba(124,58,237,0.03)]">
-                <span className="text-[#A78BFA] text-[0.85rem] mt-0.5">★</span>
+              <div className="flex items-start gap-2.5 px-3 py-2.5 rounded-[10px] border border-[rgba(245,168,50,0.1)] bg-[rgba(245,168,50,0.03)]">
+                <span className="text-[#F5A832] text-[0.85rem] mt-0.5">★</span>
                 <div>
-                  <div className="text-[0.78rem] font-semibold text-[#E2E8F0]">Winner — August AI Hackathon</div>
-                  <div className="text-[0.68rem] text-[#94A3B8]">AI Doctor Analyzer for clinical records</div>
+                  <div className="text-[0.78rem] font-semibold text-[#FFF3E2]">Winner — August AI Hackathon</div>
+                  <div className="text-[0.68rem] text-[#C8A882]">AI Doctor Analyzer for clinical records</div>
                 </div>
               </div>
 
               {/* IEEE Paper — PROMINENT highlighted card */}
-              <div className="flex items-start gap-2.5 px-4 py-3.5 rounded-[10px] border-l-[3px] border-l-[#7C3AED] border border-[rgba(124,58,237,0.15)] bg-[rgba(124,58,237,0.06)]">
+              <div className="flex items-start gap-2.5 px-4 py-3.5 rounded-[10px] border-l-[3px] border-l-[#F5A832] border border-[rgba(245,168,50,0.15)] bg-[rgba(245,168,50,0.06)]">
                 <div>
-                  <div className="text-[0.85rem] font-bold text-[#A78BFA]">Co-author — IEEE ACAI 2022</div>
-                  <div className="text-[0.72rem] text-[#E2E8F0] mt-0.5">Water Quality Prediction using BPNN, SVR, and LSTM</div>
-                  <div className="text-[0.65rem] text-[#64748B] mt-1">Published at IEEE International Conference on Advanced Computing and Artificial Intelligence</div>
+                  <div className="text-[0.85rem] font-bold text-[#F5A832]">Co-author — IEEE ACAI 2022</div>
+                  <div className="text-[0.72rem] text-[#FFF3E2] mt-0.5">Water Quality Prediction using BPNN, SVR, and LSTM</div>
+                  <div className="text-[0.65rem] text-[#8B7355] mt-1">Published at IEEE International Conference on Advanced Computing and Artificial Intelligence</div>
                 </div>
               </div>
 
-              <div className="flex items-start gap-2.5 px-3 py-2.5 rounded-[10px] border border-[rgba(124,58,237,0.1)] bg-[rgba(124,58,237,0.03)]">
-                <span className="text-[#A78BFA] text-[0.85rem] mt-0.5">★</span>
+              <div className="flex items-start gap-2.5 px-3 py-2.5 rounded-[10px] border border-[rgba(245,168,50,0.1)] bg-[rgba(245,168,50,0.03)]">
+                <span className="text-[#F5A832] text-[0.85rem] mt-0.5">★</span>
                 <div>
-                  <div className="text-[0.78rem] font-semibold text-[#E2E8F0]">MCP Foundation Development Contributor</div>
-                  <div className="text-[0.68rem] text-[#94A3B8]">Open-source Model Context Protocol ecosystem</div>
+                  <div className="text-[0.78rem] font-semibold text-[#FFF3E2]">MCP Foundation Development Contributor</div>
+                  <div className="text-[0.68rem] text-[#C8A882]">Open-source Model Context Protocol ecosystem</div>
                 </div>
               </div>
             </div>
@@ -157,7 +157,7 @@ export default function About() {
           <div className="space-y-4">
             {SKILL_GROUPS.map((group) => (
               <div key={group.title}>
-                <div className="text-[0.58rem] tracking-[0.18em] uppercase text-[#94A3B8] mb-2">
+                <div className="text-[0.58rem] tracking-[0.18em] uppercase text-[#C8A882] mb-2">
                   {group.title}
                 </div>
                 <div className="flex flex-wrap gap-1.5">
@@ -166,8 +166,8 @@ export default function About() {
                       key={chip.label}
                       className={`px-2.5 py-1 border rounded text-[0.68rem] transition-all duration-200 cursor-default ${
                         chip.hot
-                          ? 'border-[rgba(124,58,237,0.4)] text-[rgba(167,139,250,0.95)] bg-[rgba(124,58,237,0.08)]'
-                          : 'border-[rgba(124,58,237,0.12)] text-[#94A3B8] hover:border-[rgba(124,58,237,0.35)] hover:text-[#E2E8F0]'
+                          ? 'border-[rgba(59,158,240,0.4)] text-[rgba(59,158,240,0.95)] bg-[rgba(59,158,240,0.08)]'
+                          : 'border-[rgba(245,168,50,0.12)] text-[#C8A882] hover:border-[rgba(245,168,50,0.35)] hover:text-[#FFF3E2]'
                       }`}
                     >
                       {chip.label}
@@ -179,30 +179,30 @@ export default function About() {
           </div>
         </div>
 
-        {/* Code Card — purple syntax */}
-        <div className="glass rounded-2xl p-5 font-mono glow-purple">
+        {/* Code Card — amber syntax */}
+        <div className="glass rounded-2xl p-5 font-mono glow-amber">
           <div className="flex gap-[5px] mb-4">
             <div className="w-[7px] h-[7px] rounded-full bg-[#FF5F57]" />
             <div className="w-[7px] h-[7px] rounded-full bg-[#FFBD2E]" />
             <div className="w-[7px] h-[7px] rounded-full bg-[#28C840]" />
           </div>
-          <div className="text-[0.75rem] text-[#94A3B8] leading-[1.7]">
-            <div><span className="text-[#64748B]">{'//'} profile.json</span></div>
+          <div className="text-[0.75rem] text-[#C8A882] leading-[1.7]">
+            <div><span className="text-[#8B7355]">{'//'} profile.json</span></div>
             <div>{'{'}</div>
-            <div>&nbsp;&nbsp;<span className="text-[#7C3AED]">&quot;name&quot;</span>: <span className="text-[#E2E8F0]">&quot;Rakshith Kumar K.N&quot;</span>,</div>
-            <div>&nbsp;&nbsp;<span className="text-[#7C3AED]">&quot;title&quot;</span>: <span className="text-[#E2E8F0]">&quot;Senior AI/ML Engineer&quot;</span>,</div>
-            <div>&nbsp;&nbsp;<span className="text-[#7C3AED]">&quot;location&quot;</span>: <span className="text-[#E2E8F0]">&quot;Bengaluru, India&quot;</span>,</div>
-            <div>&nbsp;&nbsp;<span className="text-[#7C3AED]">&quot;experience&quot;</span>: <span className="text-[#A78BFA]">5</span>,</div>
-            <div>&nbsp;&nbsp;<span className="text-[#7C3AED]">&quot;education&quot;</span>: [<span className="text-[#E2E8F0]">&quot;MSc Big Data Analytics&quot;</span>, <span className="text-[#E2E8F0]">&quot;BCA&quot;</span>],</div>
-            <div>&nbsp;&nbsp;<span className="text-[#7C3AED]">&quot;current&quot;</span>: <span className="text-[#E2E8F0]">&quot;Gruve AI&quot;</span>,</div>
-            <div>&nbsp;&nbsp;<span className="text-[#7C3AED]">&quot;clients&quot;</span>: [<span className="text-[#E2E8F0]">&quot;Cisco&quot;</span>, <span className="text-[#E2E8F0]">&quot;J.P. Morgan&quot;</span>],</div>
-            <div>&nbsp;&nbsp;<span className="text-[#7C3AED]">&quot;speciality&quot;</span>: [</div>
-            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#E2E8F0]">&quot;Generative AI&quot;</span>,</div>
-            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#E2E8F0]">&quot;Multi-Agent Systems&quot;</span>,</div>
-            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#E2E8F0]">&quot;HIPAA Infra&quot;</span>,</div>
-            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#E2E8F0]">&quot;Diffusion Inference&quot;</span></div>
+            <div>&nbsp;&nbsp;<span className="text-[#F5A832]">&quot;name&quot;</span>: <span className="text-[#FFF3E2]">&quot;Rakshith Kumar K.N&quot;</span>,</div>
+            <div>&nbsp;&nbsp;<span className="text-[#F5A832]">&quot;title&quot;</span>: <span className="text-[#FFF3E2]">&quot;Senior AI/ML Engineer&quot;</span>,</div>
+            <div>&nbsp;&nbsp;<span className="text-[#F5A832]">&quot;location&quot;</span>: <span className="text-[#FFF3E2]">&quot;Bengaluru, India&quot;</span>,</div>
+            <div>&nbsp;&nbsp;<span className="text-[#F5A832]">&quot;experience&quot;</span>: <span className="text-[#3B9EF0]">5</span>,</div>
+            <div>&nbsp;&nbsp;<span className="text-[#F5A832]">&quot;education&quot;</span>: [<span className="text-[#FFF3E2]">&quot;MSc Big Data Analytics&quot;</span>, <span className="text-[#FFF3E2]">&quot;BCA&quot;</span>],</div>
+            <div>&nbsp;&nbsp;<span className="text-[#F5A832]">&quot;current&quot;</span>: <span className="text-[#FFF3E2]">&quot;Gruve AI&quot;</span>,</div>
+            <div>&nbsp;&nbsp;<span className="text-[#F5A832]">&quot;clients&quot;</span>: [<span className="text-[#FFF3E2]">&quot;Cisco&quot;</span>, <span className="text-[#FFF3E2]">&quot;J.P. Morgan&quot;</span>],</div>
+            <div>&nbsp;&nbsp;<span className="text-[#F5A832]">&quot;speciality&quot;</span>: [</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#FFF3E2]">&quot;Generative AI&quot;</span>,</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#FFF3E2]">&quot;Multi-Agent Systems&quot;</span>,</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#FFF3E2]">&quot;HIPAA Infra&quot;</span>,</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#FFF3E2]">&quot;Diffusion Inference&quot;</span></div>
             <div>&nbsp;&nbsp;],</div>
-            <div>&nbsp;&nbsp;<span className="text-[#7C3AED]">&quot;open_to_work&quot;</span>: <span className="text-[#A78BFA]">true</span></div>
+            <div>&nbsp;&nbsp;<span className="text-[#F5A832]">&quot;open_to_work&quot;</span>: <span className="text-[#3B9EF0]">true</span></div>
             <div>{'}'}</div>
           </div>
         </div>

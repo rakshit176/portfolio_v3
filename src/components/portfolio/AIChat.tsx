@@ -241,35 +241,35 @@ export default function AIChat() {
 
   return (
     <section id="chat-section" className="relative z-10 py-24 max-w-[1160px] mx-auto px-6 md:px-12">
-      <div className="text-[0.62rem] tracking-[0.3em] uppercase text-[#7C3AED] mb-2 flex items-center gap-2">
-        <span className="w-[18px] h-[1px] bg-[#7C3AED] inline-block" />
+      <div className="text-[0.62rem] tracking-[0.3em] uppercase text-[#F5A832] mb-2 flex items-center gap-2">
+        <span className="w-[18px] h-[1px] bg-[#F5A832] inline-block" />
         05 · AI Interface
       </div>
-      <h2 className="text-[clamp(1.8rem,3.5vw,2.6rem)] font-extrabold tracking-[-0.02em] leading-[1.1] mb-3 text-[#F1F5F9]">
+      <h2 className="text-[clamp(1.8rem,3.5vw,2.6rem)] font-extrabold tracking-[-0.02em] leading-[1.1] mb-3 text-[#FFF3E2]">
         Ask Me Anything.
       </h2>
-      <p className="text-[#94A3B8] text-[0.85rem] mb-0">
+      <p className="text-[#C8A882] text-[0.85rem] mb-0">
         Powered by AI · Trained on Rakshith&apos;s resume · Can send him an email directly.
       </p>
 
-      <div className="max-w-[720px] mx-auto mt-10 border border-[rgba(124,58,237,0.12)] rounded-[20px] overflow-hidden bg-[rgba(15,22,41,0.7)]">
+      <div className="max-w-[720px] mx-auto mt-10 border border-[rgba(245,168,50,0.12)] rounded-[20px] overflow-hidden bg-[rgba(26,15,5,0.7)]">
         {/* Header */}
-        <div className="px-5 py-4 border-b border-[rgba(124,58,237,0.1)] flex items-center gap-3">
-          <div className="w-[7px] h-[7px] rounded-full bg-[#A78BFA] pulse-indicator" />
+        <div className="px-5 py-4 border-b border-[rgba(245,168,50,0.1)] flex items-center gap-3">
+          <div className="w-[7px] h-[7px] rounded-full bg-[#F5A832] pulse-indicator" />
           <div>
-            <div className="text-[0.78rem] font-semibold text-[#E2E8F0]">RAKSHITH.AI</div>
-            <div className="text-[0.62rem] text-[#94A3B8]">AI-powered · Context-aware · Markdown enabled</div>
+            <div className="text-[0.78rem] font-semibold text-[#FFF3E2]">RAKSHITH.AI</div>
+            <div className="text-[0.62rem] text-[#C8A882]">AI-powered · Context-aware · Markdown enabled</div>
           </div>
         </div>
 
         {/* Quick questions */}
-        <div className="flex gap-2 px-5 py-3 border-b border-[rgba(124,58,237,0.1)] flex-wrap">
+        <div className="flex gap-2 px-5 py-3 border-b border-[rgba(245,168,50,0.1)] flex-wrap">
           {QA_ITEMS.map((item) => (
             <button
               key={item.label}
               onClick={() => sendMessage(item.query)}
               disabled={loading}
-              className="px-3 py-1.5 border border-[rgba(124,58,237,0.12)] rounded-full text-[0.63rem] text-[#94A3B8] cursor-pointer bg-transparent hover:border-[rgba(124,58,237,0.5)] hover:text-[#A78BFA] transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+              className="px-3 py-1.5 border border-[rgba(59,158,240,0.15)] rounded-full text-[0.63rem] text-[#3B9EF0] cursor-pointer bg-transparent hover:border-[rgba(59,158,240,0.5)] hover:text-[#FFF3E2] transition-all disabled:opacity-40 disabled:cursor-not-allowed"
             >
               {item.label}
             </button>
@@ -280,18 +280,18 @@ export default function AIChat() {
         <div
           ref={chatLogRef}
           className="h-[420px] overflow-y-auto p-5 flex flex-col gap-3 scrollbar-thin"
-          style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(124,58,237,0.15) transparent' }}
+          style={{ scrollbarWidth: 'thin', scrollbarColor: 'rgba(245,168,50,0.15) transparent' }}
         >
           {messages.map((msg, i) => (
             <div key={i} className={`max-w-[88%] ${msg.role === 'user' ? 'self-end' : 'self-start'}`}>
-              <div className="text-[0.58rem] tracking-[0.1em] uppercase text-[#64748B] mb-1">
+              <div className="text-[0.58rem] tracking-[0.1em] uppercase text-[#8B7355] mb-1">
                 {msg.role === 'user' ? 'You' : 'Assistant'}
               </div>
               <div
                 className={`rounded-xl ${
                   msg.role === 'user'
-                    ? 'px-4 py-3 bg-gradient-to-br from-[rgba(124,58,237,0.25)] to-[rgba(124,58,237,0.08)] border border-[rgba(124,58,237,0.2)] text-[0.8rem] leading-[1.65]'
-                    : 'px-4 py-3 bg-[rgba(15,22,41,0.6)] border border-[rgba(124,58,237,0.08)] text-[#E2E8F0]/85 text-[0.8rem]'
+                    ? 'px-4 py-3 bg-gradient-to-br from-[rgba(245,168,50,0.25)] to-[rgba(245,168,50,0.08)] border border-[rgba(245,168,50,0.2)] text-[0.8rem] leading-[1.65]'
+                    : 'px-4 py-3 bg-[rgba(26,15,5,0.6)] border border-[rgba(245,168,50,0.08)] text-[#FFF3E2]/85 text-[0.8rem]'
                 }`}
               >
                 {msg.role === 'user' ? (
@@ -309,13 +309,13 @@ export default function AIChat() {
           {/* Streaming message */}
           {loading && streamingText && (
             <div className="self-start max-w-[88%]">
-              <div className="text-[0.58rem] tracking-[0.1em] uppercase text-[#64748B] mb-1">Assistant</div>
-              <div className="px-4 py-3 bg-[rgba(15,22,41,0.6)] border border-[rgba(124,58,237,0.08)] rounded-xl text-[0.8rem] text-[#E2E8F0]/85">
+              <div className="text-[0.58rem] tracking-[0.1em] uppercase text-[#8B7355] mb-1">Assistant</div>
+              <div className="px-4 py-3 bg-[rgba(26,15,5,0.6)] border border-[rgba(245,168,50,0.08)] rounded-xl text-[0.8rem] text-[#FFF3E2]/85">
                 <div
                   className="prose-answer"
                   dangerouslySetInnerHTML={{ __html: renderMarkdown(streamingText) }}
                 />
-                <span className="inline-block w-[2px] h-[0.9em] bg-[#A78BFA] ml-0.5 animate-pulse align-middle" />
+                <span className="inline-block w-[2px] h-[0.9em] bg-[#F5A832] ml-0.5 animate-pulse align-middle" />
               </div>
             </div>
           )}
@@ -323,62 +323,62 @@ export default function AIChat() {
           {/* Loading dots (when no stream yet) */}
           {loading && !streamingText && (
             <div className="self-start max-w-[88%]">
-              <div className="text-[0.58rem] tracking-[0.1em] uppercase text-[#64748B] mb-1">Assistant</div>
-              <div className="flex gap-1 px-4 py-3 bg-[rgba(15,22,41,0.6)] border border-[rgba(124,58,237,0.08)] rounded-xl w-fit">
-                <span className="w-[5px] h-[5px] rounded-full bg-[#7C3AED] typing-dot" />
-                <span className="w-[5px] h-[5px] rounded-full bg-[#7C3AED] typing-dot" />
-                <span className="w-[5px] h-[5px] rounded-full bg-[#7C3AED] typing-dot" />
+              <div className="text-[0.58rem] tracking-[0.1em] uppercase text-[#8B7355] mb-1">Assistant</div>
+              <div className="flex gap-1 px-4 py-3 bg-[rgba(26,15,5,0.6)] border border-[rgba(245,168,50,0.08)] rounded-xl w-fit">
+                <span className="w-[5px] h-[5px] rounded-full bg-[#F5A832] typing-dot" />
+                <span className="w-[5px] h-[5px] rounded-full bg-[#F5A832] typing-dot" />
+                <span className="w-[5px] h-[5px] rounded-full bg-[#F5A832] typing-dot" />
               </div>
             </div>
           )}
 
           {showForm && (
             <div className="self-start max-w-[88%]">
-              <div className="text-[0.58rem] tracking-[0.1em] uppercase text-[#64748B] mb-1">Assistant</div>
-              <div className="bg-[rgba(124,58,237,0.04)] border border-[rgba(124,58,237,0.18)] rounded-[14px] p-5 flex flex-col gap-3">
-                <div className="text-[0.8rem] text-[#E2E8F0]/65">Fill in your details and I&apos;ll send Rakshith a message ↓</div>
+              <div className="text-[0.58rem] tracking-[0.1em] uppercase text-[#8B7355] mb-1">Assistant</div>
+              <div className="bg-[rgba(245,168,50,0.04)] border border-[rgba(245,168,50,0.18)] rounded-[14px] p-5 flex flex-col gap-3">
+                <div className="text-[0.8rem] text-[#FFF3E2]/65">Fill in your details and I&apos;ll send Rakshith a message ↓</div>
                 <div>
-                  <label className="text-[0.58rem] tracking-[0.14em] uppercase text-[#A78BFA]">Your Name</label>
+                  <label className="text-[0.58rem] tracking-[0.14em] uppercase text-[#F5A832]">Your Name</label>
                   <input
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Jane Smith"
-                    className="w-full mt-1 bg-[rgba(10,14,26,0.6)] border border-[rgba(124,58,237,0.12)] rounded-lg px-3 py-2 text-[0.8rem] text-[#F8FAFC] outline-none focus:border-[rgba(124,58,237,0.5)] transition-colors"
+                    className="w-full mt-1 bg-[rgba(10,6,3,0.6)] border border-[rgba(245,168,50,0.12)] rounded-lg px-3 py-2 text-[0.8rem] text-[#FFF3E2] outline-none focus:border-[rgba(245,168,50,0.5)] transition-colors"
                   />
                 </div>
                 <div>
-                  <label className="text-[0.58rem] tracking-[0.14em] uppercase text-[#A78BFA]">Your Email</label>
+                  <label className="text-[0.58rem] tracking-[0.14em] uppercase text-[#F5A832]">Your Email</label>
                   <input
                     type="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="jane@company.com"
-                    className="w-full mt-1 bg-[rgba(10,14,26,0.6)] border border-[rgba(124,58,237,0.12)] rounded-lg px-3 py-2 text-[0.8rem] text-[#F8FAFC] outline-none focus:border-[rgba(124,58,237,0.5)] transition-colors"
+                    className="w-full mt-1 bg-[rgba(10,6,3,0.6)] border border-[rgba(245,168,50,0.12)] rounded-lg px-3 py-2 text-[0.8rem] text-[#FFF3E2] outline-none focus:border-[rgba(245,168,50,0.5)] transition-colors"
                   />
                 </div>
                 <div>
-                  <label className="text-[0.58rem] tracking-[0.14em] uppercase text-[#A78BFA]">Subject</label>
+                  <label className="text-[0.58rem] tracking-[0.14em] uppercase text-[#F5A832]">Subject</label>
                   <input
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     placeholder="Staff AI Engineer at ..."
-                    className="w-full mt-1 bg-[rgba(10,14,26,0.6)] border border-[rgba(124,58,237,0.12)] rounded-lg px-3 py-2 text-[0.8rem] text-[#F8FAFC] outline-none focus:border-[rgba(124,58,237,0.5)] transition-colors"
+                    className="w-full mt-1 bg-[rgba(10,6,3,0.6)] border border-[rgba(245,168,50,0.12)] rounded-lg px-3 py-2 text-[0.8rem] text-[#FFF3E2] outline-none focus:border-[rgba(245,168,50,0.5)] transition-colors"
                   />
                 </div>
                 <div>
-                  <label className="text-[0.58rem] tracking-[0.14em] uppercase text-[#A78BFA]">Message</label>
+                  <label className="text-[0.58rem] tracking-[0.14em] uppercase text-[#F5A832]">Message</label>
                   <textarea
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Hi Rakshith..."
                     rows={3}
-                    className="w-full mt-1 bg-[rgba(10,14,26,0.6)] border border-[rgba(124,58,237,0.12)] rounded-lg px-3 py-2 text-[0.8rem] text-[#F8FAFC] outline-none resize-y min-h-[72px] focus:border-[rgba(124,58,237,0.5)] transition-colors"
+                    className="w-full mt-1 bg-[rgba(10,6,3,0.6)] border border-[rgba(245,168,50,0.12)] rounded-lg px-3 py-2 text-[0.8rem] text-[#FFF3E2] outline-none resize-y min-h-[72px] focus:border-[rgba(245,168,50,0.5)] transition-colors"
                   />
                 </div>
                 <button
                   onClick={submitForm}
                   disabled={sending}
-                  className="self-start px-4 py-2 bg-gradient-to-r from-[#7C3AED] to-[#5B21B6] rounded-full text-[#F8FAFC] text-[0.72rem] font-semibold hover:opacity-85 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
+                  className="self-start px-4 py-2 bg-gradient-to-r from-[#F5A832] to-[#D4891A] rounded-full text-[#0A0603] text-[0.72rem] font-semibold hover:opacity-85 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
                 >
                   {sending ? 'Sending...' : 'Send to Rakshith ↑'}
                 </button>
@@ -388,18 +388,18 @@ export default function AIChat() {
         </div>
 
         {/* Input */}
-        <div className="flex border-t border-[rgba(124,58,237,0.1)]">
+        <div className="flex border-t border-[rgba(245,168,50,0.1)]">
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && !e.shiftKey && sendMessage()}
             placeholder="Ask about projects, stack, or say 'contact Rakshith'..."
-            className="flex-1 bg-transparent border-none px-5 py-4 text-[#F8FAFC] text-[0.82rem] outline-none placeholder:text-[#64748B]"
+            className="flex-1 bg-transparent border-none px-5 py-4 text-[#FFF3E2] text-[0.82rem] outline-none placeholder:text-[#8B7355]"
           />
           <button
             onClick={() => sendMessage()}
             disabled={loading}
-            className="px-5 bg-transparent border-none border-l border-[rgba(124,58,237,0.1)] text-[#7C3AED] cursor-pointer text-lg hover:bg-[rgba(124,58,237,0.08)] transition-colors disabled:opacity-40"
+            className="px-5 bg-transparent border-none border-l border-[rgba(245,168,50,0.1)] text-[#F5A832] cursor-pointer text-lg hover:bg-[rgba(245,168,50,0.08)] transition-colors disabled:opacity-40"
           >
             ↑
           </button>

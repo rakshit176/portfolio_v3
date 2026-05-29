@@ -22,9 +22,9 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="relative z-10 border-t border-[rgba(124,58,237,0.1)] py-6 px-6 md:px-12 max-w-[1160px] mx-auto flex justify-between items-center text-[#94A3B8] text-[0.62rem] tracking-[0.08em] flex-wrap gap-2">
-      <div className="text-[#64748B]">© 2026 Rakshith Kumar K.N — All systems nominal</div>
-      <div className="text-[#7C3AED]/60">{time}</div>
+    <footer className="relative z-10 border-t border-[rgba(245,168,50,0.1)] py-6 px-6 md:px-12 max-w-[1160px] mx-auto flex justify-between items-center text-[#C8A882] text-[0.62rem] tracking-[0.08em] flex-wrap gap-2">
+      <div className="text-[#8B7355]">© 2026 Rakshith Kumar K.N — All systems nominal</div>
+      <div className="text-[#F5A832]/60">{time}</div>
     </footer>
   );
 }

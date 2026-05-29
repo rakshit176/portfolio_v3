@@ -14,7 +14,7 @@ interface SkillGroup {
 const SKILL_GROUPS: SkillGroup[] = [
   {
     title: 'GenAI & LLMs',
-    accent: '#7C3AED',
+    accent: '#F5A832',
     skills: [
       { label: 'GPT-4 / Claude 3.5', pct: 95 },
       { label: 'LangGraph', pct: 92 },
@@ -28,7 +28,7 @@ const SKILL_GROUPS: SkillGroup[] = [
   },
   {
     title: 'Cloud & MLOps',
-    accent: '#06B6D4',
+    accent: '#00C8DC',
     skills: [
       { label: 'AWS Bedrock', pct: 90 },
       { label: 'Azure AI Foundry', pct: 85 },
@@ -40,7 +40,7 @@ const SKILL_GROUPS: SkillGroup[] = [
   },
   {
     title: 'ML / Deep Learning',
-    accent: '#A78BFA',
+    accent: '#3B9EF0',
     skills: [
       { label: 'PyTorch', pct: 88 },
       { label: 'CUDA / TensorRT', pct: 82 },
@@ -64,7 +64,7 @@ const SKILL_GROUPS: SkillGroup[] = [
   },
   {
     title: 'AI Frameworks',
-    accent: '#F59E0B',
+    accent: '#D4891A',
     skills: [
       { label: 'LangChain', pct: 90 },
       { label: 'LlamaIndex', pct: 82 },
@@ -79,28 +79,28 @@ const SKILL_GROUPS: SkillGroup[] = [
 export default function Skills() {
   return (
     <section id="skills" className="relative z-10 py-24 max-w-[1160px] mx-auto px-6 md:px-12">
-      <div className="text-[0.62rem] tracking-[0.3em] uppercase text-[#7C3AED] mb-2 flex items-center gap-2">
-        <span className="w-[18px] h-[1px] bg-[#7C3AED] inline-block" />
+      <div className="text-[0.62rem] tracking-[0.3em] uppercase text-[#F5A832] mb-2 flex items-center gap-2">
+        <span className="w-[18px] h-[1px] bg-[#F5A832] inline-block" />
         03 · Skills
       </div>
-      <h2 className="text-[clamp(1.8rem,3.5vw,2.6rem)] font-extrabold tracking-[-0.02em] leading-[1.1] mb-3 text-[#F1F5F9]">
+      <h2 className="text-[clamp(1.8rem,3.5vw,2.6rem)] font-extrabold tracking-[-0.02em] leading-[1.1] mb-3 text-[#FFF3E2]">
         Skill Levels.
       </h2>
-      <div className="w-[1px] h-9 bg-gradient-to-b from-[#7C3AED] to-transparent mb-4" />
-      <p className="text-[#94A3B8] text-[0.85rem] mb-8">Recruiter-scannable proficiency — at a glance</p>
+      <div className="w-[1px] h-9 bg-gradient-to-b from-[#F5A832] to-transparent mb-4" />
+      <p className="text-[#C8A882] text-[0.85rem] mb-8">Recruiter-scannable proficiency — at a glance</p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {SKILL_GROUPS.map((group) => (
           <div
             key={group.title}
-            className="glass rounded-[16px] p-6 border border-[rgba(124,58,237,0.1)]"
+            className="glass rounded-[16px] p-6 border border-[rgba(245,168,50,0.1)]"
           >
             <div className="flex items-center gap-2.5 mb-5">
               <div
                 className="w-2.5 h-2.5 rounded-full"
                 style={{ background: group.accent }}
               />
-              <div className="text-[0.72rem] font-bold tracking-[0.12em] uppercase text-[#E2E8F0]">
+              <div className="text-[0.72rem] font-bold tracking-[0.12em] uppercase text-[#FFF3E2]">
                 {group.title}
               </div>
             </div>
@@ -109,15 +109,15 @@ export default function Skills() {
               {group.skills.map((skill) => (
                 <div key={skill.label}>
                   <div className="flex justify-between items-center mb-1">
-                    <span className="text-[0.78rem] text-[#94A3B8]">{skill.label}</span>
-                    <span className="text-[0.68rem] font-mono text-[#64748B]">{skill.pct}%</span>
+                    <span className="text-[0.78rem] text-[#C8A882]">{skill.label}</span>
+                    <span className="text-[0.68rem] font-mono text-[#8B7355]">{skill.pct}%</span>
                   </div>
-                  <div className="w-full h-[6px] bg-[rgba(124,58,237,0.08)] rounded-full overflow-hidden">
+                  <div className="w-full h-[6px] bg-[rgba(245,168,50,0.08)] rounded-full overflow-hidden">
                     <div
                       className="h-full rounded-full transition-all duration-700 ease-out"
                       style={{
                         width: `${skill.pct}%`,
-                        background: `linear-gradient(90deg, ${group.accent}, #7C3AED)`,
+                        background: `linear-gradient(90deg, ${group.accent}, #F5A832)`,
                       }}
                     />
                   </div>

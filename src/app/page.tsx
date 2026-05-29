@@ -18,13 +18,13 @@ const ParticleBackground = dynamic(() => import('@/components/portfolio/Particle
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#0a0e1a] text-[#F8FAFC] overflow-x-hidden">
-      {/* Background gradient overlay — purple/navy glows */}
+    <div className="min-h-screen flex flex-col bg-[#0A0603] text-[#FFF3E2] overflow-x-hidden">
+      {/* Background gradient overlay — amber/cyan glows */}
       <div
         className="fixed inset-0 pointer-events-none z-0"
         style={{
           background:
-            'radial-gradient(ellipse 80% 60% at 15% 5%, rgba(124, 58, 237, 0.08) 0%, transparent 60%), radial-gradient(ellipse 60% 50% at 85% 75%, rgba(6, 182, 212, 0.06) 0%, transparent 55%), radial-gradient(ellipse 50% 40% at 50% 50%, rgba(167, 139, 250, 0.03) 0%, transparent 50%)',
+            'radial-gradient(ellipse 80% 60% at 15% 5%, rgba(245, 168, 50, 0.08) 0%, transparent 60%), radial-gradient(ellipse 60% 50% at 85% 75%, rgba(0, 200, 220, 0.06) 0%, transparent 55%), radial-gradient(ellipse 50% 40% at 50% 50%, rgba(212, 137, 26, 0.03) 0%, transparent 50%)',
         }}
       />
 

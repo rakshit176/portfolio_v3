@@ -20,9 +20,9 @@ interface Experience {
 
 const CHIP_STYLES = {
   metric: 'bg-[rgba(16,185,129,0.12)] text-[#10B981] border-[rgba(16,185,129,0.25)]',
-  client: 'bg-[rgba(6,182,212,0.12)] text-[#06B6D4] border-[rgba(6,182,212,0.25)]',
-  tech: 'bg-[rgba(124,58,237,0.12)] text-[#A78BFA] border-[rgba(124,58,237,0.25)]',
-  leadership: 'bg-[rgba(245,158,11,0.12)] text-[#F59E0B] border-[rgba(245,158,11,0.25)]',
+  client: 'bg-[rgba(0,200,220,0.12)] text-[#00C8DC] border-[rgba(0,200,220,0.25)]',
+  tech: 'bg-[rgba(59,158,240,0.12)] text-[#3B9EF0] border-[rgba(59,158,240,0.25)]',
+  leadership: 'bg-[rgba(245,168,50,0.12)] text-[#F5A832] border-[rgba(245,168,50,0.25)]',
 };
 
 const EXPERIENCES: Experience[] = [
@@ -198,14 +198,14 @@ const EXPERIENCES: Experience[] = [
 export default function Experience() {
   return (
     <section id="experience" className="relative z-10 py-24 max-w-[1160px] mx-auto px-6 md:px-12">
-      <div className="text-[0.62rem] tracking-[0.3em] uppercase text-[#7C3AED] mb-2 flex items-center gap-2">
-        <span className="w-[18px] h-[1px] bg-[#7C3AED] inline-block" />
+      <div className="text-[0.62rem] tracking-[0.3em] uppercase text-[#F5A832] mb-2 flex items-center gap-2">
+        <span className="w-[18px] h-[1px] bg-[#F5A832] inline-block" />
         02 · Experience
       </div>
-      <h2 className="text-[clamp(1.8rem,3.5vw,2.6rem)] font-extrabold tracking-[-0.02em] leading-[1.1] mb-3 text-[#F1F5F9]">
+      <h2 className="text-[clamp(1.8rem,3.5vw,2.6rem)] font-extrabold tracking-[-0.02em] leading-[1.1] mb-3 text-[#FFF3E2]">
         Where I&apos;ve Shipped.
       </h2>
-      <div className="w-[1px] h-9 bg-gradient-to-b from-[#7C3AED] to-transparent mb-10" />
+      <div className="w-[1px] h-9 bg-gradient-to-b from-[#F5A832] to-transparent mb-10" />
 
       {/* Chip legend */}
       <div className="flex flex-wrap gap-3 mb-8">
@@ -213,13 +213,13 @@ export default function Experience() {
           <span className="px-2 py-0.5 rounded border bg-[rgba(16,185,129,0.12)] text-[#10B981] border-[rgba(16,185,129,0.25)]">Metrics</span>
         </div>
         <div className="flex items-center gap-1.5 text-[0.6rem] tracking-wide">
-          <span className="px-2 py-0.5 rounded border bg-[rgba(6,182,212,0.12)] text-[#06B6D4] border-[rgba(6,182,212,0.25)]">Clients</span>
+          <span className="px-2 py-0.5 rounded border bg-[rgba(0,200,220,0.12)] text-[#00C8DC] border-[rgba(0,200,220,0.25)]">Clients</span>
         </div>
         <div className="flex items-center gap-1.5 text-[0.6rem] tracking-wide">
-          <span className="px-2 py-0.5 rounded border bg-[rgba(124,58,237,0.12)] text-[#A78BFA] border-[rgba(124,58,237,0.25)]">Tech</span>
+          <span className="px-2 py-0.5 rounded border bg-[rgba(59,158,240,0.12)] text-[#3B9EF0] border-[rgba(59,158,240,0.25)]">Tech</span>
         </div>
         <div className="flex items-center gap-1.5 text-[0.6rem] tracking-wide">
-          <span className="px-2 py-0.5 rounded border bg-[rgba(245,158,11,0.12)] text-[#F59E0B] border-[rgba(245,158,11,0.25)]">Leadership</span>
+          <span className="px-2 py-0.5 rounded border bg-[rgba(245,168,50,0.12)] text-[#F5A832] border-[rgba(245,168,50,0.25)]">Leadership</span>
         </div>
       </div>
 
@@ -228,28 +228,28 @@ export default function Experience() {
           <div
             key={exp.company}
             className={`grid grid-cols-1 md:grid-cols-[170px_1fr] gap-6 md:gap-12 py-9 ${
-              i < EXPERIENCES.length - 1 ? 'border-b border-[rgba(124,58,237,0.1)]' : ''
+              i < EXPERIENCES.length - 1 ? 'border-b border-[rgba(245,168,50,0.1)]' : ''
             }`}
           >
             <div>
-              <div className="text-[0.62rem] tracking-[0.1em] uppercase text-[#64748B] mb-1.5">
+              <div className="text-[0.62rem] tracking-[0.1em] uppercase text-[#8B7355] mb-1.5">
                 {exp.date}
               </div>
-              <div className="text-[0.78rem] font-semibold text-[#94A3B8]">{exp.company}</div>
+              <div className="text-[0.78rem] font-semibold text-[#C8A882]">{exp.company}</div>
               {exp.badge && (
-                <span className="inline-block mt-2 px-2 py-0.5 rounded text-[0.58rem] tracking-[0.1em] uppercase bg-[rgba(124,58,237,0.1)] border border-[rgba(124,58,237,0.3)] text-[rgba(167,139,250,0.9)]">
+                <span className="inline-block mt-2 px-2 py-0.5 rounded text-[0.58rem] tracking-[0.1em] uppercase bg-[rgba(245,168,50,0.1)] border border-[rgba(245,168,50,0.3)] text-[rgba(245,168,50,0.9)]">
                   {exp.badge}
                 </span>
               )}
             </div>
             <div>
-              <div className="text-[1.1rem] font-bold mb-4 text-[#E2E8F0]">{exp.role}</div>
+              <div className="text-[1.1rem] font-bold mb-4 text-[#FFF3E2]">{exp.role}</div>
               <div className="space-y-3">
                 {exp.items.map((item, j) => (
                   <div key={j} className="group">
                     {/* 1-line summary */}
-                    <div className="text-[0.83rem] text-[#94A3B8] leading-[1.6] mb-1.5">
-                      <span className="text-[#7C3AED] text-[0.7rem] mr-1.5">→</span>
+                    <div className="text-[0.83rem] text-[#C8A882] leading-[1.6] mb-1.5">
+                      <span className="text-[#F5A832] text-[0.7rem] mr-1.5">→</span>
                       {item.summary}
                     </div>
                     {/* Chips below */}
