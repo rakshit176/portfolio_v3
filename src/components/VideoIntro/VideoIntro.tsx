@@ -24,8 +24,7 @@ export default function VideoIntro() {
   const [isPlaying, setIsPlaying] = useState(true);
   const [hasCompleted, setHasCompleted] = useState(false);
 
-  /* Track whether the first play-through has finished so we
-     only pause + auto-scroll once, never on subsequent replays */
+  /* Once the first play completes, never auto-play or auto-scroll again */
   const firstPlayDone = useRef(false);
 
   /* ── GSAP staggered text reveal ── */
@@ -62,52 +61,23 @@ export default function VideoIntro() {
     return () => ctx.revert();
   }, []);
 
-  /* ── Enable audio after initial autoplay settles ──
-     Browsers block audio on autoplay, so we start muted.
-     As soon as the video is playing, we unmute so the user
-     hears the rest of the first loop.                       */
-  useEffect(() => {
-    const vid = videoRef.current;
-    if (!vid) return;
-
-    const handleCanPlay = () => {
-      /* Small delay so the browser doesn't reject the unmute */
-      setTimeout(() => {
-        if (videoRef.current && !firstPlayDone.current) {
-          videoRef.current.muted = false;
-          if (bgVideoRef.current) bgVideoRef.current.muted = false;
-          setIsMuted(false);
-        }
-      }, 800);
-    };
-
-    vid.addEventListener('canplay', handleCanPlay);
-    return () => vid.removeEventListener('canplay', handleCanPlay);
-  }, []);
-
-  /* ── When first loop ends → pause + auto-scroll ── */
+  /* ── When first play ends → pause everything + auto-scroll ── */
   useEffect(() => {
     const vid = videoRef.current;
     if (!vid) return;
 
     const handleEnded = () => {
-      /* Guard: only act on the very first completion */
       if (firstPlayDone.current) return;
       firstPlayDone.current = true;
 
-      /* Pause both videos */
+      /* Pause BOTH videos */
       vid.pause();
       if (bgVideoRef.current) bgVideoRef.current.pause();
 
-      /* Mute again so there's no lingering audio */
-      vid.muted = true;
-      if (bgVideoRef.current) bgVideoRef.current.muted = true;
-
       setIsPlaying(false);
-      setIsMuted(true);
       setHasCompleted(true);
 
-      /* Auto-scroll to next section after a brief cinematic pause */
+      /* Auto-scroll down after a brief cinematic pause */
       setTimeout(() => {
         const nextSection = heroRef.current?.nextElementSibling;
         if (nextSection) {
@@ -122,7 +92,7 @@ export default function VideoIntro() {
     return () => vid.removeEventListener('ended', handleEnded);
   }, []);
 
-  /* ── Sync both videos ── */
+  /* ── Sync background video to foreground ── */
   useEffect(() => {
     const fg = videoRef.current;
     const bg = bgVideoRef.current;
@@ -138,27 +108,35 @@ export default function VideoIntro() {
     return () => clearInterval(interval);
   }, []);
 
-  /* ── Toggle mute ── */
+  /* ── Unmute — foreground video ONLY (bg is always silent) ── */
   const toggleMute = useCallback(() => {
     const vid = videoRef.current;
     if (!vid) return;
-    const newMuted = !vid.muted;
-    vid.muted = newMuted;
-    if (bgVideoRef.current) bgVideoRef.current.muted = newMuted;
-    setIsMuted(newMuted);
+    vid.muted = !vid.muted;
+    setIsMuted(vid.muted);
   }, []);
 
-  /* ── Toggle play/pause ── */
-  const togglePlay = useCallback(() => {
+  /* ── Enable audio via user gesture (sound hint badge click) ── */
+  const enableSound = useCallback(() => {
     const vid = videoRef.current;
     if (!vid) return;
+    vid.muted = false;
+    setIsMuted(false);
+  }, []);
+
+  /* ── Play / Pause ── */
+  const togglePlay = useCallback(() => {
+    const vid = videoRef.current;
+    const bg = bgVideoRef.current;
+    if (!vid) return;
+
     if (vid.paused) {
-      vid.play();
-      if (bgVideoRef.current) bgVideoRef.current.play();
+      vid.play().catch(() => {});
+      if (bg) bg.play().catch(() => {});
       setIsPlaying(true);
     } else {
       vid.pause();
-      if (bgVideoRef.current) bgVideoRef.current.pause();
+      if (bg) bg.pause();
       setIsPlaying(false);
     }
   }, []);
@@ -179,22 +157,23 @@ export default function VideoIntro() {
       className={styles.hero}
       aria-label="Cinematic hero introduction"
     >
-      {/* ── Background video (blurred ambient glow) ── */}
+      {/* ── Background video (blurred ambient glow) ──
+           ALWAYS muted — it's only for visual ambience, never audio.
+           NO loop — stops when foreground stops so they stay in sync. */}
       <video
         ref={bgVideoRef}
         className={styles.videoBackground}
         src="/hero-video.mp4"
         autoPlay
-        loop
         muted
         playsInline
         aria-hidden="true"
       />
 
       {/* ── Foreground video ──
-           NOT looped — plays once, then `ended` event fires.
-           Starts muted (browser autoplay policy), then we unmute
-           once it's playing.                                */}
+           Starts muted (browser autoplay policy).
+           NO loop — plays once then `ended` fires → pause + auto-scroll.
+           User can unmute via the sound hint badge or mute button. */}
       <video
         ref={videoRef}
         className={styles.videoForeground}
@@ -229,11 +208,15 @@ export default function VideoIntro() {
         </p>
       </div>
 
-      {/* ── Sound hint badge — only show while still on first play ── */}
-      {!hasCompleted && (
-        <div className={styles.soundHint} aria-hidden="true">
+      {/* ── Sound hint badge — clickable, only shown before first play ends ── */}
+      {!hasCompleted && isMuted && (
+        <button
+          className={styles.soundHint}
+          onClick={enableSound}
+          aria-label="Enable sound"
+        >
           Tap for sound 🔊
-        </div>
+        </button>
       )}
 
       {/* ── Controls ── */}
