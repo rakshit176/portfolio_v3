@@ -3,7 +3,7 @@
 import Image from 'next/image';
 
 const SKILL_CHIPS = [
-  'LangGraph', 'GraphRAG', 'Prompt Engineering', 'AWS Bedrock', 'MCP', 'DeepEval', 'PyTorch', 'HIPAA', 'DSPy',
+  'LangGraph', 'GraphRAG', 'Prompt Engineering', 'AWS Bedrock', 'RLHF / DPO', 'MCP', 'DeepEval', 'DSPy', 'HIPAA',
 ];
 
 const STATS = [
@@ -35,7 +35,7 @@ export default function Hero() {
 
             {/* 1-line descriptor */}
             <p className="text-[0.9rem] text-[#C8A882] leading-[1.7] max-w-[520px] mb-5">
-              Senior AI/ML Engineer · 5+ yrs · <strong className="text-[#FFF3E2] font-medium">GenAI, GraphRAG &amp; Multi-Agent Systems</strong>
+              Senior AI/ML Engineer · 5+ yrs · <strong className="text-[#FFF3E2] font-medium">GenAI, RLHF &amp; Multi-Agent Systems</strong>
             </p>
 
             {/* Skill tags row — electric blue tech chips */}
@@ -125,7 +125,7 @@ export default function Hero() {
                   <div><span className="text-[#8B7355]"># rakshith.py</span></div>
                   <div><span className="text-[#F5A832]">class</span> <span className="text-[#3B9EF0]">RakshithKumar</span>:</div>
                   <div>&nbsp;&nbsp;role = <span className="text-[#FFF3E2]">&quot;Senior AI/ML Engineer&quot;</span></div>
-                  <div>&nbsp;&nbsp;stack = [<span className="text-[#FFF3E2]">&quot;LangGraph&quot;</span>, <span className="text-[#FFF3E2]">&quot;GraphRAG&quot;</span>, <span className="text-[#FFF3E2]">&quot;AWS Bedrock&quot;</span>]</div>
+                  <div>&nbsp;&nbsp;stack = [<span className="text-[#FFF3E2]">&quot;LangGraph&quot;</span>, <span className="text-[#FFF3E2]">&quot;RLHF&quot;</span>, <span className="text-[#FFF3E2]">&quot;DSPy&quot;</span>]</div>
                   <div>&nbsp;&nbsp;yoe = <span className="text-[#3B9EF0]">5</span></div>
                   <div>&nbsp;&nbsp;<span className="text-[#F5A832]">def</span> <span className="text-[#3B9EF0]">ship</span>(self, idea):</div>
                   <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-[#F5A832]">return</span> <span className="text-[#FFF3E2]">&quot;production-ready AI&quot;</span></div>

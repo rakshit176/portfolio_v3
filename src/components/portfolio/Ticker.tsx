@@ -1,9 +1,10 @@
 'use client';
 
 const ITEMS = [
-  'GraphRAG', 'AWS Bedrock', 'LangGraph', 'HIPAA Infra', 'Stable Diffusion XL',
+  'GraphRAG', 'AWS Bedrock', 'LangGraph', 'HIPAA Infra', 'RLHF / DPO',
   'vLLM', 'Neo4j', 'PEFT / LoRA', 'Kubernetes', 'Azure AI Foundry', 'TensorRT', 'MCP / A2A Agents',
-  'DeepEval', 'Promptfoo', 'DSPy', 'Langfuse', 'TensorFlow', 'OpenAI Agents SDK',
+  'DeepEval / Ragas', 'Promptfoo', 'DSPy', 'Langfuse', 'TensorFlow', 'OpenAI Agents SDK',
+  'NeMo Guardrails', 'Alignment Engineering', 'CI/CD', 'GitHub Actions',
 ];
 
 export default function Ticker() {

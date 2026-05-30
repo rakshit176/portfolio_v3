@@ -98,3 +98,46 @@ Stage Summary:
 - Key files modified: layout.tsx (fonts), page.tsx (integration)
 - Video asset: /public/hero-video.mp4
 - All checklist items verified: fullscreen, autoplay, particles, text animation, controls, scroll indicator
+
+---
+Task ID: 4
+Agent: Main Agent
+Task: Cross-reference resume PDF and update Skills, Experience, Projects, Hero, Ticker, AIChat
+
+Work Log:
+- Extracted full text from /upload/Rakshith_Kumar_KN_Senior_AI_ML_Engineer_Resume.pdf
+- Identified major gaps between resume and portfolio:
+  - Resume has IDP Supply Chain Agent (Scania) — completely missing from portfolio
+  - Resume has RLHF & Alignment Engineering (Qwen 72B) — missing from projects
+  - Resume has LLM Evaluation and Safety Pipeline (RAGAS) — missing from experience
+  - Resume has DSPy optimization in TechGenie — missing from experience
+  - Resume has NeMo Guardrails — missing from skills
+  - Resume date is Oct 2024 (portfolio had Oct 2025 typo)
+  - Resume has much richer details: 200+ firewalls, 73% HITL reduction, 50K+ documents, etc.
+- Skills.tsx: Complete rewrite aligned to resume's 7 technical skill categories
+  - Added: RLHF/DPO/PPO, Alignment Engineering, LLM-as-Judge, Confidence-Gated Eval, NeMo Guardrails, Unsloth/LLaMA Factory, TensorFlow, ONNX/Quantization, Whisper, MinIO, DSPy (promoted from 75%→80%), CI/CD (GitHub Actions 78%→82%), OpenAI Agents SDK, Arize Phoenix, DeepEval/Ragas
+  - Expanded cloud labels to match resume: AWS (SageMaker, ECS, Lambda, Bedrock...), Azure (Container Apps, Cognitive Svcs), GCP (Vertex AI, Cloud Run, Gemini)
+  - Prompt Engineering promoted to #1 in GenAI group
+- Experience.tsx: Complete rewrite aligned to resume work experience
+  - Gruve AI: Added IDP Scania agent, eval framework details, DSPy, NeMo Guardrails, 200+ firewalls, 50K+ docs, 73% HITL, 34% hallucination reduction, GitHub Actions in FinOps, 45% follow-up reduction in GUIS
+  - August AI: Added LLM Evaluation and Safety Pipeline (RAGAS), RLHF & Alignment Engineering (Qwen 72B), DSPy, DPO, GitHub Actions, MLflow
+  - Krut AI: Added MLOps pipeline details (GitHub Actions, ONNX, 3 days→4hr deploy)
+  - Lincode: Added TensorFlow, ONNX, Prometheus monitoring, 60% ticket reduction, 20+ trained
+  - Fixed date: Oct 2024 (was Oct 2025)
+- Projects.tsx: Complete rewrite with resume-aligned details
+  - Added new project: IDP Supply Chain Agent (Scania)
+  - Added new project: RLHF & Alignment Pipeline (Qwen 72B)
+  - Updated all existing projects with resume's richer details and metrics
+  - Updated stack tags to include resume technologies (DSPy, RAGAS, GitHub Actions, TensorFlow, etc.)
+- Hero.tsx: Updated skill chips (added RLHF/DPO, Prompt Engineering; swapped PyTorch→DSPy), descriptor line (GraphRAG→RLHF), code card stack (GraphRAG→RLHF)
+- Ticker.tsx: Added RLHF/DPO, NeMo Guardrails, Alignment Engineering, CI/CD, GitHub Actions, Ragas, DeepEval
+- AIChat.tsx: Updated full resume context to match PDF exactly — added IDP Scania, RAGAS eval, RLHF/DPO, NeMo Guardrails, DSPy, TensorFlow, GitHub Actions, ONNX, MinerU VLM, Modal/RunPod, SQLAlchemy 2, etc.
+- Build succeeded with 0 errors
+- All resume keywords verified present in rendered page
+
+Stage Summary:
+- Portfolio fully aligned with resume PDF content
+- 7 files updated: Skills.tsx, Experience.tsx, Projects.tsx, Hero.tsx, Ticker.tsx, AIChat.tsx
+- 2 new projects added: IDP Scania, RLHF Qwen 72B
+- Key additions: RLHF/DPO, DSPy, RAGAS, NeMo Guardrails, LLM-as-Judge, Confidence-Gated Eval, Alignment Engineering
+- Date fix: Oct 2025 → Oct 2024 for Gruve AI start

@@ -11,21 +11,25 @@ interface SkillGroup {
   skills: SkillItem[];
 }
 
+/* ── Aligned with resume "TECHNICAL SKILLS" section ── */
 const SKILL_GROUPS: SkillGroup[] = [
   {
     title: 'GenAI & LLMs',
     accent: '#F5A832',
     skills: [
       { label: 'Prompt Engineering', pct: 93 },
-      { label: 'GPT-4 / Claude 3.5', pct: 95 },
+      { label: 'GPT-4 / Claude 3.5 / Gemini Pro', pct: 95 },
       { label: 'LangGraph', pct: 92 },
-      { label: 'GraphRAG', pct: 90 },
-      { label: 'RAG / Retrieval', pct: 92 },
+      { label: 'GraphRAG / RAG', pct: 92 },
+      { label: 'Multi-Agent Systems', pct: 90 },
       { label: 'MCP Protocol', pct: 88 },
-      { label: 'PEFT / LoRA', pct: 85 },
+      { label: 'RLHF / DPO / PPO', pct: 85 },
+      { label: 'Alignment Engineering', pct: 84 },
+      { label: 'LLM-as-Judge / Confidence-Gated Eval', pct: 82 },
+      { label: 'PEFT / LoRA / QLoRA', pct: 85 },
+      { label: 'Knowledge Distillation', pct: 87 },
       { label: 'Guardrails / Structured Outputs', pct: 80 },
-      { label: 'LLM Red-Teaming', pct: 78 },
-      { label: 'DSPy', pct: 75 },
+      { label: 'LLM Red-Teaming (Promptfoo)', pct: 78 },
       { label: 'Fine-tuning', pct: 84 },
     ],
   },
@@ -33,16 +37,17 @@ const SKILL_GROUPS: SkillGroup[] = [
     title: 'Cloud & MLOps',
     accent: '#00C8DC',
     skills: [
-      { label: 'AWS Bedrock', pct: 90 },
-      { label: 'Azure AI Foundry', pct: 85 },
-      { label: 'GCP Vertex AI', pct: 82 },
+      { label: 'AWS (Bedrock, SageMaker, ECS, Lambda)', pct: 90 },
+      { label: 'Azure (Container Apps, Cognitive Svcs)', pct: 85 },
+      { label: 'GCP (Vertex AI, Cloud Run, Gemini)', pct: 82 },
       { label: 'Terraform / IaC', pct: 80 },
       { label: 'Kubernetes / Docker', pct: 83 },
       { label: 'MLflow / LangSmith', pct: 86 },
       { label: 'Langfuse', pct: 82 },
       { label: 'Arize Phoenix', pct: 78 },
       { label: 'LLM Evaluation (DeepEval / Ragas)', pct: 80 },
-      { label: 'CI/CD for ML (GitHub Actions)', pct: 78 },
+      { label: 'CI/CD (GitHub Actions)', pct: 82 },
+      { label: 'Prometheus / Monitoring', pct: 80 },
     ],
   },
   {
@@ -52,10 +57,11 @@ const SKILL_GROUPS: SkillGroup[] = [
       { label: 'PyTorch', pct: 88 },
       { label: 'TensorFlow', pct: 80 },
       { label: 'CUDA / TensorRT', pct: 82 },
-      { label: 'vLLM / SGLang', pct: 80 },
+      { label: 'vLLM / TensorRT-LLM / SGLang', pct: 80 },
       { label: 'SDXL / Diffusion', pct: 78 },
       { label: 'BERT / YOLO', pct: 85 },
-      { label: 'Knowledge Distillation', pct: 87 },
+      { label: 'Whisper / Speech', pct: 78 },
+      { label: 'ONNX / Quantization', pct: 82 },
     ],
   },
   {
@@ -68,6 +74,7 @@ const SKILL_GROUPS: SkillGroup[] = [
       { label: 'PostgreSQL / MongoDB', pct: 82 },
       { label: 'Elasticsearch', pct: 80 },
       { label: 'Redis', pct: 81 },
+      { label: 'MinIO', pct: 75 },
     ],
   },
   {
@@ -76,11 +83,14 @@ const SKILL_GROUPS: SkillGroup[] = [
     skills: [
       { label: 'LangChain', pct: 90 },
       { label: 'LlamaIndex', pct: 82 },
+      { label: 'DSPy', pct: 80 },
       { label: 'OpenAI Agents SDK', pct: 82 },
       { label: 'Google ADK', pct: 78 },
+      { label: 'NeMo Guardrails', pct: 78 },
       { label: 'AutoGen / CrewAI', pct: 80 },
       { label: 'Semantic Kernel', pct: 75 },
       { label: 'Hugging Face', pct: 86 },
+      { label: 'Unsloth / LLaMA Factory', pct: 78 },
     ],
   },
 ];

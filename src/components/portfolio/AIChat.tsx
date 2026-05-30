@@ -21,10 +21,11 @@ Bengaluru, India | rakshitkumarkn@gmail.com | +91 90087 96644 | linkedin.com/in/
 PROFESSIONAL SUMMARY: Senior AI/ML Engineer with 5+ years delivering $2.3M+ measurable business impact across enterprise security, healthcare, and fintech. MCP Foundation Development contributor: built production MCP servers connecting LLM agents to live enterprise tools (HappyFox, Jira) for real-time context grounding, and contributed to the MCP open-source ecosystem. Proven team leader who mentored 5+ junior engineers, led cross-functional squads of 4-8 engineers across ML, backend, and frontend, and established org-wide documentation standards. Pioneered LLM-supervised Knowledge Distillation (GPT-4 Teacher to distilled student ensemble) compressing 4+ hour firewall validation to 2-5 seconds. Multi-cloud architect deploying across AWS, Azure, and GCP with $50K+/month in cloud savings. Deep expertise in multi-agent orchestration, GraphRAG, LLMOps pipelines, and regulated-domain AI (HIPAA, SOC 2). Zero PII leakage across 50K+ financial documents.
 
 WORK EXPERIENCE:
-Senior AI/ML Engineer at Gruve AI (Oct 2025 - Present):
+Senior AI/ML Engineer at Gruve AI (Oct 2024 - Present):
 - LLM-supervised Knowledge Distillation (Cisco ASA): Compressed 4+ hour firewall validation to 2-5 sec (98% reduction) by training 3 student models via GPT-4 Teacher with KL-divergence loss; enabled Fortune 500 migration of 200+ firewalls 10x faster. Led 4 engineers; zero LLM calls at inference. [PyTorch, BERT, GPT-4, LangGraph, Neo4j, Qdrant, AWS Bedrock]
 - MCP Server Development (Foundation Team): Built production MCP servers connecting LLM agents to HappyFox, Jira, and Confluence, eliminating 85% of manual data fetch latency. Led 3-person squad; servers adopted by 2 internal teams. [MCP SDK, FastAPI, TypeScript, Go, WebSocket]
-- TechGenie Voice Agent [MCP-Powered]: Achieved 42% reduction in IT resolution time (500+ weekly interactions, 80+ ticket types) by building MCP-connected LLM agents for real-time triage. Led 4-engineer cross-functional team. [FastAPI, Edge TTS, MongoDB, MCP, LangGraph]
+- TechGenie Voice Agent [MCP-Powered]: Achieved 42% reduction in IT resolution time (500+ weekly interactions) by building MCP-connected LLM agents with NeMo Guardrails for safe output control and DSPy optimization reducing hallucination by 34%. Led 4-engineer cross-functional team. [FastAPI, Edge TTS, MongoDB, MCP, LangGraph, NeMo Guardrails, DSPy]
+- IDP Supply Chain Agent (Scania): 5-stage confidence-gated agent harness for shipping document intelligence; hybrid NL-to-SQL + semantic search at p95 <300ms; custom eval framework with per-field precision thresholds as LLM-as-judge layer; 73% HITL reduction with zero critical-field errors. [AWS Bedrock, Claude, Elasticsearch, MinerU VLM, FastAPI, Docker]
 - Enterprise AI Search (GSC): Served 10K+ queries/day at p95 <300ms with 99.9% uptime by building hybrid graph + vector retrieval (1M+ graph nodes, 50M embeddings). Mentored 2 engineers. [Neo4j, Qdrant, AWS Bedrock, ECS, LangSmith, Prometheus]
 - AI Safety - PII Redaction (J.P. Morgan): Achieved zero PII leakage across 50K+ financial documents (99.2% precision, SOC 2 passed) by architecting NLP redaction pipeline; scaled to 2,000+ docs/day. [spaCy, Presidio, GLiNER, AWS, Azure]
 - GUIS Meeting Intelligence Platform: Led 5-engineer team to build 6-service platform (React, Express, TTS, transcription, meeting bot) for real-time meeting insights across Google Meet and MS Teams. [Node.js, React, FastAPI, Docker, Gemini, Deepgram, GCP]
@@ -32,27 +33,28 @@ Senior AI/ML Engineer at Gruve AI (Oct 2025 - Present):
 - Team Leadership: Mentored 5 junior ML engineers (2 promoted within 8 months); established org-wide documentation standards, technical design reviews, and onboarding curriculum.
 
 AI Engineer at August AI (Aug 2023 - Oct 2024):
-- Multi-Agent Patient Interview System: Raised diagnostic accuracy 67% to 91% (5,000+ validated sessions, 2,500+ daily interactions across 3 hospitals). Led 3-person ML team. [LangChain, GPT-4, AWS, Azure, FastAPI, LangSmith]
-- Qwen 3.5 Reasoning Model Training: Fine-tuned Qwen 2.5 72B reasoning model using Unsloth and LLaMA Factory on Modal and RunPod GPU infrastructure for medical domain adaptation; applied LoRA/QLoRA. [PyTorch, Unsloth, LLaMA Factory, Modal, RunPod, Qwen]
+- Multi-Agent Patient Interview System: Raised diagnostic accuracy 67% to 91% (5,000+ validated sessions, 2,500+ daily interactions across 3 hospitals). Led 3-person ML team. [LangChain, GPT-4, AWS, Azure, FastAPI, LangSmith, DSPy]
+- LLM Evaluation and Safety Pipeline: Built RAGAS evaluation harness measuring faithfulness, relevance, and context precision across 5,000+ sessions; confidence-threshold HITL gating; eval-driven DSPy optimization loop. [RAGAS, DSPy, LangSmith]
+- RLHF & Alignment Engineering (Qwen 2.5 72B): Designed full alignment pipeline — fine-tuned via LoRA/QLoRA for instruction following, then applied DPO on clinician-preference pairs; trained reward model on domain-specific human preference data. [PyTorch, Unsloth, LLaMA Factory, Modal, RunPod, Qwen]
 - HIPAA-Compliant Infrastructure: Delivered 99.99% uptime for 500+ concurrent users across Azure and AWS; passed 2 regulatory audits with zero findings.
 - Clinical NLP Pipeline: Achieved $150K annual savings (85% manual review reduction) by building NLP pipeline with 97% accuracy on 10,000+ monthly documents. [spaCy, PyTorch, AWS SageMaker, Azure Cognitive Services]
 
 Machine Learning Engineer at Krut AI / Snive (Jan 2023 - Aug 2023):
 - Generative Image Pipeline: Reduced inference latency 8s to 1.2s (85% reduction, 50K+ images/month) via TensorRT, Fast UNet, and VAE optimizations. Mentored 2 junior engineers. [SDXL, TensorRT, ControlNet, AWS G5]
-- GPU Cost Optimization: Reduced GPU costs $32K/month by applying mixed precision and gradient checkpointing; SSIM >0.95 maintained. Cut deployment time 3 days to 4 hours. [MLflow, Docker, AWS]
+- GPU Cost Optimization & MLOps Pipeline: Reduced GPU costs $32K/month by applying mixed precision and gradient checkpointing; SSIM >0.95 maintained. Automated model versioning and deployment with MLflow + GitHub Actions + ONNX runtime optimization cutting deployment from 3 days to 4 hours. [MLflow, GitHub Actions, ONNX, Docker, AWS]
 
 Associate Data Scientist at Lincode Labs Inc. (Mar 2022 - Jan 2023):
 - Event-Driven Architecture: Achieved $2M/year infrastructure savings (450M req/month across 15 global facilities) by replacing REST polling with Server-Sent Events. [Python, REST APIs, SSE, AWS]
-- CV/OCR Model Delivery: Delivered 92% accuracy models for 8 international clients (0.24s inference); reduced support tickets 60%. [OpenCV, OCR, PyTorch, YOLO]
+- CV/OCR Model Delivery & Monitoring: Delivered 92% accuracy models for 8 international clients (0.24s inference) via ONNX runtime optimization; monitored across 15 global facilities via Prometheus + SSE streaming at 450M req/month; reduced support tickets 60% by training 20+ client engineers. [OpenCV, OCR, PyTorch, YOLO, ONNX, TensorFlow, Prometheus]
 
 TECHNICAL SKILLS:
-GenAI and LLMs: GPT-4, Claude 3.5, Gemini Pro, LLaMA 3, Qwen 2.5, RAG, GraphRAG, Multi-Agent Systems, Knowledge Distillation (KL-divergence), Prompt Engineering, Fine-tuning (LoRA/QLoRA), Agentic Workflows, Reasoning Models
-Orchestration and Protocols: LangChain, LangGraph, LlamaIndex, Google ADK, Semantic Kernel, DSPy, NeMo Guardrails, RAGAS, MCP (Model Context Protocol), Provenance Tracking, Reranking
-LLM Inference and LLMOps: vLLM, TensorRT-LLM, SGLang, LMDeploy, Ollama, Unsloth, LLaMA Factory, High-throughput Batching, Edge Deployment, LangSmith, Prometheus, MLflow, CI/CD
-Cloud Platforms: AWS (SageMaker, ECS, Lambda, Bedrock, SQS, S3, G5), Azure (Container Apps, Cognitive Services, Key Vault), GCP (Vertex AI, Cloud Run, Gemini)
+GenAI and LLMs: GPT-4, Claude 3.5, Gemini Pro, LLaMA 3, Qwen 2.5, RAG, GraphRAG, Multi-Agent Systems, Knowledge Distillation, Prompt Engineering, Fine-tuning (LoRA/QLoRA), RLHF, DPO, PPO, Reward Modeling, Alignment Engineering, LLM-as-Judge, Confidence-Gated Evaluation, Agentic Workflows, Reasoning Models, Agent Harness Design
+Orchestration and Protocols: LangChain, LangGraph, LlamaIndex, Google ADK, Semantic Kernel, DSPy, NeMo Guardrails, RAGAS, MCP (Model Context Protocol), Provenance Tracking, Reranking, Agent Harness Design, Confidence-Gated HITL
+LLM Inference and LLMOps: vLLM, TensorRT-LLM, SGLang, LMDeploy, Ollama, Unsloth, LLaMA Factory, High-throughput Batching, Edge Deployment, LangSmith, Prometheus, MLflow, CI/CD, MinerU VLM, Multi-provider LLM Abstraction, GitHub Actions
+Cloud Platforms: AWS (SageMaker, ECS, Lambda, Bedrock, SQS, S3, G5), Azure (Container Apps, Cognitive Services, Key Vault), GCP (Vertex AI, Cloud Run, Gemini), Modal, RunPod
 Vector and Data Stores: Neo4j, Qdrant, Pinecone, PostgreSQL, MongoDB, Redis, Elasticsearch, MinIO
 ML / CV / Speech: PyTorch, TensorFlow, BERT, Stable Diffusion XL, YOLO, Whisper, ONNX, Quantization, spaCy, Microsoft Presidio
-Infrastructure and Tools: Docker, Kubernetes, Terraform, Modal, RunPod, GitHub Actions, FastAPI, REST, gRPC
+Infrastructure and Tools: Docker, Kubernetes, Terraform, GitHub Actions, FastAPI, REST, gRPC, Alembic, aiosqlite, SQLAlchemy 2, Prometheus
 Programming Languages: Python, TypeScript, Rust, Go, JavaScript, HTML, CSS
 
 EDUCATION:
@@ -62,6 +64,7 @@ B.C.A. Computer Applications — Seshadripuram College, Bengaluru (2016-2019)
 PROJECTS AND RECOGNITION:
 - Distributed Inference Service (github.com/rakshit176/distributed-inference): Multi-region ML serving at 5K req/sec with 99.9% uptime across AWS and GCP. [Ray Serve, Redis, Prometheus, Terraform]
 - GSC Enterprise AI Search: 1M+ graph nodes, 50M embeddings, hybrid graph + vector retrieval at p95 <300ms. [Neo4j, Qdrant, AWS Bedrock, LangSmith]
+- IDP Supply Chain Agent (Scania): 5-stage confidence-gated agent harness for shipping document intelligence; p95 <300ms hybrid NL-to-SQL + semantic search; 73% HITL reduction with zero critical-field errors. [AWS Bedrock, Claude, Elasticsearch, MinerU VLM, FastAPI, Docker]
 - Awards: Winner - Gruve AI Hackathon (IT Help Desk) | Winner - August AI Hackathon (AI Doctor Analyzer)
 - Publication: Co-author, IEEE ACAI 2022 - "Water Quality Prediction using BPNN, SVR, and LSTM"
 - MCP Foundation Development Contributor - Open-source Model Context Protocol ecosystem`;
