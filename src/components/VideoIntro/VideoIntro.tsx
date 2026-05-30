@@ -204,7 +204,7 @@ export default function VideoIntro() {
         </h1>
 
         <p ref={subtitleRef} className={styles.subtitle}>
-          Generative AI &middot; Multi-Agent Systems &middot; Cloud Infrastructure
+          Generative AI · RLHF &amp; Alignment · Multi-Agent Systems · Cloud Infrastructure
         </p>
       </div>
 
