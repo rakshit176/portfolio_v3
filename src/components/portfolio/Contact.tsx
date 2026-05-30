@@ -8,7 +8,7 @@ const CONTACT_LINKS = [
 ];
 
 const EXTRAS = [
-  { label: 'Resume / CV', href: 'mailto:rakshitkumarkn@gmail.com?subject=Request%20for%20Resume' },
+  { label: 'Resume / CV', href: '/Rakshith_Kumar_KN_Senior_AI_ML_Engineer_Resume.pdf' },
   { label: 'IEEE Publication', href: 'https://ieeexplore.ieee.org/' },
   { label: 'GitHub Projects', href: 'https://github.com/rakshit176?tab=repositories' },
   { label: 'LinkedIn Articles', href: 'https://www.linkedin.com/in/rakshith-kumar-kn-4108b31a3/details/recent-activity/articles/' },
@@ -28,7 +28,8 @@ export default function Contact() {
 
       {/* Download Resume — prominent button */}
       <a
-        href="mailto:rakshitkumarkn@gmail.com?subject=Request%20for%20Resume"
+        href="/Rakshith_Kumar_KN_Senior_AI_ML_Engineer_Resume.pdf"
+        download
         className="inline-flex items-center gap-2.5 px-8 py-4 bg-gradient-to-r from-[#F5A832] to-[#D4891A] rounded-full text-[#0A0603] font-bold text-[0.92rem] hover:-translate-y-0.5 hover:opacity-90 transition-all duration-200 shadow-lg shadow-[rgba(245,168,50,0.25)] mb-10"
       >
         <span className="text-lg">↓</span> Download Resume
@@ -69,17 +70,21 @@ export default function Contact() {
 
         <div className="flex flex-col gap-2">
           <div className="text-[0.62rem] tracking-[0.15em] uppercase text-[#C8A882] mb-1">More</div>
-          {EXTRAS.map((item) => (
+          {EXTRAS.map((item) => {
+            const isLocal = item.href.startsWith('/');
+            return (
             <a
               key={item.label}
               href={item.href}
-              target="_blank"
-              rel="noopener noreferrer"
+              download={isLocal || undefined}
+              target={isLocal ? undefined : '_blank'}
+              rel={isLocal ? undefined : 'noopener noreferrer'}
               className="text-[0.8rem] text-[#C8A882] cursor-pointer hover:text-[#F5A832] transition-colors no-underline flex items-center gap-1.5"
             >
-              {item.label} <span className="text-[0.6rem] opacity-50">&#x2197;</span>
+              {item.label} <span className="text-[0.6rem] opacity-50">{isLocal ? '↓' : '↗'}</span>
             </a>
-          ))}
+            );
+          })}
         </div>
       </div>
 

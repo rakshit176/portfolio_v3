@@ -59,7 +59,8 @@ export default function Hero() {
                 View Projects
               </button>
               <a
-                href="mailto:rakshitkumarkn@gmail.com?subject=Request%20for%20Resume"
+                href="/Rakshith_Kumar_KN_Senior_AI_ML_Engineer_Resume.pdf"
+                download
                 className="px-7 py-3 border border-[rgba(245,168,50,0.3)] rounded-full bg-transparent text-[#C8A882] text-[0.82rem] hover:border-[rgba(245,168,50,0.6)] hover:text-[#FFF3E2] transition-all duration-200 inline-flex items-center gap-1.5"
               >
                 Download Resume <span className="text-[0.7rem]">↓</span>
