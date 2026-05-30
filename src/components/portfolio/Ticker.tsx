@@ -3,6 +3,7 @@
 const ITEMS = [
   'GraphRAG', 'AWS Bedrock', 'LangGraph', 'HIPAA Infra', 'Stable Diffusion XL',
   'vLLM', 'Neo4j', 'PEFT / LoRA', 'Kubernetes', 'Azure AI Foundry', 'TensorRT', 'MCP / A2A Agents',
+  'DeepEval', 'Promptfoo', 'DSPy', 'Langfuse', 'TensorFlow', 'OpenAI Agents SDK',
 ];
 
 export default function Ticker() {

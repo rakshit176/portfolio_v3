@@ -68,11 +68,13 @@ const EXPERIENCES: Experience[] = [
         ],
       },
       {
-        summary: 'AI Safety PII Redaction — zero PII leakage across financial documents',
+        summary: 'AI Safety PII Redaction — built custom eval harness with 99.2% precision; red-teamed pipeline against adversarial PII injection patterns',
         chips: [
           { label: 'Zero PII leakage', type: 'metric' },
           { label: 'J.P. Morgan', type: 'client' },
           { label: '99.2% precision', type: 'metric' },
+          { label: 'Red-teamed', type: 'tech' },
+          { label: 'Eval harness', type: 'tech' },
           { label: 'SOC 2 passed', type: 'metric' },
         ],
       },

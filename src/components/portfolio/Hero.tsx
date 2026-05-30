@@ -3,7 +3,7 @@
 import Image from 'next/image';
 
 const SKILL_CHIPS = [
-  'LangGraph', 'GraphRAG', 'AWS Bedrock', 'MCP', 'PyTorch', 'HIPAA', 'Neo4j', 'TensorRT',
+  'LangGraph', 'GraphRAG', 'Prompt Engineering', 'AWS Bedrock', 'MCP', 'DeepEval', 'PyTorch', 'HIPAA', 'DSPy',
 ];
 
 const STATS = [
