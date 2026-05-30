@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Cormorant_Garamond, DM_Sans } from "next/font/google";
+import { Geist, Geist_Mono, Cormorant_Garamond, DM_Sans, Cinzel } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 
@@ -24,6 +24,13 @@ const dmSans = DM_Sans({
   variable: "--font-dm-sans",
   subsets: ["latin"],
   weight: ["300", "400", "500"],
+  display: "swap",
+});
+
+const cinzel = Cinzel({
+  variable: "--font-cinzel",
+  subsets: ["latin"],
+  weight: ["400", "700", "900"],
   display: "swap",
 });
 
@@ -54,7 +61,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${cormorant.variable} ${dmSans.variable} antialiased bg-[#0A0603] text-[#FFF3E2]`}
+        className={`${geistSans.variable} ${geistMono.variable} ${cormorant.variable} ${dmSans.variable} ${cinzel.variable} antialiased bg-[#0A0603] text-[#FFF3E2]`}
       >
         {children}
         <Toaster />

@@ -110,27 +110,31 @@
 }
 
 .firstName {
-  font-family: var(--font-cormorant), 'Cormorant Garamond', serif;
-  font-size: clamp(3rem, 10vw, 8rem);
-  font-weight: 700;
-  line-height: 0.9;
-  letter-spacing: 0.02em;
+  font-family: var(--font-cinzel), 'Cinzel', serif;
+  font-size: clamp(2.8rem, 9vw, 7.5rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: 0.06em;
   color: #FFF5E6;
-  text-shadow: 0 0 80px rgba(255, 107, 43, 0.2);
+  text-shadow:
+    0 0 60px rgba(255, 107, 43, 0.25),
+    0 0 120px rgba(245, 168, 50, 0.1);
   opacity: 0;
   transform: translateY(40px);
   will-change: transform, opacity;
 }
 
 .lastName {
-  font-family: var(--font-cormorant), 'Cormorant Garamond', serif;
-  font-size: clamp(3rem, 10vw, 8rem);
-  font-weight: 700;
-  line-height: 0.9;
-  letter-spacing: 0.04em;
+  font-family: var(--font-cinzel), 'Cinzel', serif;
+  font-size: clamp(2.8rem, 9vw, 7.5rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: 0.08em;
   color: #FFF5E6;
   margin-left: clamp(0.5rem, 3vw, 2rem);
-  text-shadow: 0 0 80px rgba(255, 107, 43, 0.2);
+  text-shadow:
+    0 0 60px rgba(255, 107, 43, 0.25),
+    0 0 120px rgba(245, 168, 50, 0.1);
   opacity: 0;
   transform: translateY(40px);
   will-change: transform, opacity;
@@ -302,7 +306,7 @@
 
   .firstName,
   .lastName {
-    font-size: clamp(2.8rem, 14vw, 6rem);
+    font-size: clamp(2.4rem, 13vw, 5.5rem);
   }
 
   .subtitle {
@@ -318,7 +322,7 @@
 @media (max-width: 480px) {
   .firstName,
   .lastName {
-    font-size: clamp(2.2rem, 16vw, 4rem);
+    font-size: clamp(1.8rem, 15vw, 3.8rem);
   }
 
   .lastName {

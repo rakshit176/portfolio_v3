@@ -200,7 +200,7 @@ export default function VideoIntro() {
           RAKSHITH
         </h1>
         <h1 ref={lastNameRef} className={styles.lastName}>
-          KUMAR
+          KUMAR K.N
         </h1>
 
         <p ref={subtitleRef} className={styles.subtitle}>
